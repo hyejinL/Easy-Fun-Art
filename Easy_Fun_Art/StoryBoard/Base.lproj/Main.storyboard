@@ -26,53 +26,15 @@
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="zOQ-uO-QIA">
+        <!--Home-->
+        <scene sceneID="vqB-Gi-YnI">
             <objects>
-                <viewController id="vL1-S0-1og" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zd0-10-BNt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="v6r-tL-TxX"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Xy2-7e-nCp"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i89-2P-WXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Home" id="b6g-Ve-jrl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9fh-px-lw6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9D-hU-gTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2582" y="125"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Bie-NE-e9z">
-            <objects>
-                <viewController id="lGi-1m-tjS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cxm-dE-KjZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="gTd-7J-AMg"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="7U0-Oy-Pje"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="myt-En-7Zl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2582" y="-539"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="RTx-3d-qll">
-            <objects>
-                <viewController id="vIF-rf-XT6" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nNS-vx-OOX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="8pb-Ym-QWT"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="aBb-Ml-UD2"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KbC-2G-K1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3975.1999999999998" y="-276.61169415292358"/>
+            <point key="canvasLocation" x="2838" y="-541"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="NYc-D8-hXc">
@@ -82,6 +44,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="7Ca-vA-0mf" kind="relationship" relationship="viewControllers" id="ARe-Z5-lib"/>
@@ -113,11 +76,16 @@
             </objects>
             <point key="canvasLocation" x="-185" y="134"/>
         </scene>
-        <!--Item 1-->
+        <!--홈-->
         <scene sceneID="IUK-K2-Lfk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Ca-vA-0mf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" image="recipeGrayicon" id="F0Y-xC-mh8" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="홈" image="recipeGrayicon" id="F0Y-xC-mh8" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="animation" destination="Ev4-9H-JBC" id="kmV-PV-y9e"/>
                         </connections>
@@ -126,22 +94,34 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5G3-Cn-ov3">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="lGi-1m-tjS" kind="relationship" relationship="rootViewController" id="Pe8-Wp-Uqg"/>
+                        <segue destination="b6g-Ve-jrl" kind="relationship" relationship="rootViewController" id="J4z-q9-rry"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BhR-cW-tkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="Ev4-9H-JBC" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
+                <customObject id="Ev4-9H-JBC" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="2242" y="-540"/>
         </scene>
-        <!--Item 2-->
+        <!--추천-->
         <scene sceneID="HXt-Z7-uhH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W2Y-L3-D7D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" image="recipeGrayicon" id="Y2E-6Q-ZTO" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="추천" image="recipeGrayicon" id="Y2E-6Q-ZTO" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="animation" destination="V7f-sV-M16" id="3eO-mJ-CiI"/>
                         </connections>
@@ -150,54 +130,44 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A7e-HN-4Rj">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vL1-S0-1og" kind="relationship" relationship="rootViewController" id="7d9-W2-Wfz"/>
+                        <segue destination="iav-Bz-Fge" kind="relationship" relationship="rootViewController" id="0u0-OS-hWv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9G-pP-p4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="V7f-sV-M16" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
+                <customObject id="V7f-sV-M16" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="2242" y="124"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="6lN-zf-gfu">
+        <!--Recommend-->
+        <scene sceneID="rJe-85-21d">
             <objects>
-                <viewController id="CH3-14-KQn" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rdM-Qx-dH9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="lUx-gs-gRd"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="D5s-hV-BKN"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dd0-8R-CXY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Recommend" id="iav-Bz-Fge" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kdh-wK-iTL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gUM-ah-Evh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="806"/>
+            <point key="canvasLocation" x="2884" y="123"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="yAi-tS-hq2">
-            <objects>
-                <viewController id="Cf4-iv-qnh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nR1-xs-TTE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="5lw-Cf-ffM"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="rXw-ph-66K"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P1Y-lI-2XT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3980" y="431.33433283358323"/>
-        </scene>
-        <!--Item-->
+        <!--도슨트-->
         <scene sceneID="4px-gi-2h1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tdh-a2-p9b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="recipeGrayicon" id="Vl0-OL-8UN" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="도슨트" image="recipeGrayicon" id="Vl0-OL-8UN" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="animation" destination="ha8-PV-heI" id="gVl-dU-6ns"/>
                         </connections>
@@ -206,22 +176,44 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3gs-fb-V62">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="CH3-14-KQn" kind="relationship" relationship="rootViewController" id="MDC-en-PiN"/>
+                        <segue destination="JCS-1i-QXr" kind="relationship" relationship="rootViewController" id="wXD-8x-CSd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SG-5p-6EC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="ha8-PV-heI" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
+                <customObject id="ha8-PV-heI" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="2234" y="806"/>
         </scene>
-        <!--Item-->
+        <!--Docent-->
+        <scene sceneID="8Po-1d-Vnw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Docent" id="JCS-1i-QXr" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rwE-Y9-hM2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJW-Wf-6pH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2942" y="805"/>
+        </scene>
+        <!--검색-->
         <scene sceneID="dUX-RO-bpc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VEq-Lc-JsZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="recipeGrayicon" id="xUm-Pz-IO5" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="검색" image="recipeGrayicon" id="xUm-Pz-IO5" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="animation" destination="m18-KG-3L1" id="gql-0D-9II"/>
                         </connections>
@@ -230,22 +222,44 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VuR-I8-PM5">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vIF-rf-XT6" kind="relationship" relationship="rootViewController" id="wT9-Fr-int"/>
+                        <segue destination="0jO-CB-38c" kind="relationship" relationship="rootViewController" id="saP-6y-eRi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0fT-83-dIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="m18-KG-3L1" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
+                <customObject id="m18-KG-3L1" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="3635.1999999999998" y="-276.1619190404798"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
+        <scene sceneID="RB5-9j-nHt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="0jO-CB-38c" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="w0s-a2-d5d"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxa-Jj-CeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4321" y="-277"/>
+        </scene>
+        <!--마이페이지-->
         <scene sceneID="zdu-by-NOU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xb8-dS-vU1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="recipeGrayicon" id="JNM-TX-vdl" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="recipeGrayicon" id="JNM-TX-vdl" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="animation" destination="vJW-It-9vc" id="SPM-5i-dMF"/>
                         </connections>
@@ -254,19 +268,37 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xfj-RW-Cgg">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Cf4-iv-qnh" kind="relationship" relationship="rootViewController" id="JE7-RY-C9a"/>
+                        <segue destination="zUU-7s-0Kh" kind="relationship" relationship="rootViewController" id="QRG-6q-Wje"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sc-CB-8y0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="vJW-It-9vc" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
+                <customObject id="vJW-It-9vc" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="3641.5999999999999" y="431.78410794602701"/>
+        </scene>
+        <!--MyPage-->
+        <scene sceneID="jJr-Ht-bB6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPage" id="zUU-7s-0Kh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="juz-HK-ByI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bU4-ob-H7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4321" y="431"/>
         </scene>
     </scenes>
     <resources>
         <image name="recipeGrayicon" width="24" height="19"/>
     </resources>
+    <color key="tintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

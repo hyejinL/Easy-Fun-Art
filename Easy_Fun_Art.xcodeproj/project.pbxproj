@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A149AA61FF9D54B00E12932 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AA51FF9D54B00E12932 /* Home.storyboard */; };
+		0A149AA81FF9D58D00E12932 /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AA71FF9D58D00E12932 /* Recommend.storyboard */; };
+		0A149AAA1FF9D5BA00E12932 /* Docent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AA91FF9D5BA00E12932 /* Docent.storyboard */; };
+		0A149AAC1FF9D5CE00E12932 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AAB1FF9D5CE00E12932 /* Search.storyboard */; };
+		0A149AAE1FF9D5DF00E12932 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AAD1FF9D5DF00E12932 /* MyPage.storyboard */; };
 		0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */; };
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A149AA51FF9D54B00E12932 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		0A149AA71FF9D58D00E12932 /* Recommend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recommend.storyboard; sourceTree = "<group>"; };
+		0A149AA91FF9D5BA00E12932 /* Docent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Docent.storyboard; sourceTree = "<group>"; };
+		0A149AAB1FF9D5CE00E12932 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		0A149AAD1FF9D5DF00E12932 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		0AEFBF081FF93D0A0090920B /* Easy Fun Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Fun Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AEFBF101FF93D0A0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +61,11 @@
 			children = (
 				0AEFBF141FF93D0A0090920B /* LaunchScreen.storyboard */,
 				0AEFBF0F1FF93D0A0090920B /* Main.storyboard */,
+				0A149AA51FF9D54B00E12932 /* Home.storyboard */,
+				0A149AA71FF9D58D00E12932 /* Recommend.storyboard */,
+				0A149AA91FF9D5BA00E12932 /* Docent.storyboard */,
+				0A149AAB1FF9D5CE00E12932 /* Search.storyboard */,
+				0A149AAD1FF9D5DF00E12932 /* MyPage.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -227,8 +242,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AEFBF161FF93D0B0090920B /* LaunchScreen.storyboard in Resources */,
+				0A149AAA1FF9D5BA00E12932 /* Docent.storyboard in Resources */,
+				0A149AA81FF9D58D00E12932 /* Recommend.storyboard in Resources */,
+				0A149AAE1FF9D5DF00E12932 /* MyPage.storyboard in Resources */,
 				0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */,
+				0A149AAC1FF9D5CE00E12932 /* Search.storyboard in Resources */,
 				0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */,
+				0A149AA61FF9D54B00E12932 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
