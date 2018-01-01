@@ -12,6 +12,11 @@
 		0A149AAA1FF9D5BA00E12932 /* Docent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AA91FF9D5BA00E12932 /* Docent.storyboard */; };
 		0A149AAC1FF9D5CE00E12932 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AAB1FF9D5CE00E12932 /* Search.storyboard */; };
 		0A149AAE1FF9D5DF00E12932 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AAD1FF9D5DF00E12932 /* MyPage.storyboard */; };
+		0A149AB51FF9EAFB00E12932 /* DocentPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A149AB41FF9EAFB00E12932 /* DocentPlayerViewController.swift */; };
+		0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A149AB61FF9F86400E12932 /* ToggleButton.swift */; };
+		0A149ABC1FF9FADB00E12932 /* Moo Latte x Roux Spana - James in Heaven.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AB91FF9FADB00E12932 /* Moo Latte x Roux Spana - James in Heaven.mp3 */; };
+		0A149ABD1FF9FADB00E12932 /* Life In Motion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A149ABA1FF9FADB00E12932 /* Life In Motion.wav */; };
+		0A149ABE1FF9FADB00E12932 /* NYC (Frank Sinatra Sample).wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A149ABB1FF9FADB00E12932 /* NYC (Frank Sinatra Sample).wav */; };
 		0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */; };
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
@@ -25,6 +30,11 @@
 		0A149AA91FF9D5BA00E12932 /* Docent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Docent.storyboard; sourceTree = "<group>"; };
 		0A149AAB1FF9D5CE00E12932 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		0A149AAD1FF9D5DF00E12932 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		0A149AB41FF9EAFB00E12932 /* DocentPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayerViewController.swift; sourceTree = "<group>"; };
+		0A149AB61FF9F86400E12932 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		0A149AB91FF9FADB00E12932 /* Moo Latte x Roux Spana - James in Heaven.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Moo Latte x Roux Spana - James in Heaven.mp3"; sourceTree = "<group>"; };
+		0A149ABA1FF9FADB00E12932 /* Life In Motion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Life In Motion.wav"; sourceTree = "<group>"; };
+		0A149ABB1FF9FADB00E12932 /* NYC (Frank Sinatra Sample).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "NYC (Frank Sinatra Sample).wav"; sourceTree = "<group>"; };
 		0AEFBF081FF93D0A0090920B /* Easy Fun Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Fun Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AEFBF101FF93D0A0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,9 +59,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A149AAF1FF9EA7F00E12932 /* DocentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0A149AB81FF9FA7300E12932 /* audio */,
+				0A149AB41FF9EAFB00E12932 /* DocentPlayerViewController.swift */,
+			);
+			path = DocentViewController;
+			sourceTree = "<group>";
+		};
+		0A149AB01FF9EA9300E12932 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		0A149AB11FF9EA9500E12932 /* RecommendViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RecommendViewController;
+			sourceTree = "<group>";
+		};
+		0A149AB21FF9EA9700E12932 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		0A149AB31FF9EA9800E12932 /* MyPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyPageViewController;
+			sourceTree = "<group>";
+		};
+		0A149AB81FF9FA7300E12932 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				0A149ABA1FF9FADB00E12932 /* Life In Motion.wav */,
+				0A149AB91FF9FADB00E12932 /* Moo Latte x Roux Spana - James in Heaven.mp3 */,
+				0A149ABB1FF9FADB00E12932 /* NYC (Frank Sinatra Sample).wav */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
 		0A617E921FF93FF900268A91 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0A149AB01FF9EA9300E12932 /* HomeViewController */,
+				0A149AB11FF9EA9500E12932 /* RecommendViewController */,
+				0A149AAF1FF9EA7F00E12932 /* DocentViewController */,
+				0A149AB21FF9EA9700E12932 /* SearchViewController */,
+				0A149AB31FF9EA9800E12932 /* MyPageViewController */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -121,6 +183,7 @@
 		0A617E9A1FF9414B00268A91 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0A149AB61FF9F86400E12932 /* ToggleButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -211,6 +274,9 @@
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.DataProtection = {
 								enabled = 0;
 							};
@@ -248,7 +314,10 @@
 				0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */,
 				0A149AAC1FF9D5CE00E12932 /* Search.storyboard in Resources */,
 				0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */,
+				0A149ABD1FF9FADB00E12932 /* Life In Motion.wav in Resources */,
+				0A149ABE1FF9FADB00E12932 /* NYC (Frank Sinatra Sample).wav in Resources */,
 				0A149AA61FF9D54B00E12932 /* Home.storyboard in Resources */,
+				0A149ABC1FF9FADB00E12932 /* Moo Latte x Roux Spana - James in Heaven.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +376,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A149AB51FF9EAFB00E12932 /* DocentPlayerViewController.swift in Sources */,
+				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
 				0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

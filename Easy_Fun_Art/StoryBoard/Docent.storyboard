@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Docent Player View Controller-->
         <scene sceneID="5fw-5Y-PPm">
             <objects>
-                <viewController id="1aT-DC-czv" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DocentPlayerViewController" id="1aT-DC-czv" customClass="DocentPlayerViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSa-Mm-6Y3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,12 +70,19 @@
                                 <rect key="frame" x="326" y="618" width="25" height="24"/>
                                 <state key="normal" image="docentplaying_place"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60U-gS-INU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60U-gS-INU" customClass="ToggleButton" customModule="Easy_Fun_Art" customModuleProvider="target">
                                 <rect key="frame" x="174" y="471" width="28" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="60U-gS-INU" secondAttribute="height" multiplier="28:57" id="jTN-jH-oME"/>
                                 </constraints>
-                                <state key="normal" image="docentplaying_stop"/>
+                                <state key="normal" image="btn_docent_play"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="trueImage" value="docentplaying_stop"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="falseImage" value="btn_docent_play"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pressedPlayButton:" destination="1aT-DC-czv" eventType="touchUpInside" id="5nM-TH-i30"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swq-qY-2m3">
                                 <rect key="frame" x="93" y="488" width="19" height="23"/>
@@ -83,25 +90,32 @@
                                     <constraint firstAttribute="width" secondItem="Swq-qY-2m3" secondAttribute="height" multiplier="19:23" id="2Tx-kn-FOk"/>
                                 </constraints>
                                 <state key="normal" image="docentplaying_before"/>
+                                <connections>
+                                    <action selector="pressedBeforeButton:" destination="1aT-DC-czv" eventType="touchUpInside" id="4rV-5Y-zTi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqn-Wi-ahw">
                                 <rect key="frame" x="264" y="488" width="19" height="23"/>
                                 <state key="normal" image="docentplaying_next"/>
+                                <connections>
+                                    <action selector="pressedNextButton:" destination="1aT-DC-czv" eventType="touchUpInside" id="o4q-eD-mq3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1pK-9H-Qn3" firstAttribute="centerX" secondItem="v0I-As-b5e" secondAttribute="centerX" id="23L-iv-jNc"/>
-                            <constraint firstItem="oqn-Wi-ahw" firstAttribute="leading" secondItem="60U-gS-INU" secondAttribute="trailing" constant="62" id="2tN-V2-jEc"/>
+                            <constraint firstItem="oqn-Wi-ahw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="60U-gS-INU" secondAttribute="trailing" constant="62" id="2tN-V2-jEc"/>
                             <constraint firstItem="XOq-yG-7mn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gqc-wx-B7A" secondAttribute="leading" constant="85" id="4Hh-68-mDG"/>
                             <constraint firstItem="caQ-Cm-tL3" firstAttribute="top" secondItem="v0I-As-b5e" secondAttribute="bottom" constant="5.5" id="4vV-RE-k2h"/>
+                            <constraint firstItem="60U-gS-INU" firstAttribute="height" secondItem="NSa-Mm-6Y3" secondAttribute="height" multiplier="57:667" id="5IM-ZD-ckI"/>
                             <constraint firstItem="di5-q9-6NI" firstAttribute="top" secondItem="v0I-As-b5e" secondAttribute="bottom" constant="5.5" id="Bfp-n2-v7a"/>
                             <constraint firstItem="di5-q9-6NI" firstAttribute="trailing" secondItem="v0I-As-b5e" secondAttribute="trailing" constant="-1" id="Bnj-oU-Ts6"/>
+                            <constraint firstItem="Gqc-wx-B7A" firstAttribute="trailing" secondItem="oqn-Wi-ahw" secondAttribute="trailing" constant="92" id="Dfz-9p-aGt"/>
                             <constraint firstItem="Swq-qY-2m3" firstAttribute="width" secondItem="NSa-Mm-6Y3" secondAttribute="width" multiplier="19:375" id="Muu-gK-oWu"/>
                             <constraint firstItem="oqn-Wi-ahw" firstAttribute="width" secondItem="Swq-qY-2m3" secondAttribute="width" id="Nfx-Ye-IFF"/>
                             <constraint firstItem="Gqc-wx-B7A" firstAttribute="bottom" secondItem="SUy-U3-Ngl" secondAttribute="bottom" constant="25" id="OXh-zt-ELk"/>
                             <constraint firstItem="1nd-LD-Tnc" firstAttribute="leading" secondItem="Gqc-wx-B7A" secondAttribute="leading" constant="24" id="Oym-Be-Tho"/>
-                            <constraint firstItem="60U-gS-INU" firstAttribute="width" secondItem="NSa-Mm-6Y3" secondAttribute="width" multiplier="28:375" id="SHQ-Uv-uvY"/>
                             <constraint firstItem="caQ-Cm-tL3" firstAttribute="leading" secondItem="v0I-As-b5e" secondAttribute="leading" constant="1" id="SOs-ZR-WKo"/>
                             <constraint firstItem="XOq-yG-7mn" firstAttribute="centerX" secondItem="Gqc-wx-B7A" secondAttribute="centerX" id="SQ1-27-LBu"/>
                             <constraint firstItem="v0I-As-b5e" firstAttribute="top" secondItem="60U-gS-INU" secondAttribute="bottom" constant="37" id="VS0-hx-lf0"/>
@@ -113,7 +127,7 @@
                             <constraint firstItem="XOq-yG-7mn" firstAttribute="top" secondItem="Gqc-wx-B7A" secondAttribute="top" constant="15" id="hHV-ob-26a"/>
                             <constraint firstItem="oqn-Wi-ahw" firstAttribute="height" secondItem="Swq-qY-2m3" secondAttribute="height" id="j2K-NH-WF4"/>
                             <constraint firstItem="Swq-qY-2m3" firstAttribute="centerY" secondItem="60U-gS-INU" secondAttribute="centerY" id="jM4-uS-dCr"/>
-                            <constraint firstItem="60U-gS-INU" firstAttribute="leading" secondItem="Swq-qY-2m3" secondAttribute="trailing" constant="62" id="jpm-sw-3eg"/>
+                            <constraint firstItem="60U-gS-INU" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Swq-qY-2m3" secondAttribute="trailing" constant="62" id="jpm-sw-3eg"/>
                             <constraint firstItem="Gqc-wx-B7A" firstAttribute="bottom" secondItem="1nd-LD-Tnc" secondAttribute="bottom" constant="25" id="krU-Wy-yV0"/>
                             <constraint firstItem="oqn-Wi-ahw" firstAttribute="centerY" secondItem="Swq-qY-2m3" secondAttribute="centerY" id="mNp-EE-ZDx"/>
                             <constraint firstItem="1pK-9H-Qn3" firstAttribute="width" secondItem="NSa-Mm-6Y3" secondAttribute="width" multiplier="315:375" id="n1G-N2-PPJ"/>
@@ -122,11 +136,23 @@
                             <constraint firstItem="Gqc-wx-B7A" firstAttribute="trailing" secondItem="SUy-U3-Ngl" secondAttribute="trailing" constant="24" id="qsg-Zd-Tqf"/>
                             <constraint firstItem="lnF-au-gjp" firstAttribute="centerY" secondItem="Gqc-wx-B7A" secondAttribute="centerY" constant="92.5" id="u7X-oF-LpZ"/>
                             <constraint firstItem="Gqc-wx-B7A" firstAttribute="trailing" secondItem="eHv-LB-86R" secondAttribute="trailing" constant="18.5" id="uTS-W0-BtN"/>
+                            <constraint firstItem="Swq-qY-2m3" firstAttribute="leading" secondItem="Gqc-wx-B7A" secondAttribute="leading" constant="93" id="uoh-aQ-cmj"/>
                             <constraint firstItem="eHv-LB-86R" firstAttribute="width" secondItem="NSa-Mm-6Y3" secondAttribute="height" multiplier="21:667" id="xAU-5h-lhs"/>
                             <constraint firstItem="v0I-As-b5e" firstAttribute="leading" secondItem="Gqc-wx-B7A" secondAttribute="leading" constant="30.5" id="zOP-TA-2l8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gqc-wx-B7A"/>
                     </view>
+                    <connections>
+                        <outlet property="beforePlayButton" destination="Swq-qY-2m3" id="RQ3-Da-YK8"/>
+                        <outlet property="currentPlayTimeLabel" destination="caQ-Cm-tL3" id="qIA-gw-fxK"/>
+                        <outlet property="docentImageView" destination="1pK-9H-Qn3" id="eL7-tc-zEN"/>
+                        <outlet property="docentTitleLabel" destination="lnF-au-gjp" id="W3a-mo-EtK"/>
+                        <outlet property="exhibitionTitleLabel" destination="XOq-yG-7mn" id="Gi0-kQ-J2E"/>
+                        <outlet property="nextPlayButton" destination="oqn-Wi-ahw" id="vy2-ZO-Q7T"/>
+                        <outlet property="playButton" destination="60U-gS-INU" id="KUx-ND-ZgX"/>
+                        <outlet property="playProgressView" destination="v0I-As-b5e" id="nR8-Jf-sIk"/>
+                        <outlet property="playTimeLabel" destination="di5-q9-6NI" id="0XL-XG-L5j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1R-yv-8gK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,6 +160,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_docent_play" width="31" height="57"/>
         <image name="docentplaying_before" width="19" height="23"/>
         <image name="docentplaying_cancel" width="21" height="21"/>
         <image name="docentplaying_next" width="19" height="23"/>
