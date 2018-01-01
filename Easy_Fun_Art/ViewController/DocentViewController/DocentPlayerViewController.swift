@@ -20,6 +20,10 @@ class DocentPlayerViewController: UIViewController {
     @IBOutlet weak var playProgressView: UIProgressView!
     @IBOutlet weak var playTimeLabel: UILabel!
     @IBOutlet weak var currentPlayTimeLabel: UILabel!
+    @IBOutlet weak var scriptView: UIView!
+    @IBOutlet weak var scriptExhibitionTitleLabel: UILabel!
+    @IBOutlet weak var scriptDocentTitleLabel: UILabel!
+    @IBOutlet weak var scriptDocentContentLabel: UILabel!
     
     var audioPlayer =  AVAudioPlayer()
     var music = ["NYC (Frank Sinatra Sample)", "Life In Motion"]
@@ -45,6 +49,12 @@ class DocentPlayerViewController: UIViewController {
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePlayProgressView), userInfo: nil, repeats: true)
         playProgressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: false)
+        playTimeLabel.text = "\(Int(audioPlayer.duration/60)) : \(Int(audioPlayer.duration))"
+        
+        scriptView.isHidden = true
+        scriptView.alpha = 0
+        
+        scriptDocentContentLabel.text = "국립현대미술관은 현대영화사에 있어 독보적인 작품세계를 구현한 중요감독들의 작품을 전시로 재구성해 소개하는 프로젝트의 일환으로 <필립 가렐, 찬란한 절망>(2015)에 이어 두 번째 기획으로 미국 독립 실험영화의 대부인 요나스 메카스의 전시 <요나스 메카스 – 찰나, 힐긋, 돌아보다>를 개최한다. 아시아에서 처음으로 개최되는 이번 전시는 미국 아방가르드 영화의 역사를 개척한 리투아니아 출신의 실험영화 감독 요나스 메카스 인생의 중요한 지점, 변화, 흐름을 따라 구성된다. 요나스 메카스는 삶의 매순간을 일기를 쓰듯 자."
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,9 +78,33 @@ class DocentPlayerViewController: UIViewController {
         
     }
     
+    @IBAction func pressedScriptButton(_ sender: Any) {
+        scriptViewShowAndHidden()
+    }
+    
+    @IBAction func pressedLocationButton(_ sender: Any) {
+        
+    }
+    
     @objc func updatePlayProgressView() {
         if audioPlayer.isPlaying {
             playProgressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
+            currentPlayTimeLabel.text = "\(Int(audioPlayer.currentTime/60)) : \(Int(audioPlayer.currentTime))"
+        }
+    }
+    
+    func scriptViewShowAndHidden() {
+        if scriptView.isHidden {
+            scriptView.isHidden = false
+            UIView.animate(withDuration: 0.4, delay: 0.3, animations: {
+                self.scriptView.alpha = 1
+            })
+        } else {
+            UIView.animate(withDuration: 0.4, delay: 0.3, animations: {
+                self.scriptView.alpha = 0
+            }, completion: { _ in
+                self.scriptView.isHidden = true
+            })
         }
     }
 

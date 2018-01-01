@@ -8,6 +8,7 @@ target 'Easy_Fun_Art' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
     pod 'RAMAnimatedTabBarController'
+    pod 'SJSegmentedScrollView'
 
   # Pods for Easy_Fun_Art
 
