@@ -18,6 +18,16 @@
 		0A149ABD1FF9FADB00E12932 /* Life In Motion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A149ABA1FF9FADB00E12932 /* Life In Motion.wav */; };
 		0A149ABE1FF9FADB00E12932 /* NYC (Frank Sinatra Sample).wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A149ABB1FF9FADB00E12932 /* NYC (Frank Sinatra Sample).wav */; };
 		0A149AC01FFA1A4200E12932 /* DocentMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A149ABF1FFA1A4200E12932 /* DocentMainViewController.swift */; };
+		0A149AC41FFA202C00E12932 /* DocentAroundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A149AC31FFA202C00E12932 /* DocentAroundTableViewController.swift */; };
+		0A149AC61FFA209A00E12932 /* DocentMyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A149AC51FFA209A00E12932 /* DocentMyTableViewController.swift */; };
+		0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A149AC71FFA213800E12932 /* ExtensionControl.swift */; };
+		0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A149ACE1FFA2F7800E12932 /* DocentListTableViewCell.swift */; };
+		0A149AD11FFA2F7800E12932 /* DocentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */; };
+		0A149AD71FFA527A00E12932 /* DocentPlayListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */; };
+		0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAF71FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift */; };
+		0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */; };
+		0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */; };
+		0A72FAFF1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */; };
 		0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */; };
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
@@ -37,6 +47,16 @@
 		0A149ABA1FF9FADB00E12932 /* Life In Motion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Life In Motion.wav"; sourceTree = "<group>"; };
 		0A149ABB1FF9FADB00E12932 /* NYC (Frank Sinatra Sample).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "NYC (Frank Sinatra Sample).wav"; sourceTree = "<group>"; };
 		0A149ABF1FFA1A4200E12932 /* DocentMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentMainViewController.swift; sourceTree = "<group>"; };
+		0A149AC31FFA202C00E12932 /* DocentAroundTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentAroundTableViewController.swift; sourceTree = "<group>"; };
+		0A149AC51FFA209A00E12932 /* DocentMyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentMyTableViewController.swift; sourceTree = "<group>"; };
+		0A149AC71FFA213800E12932 /* ExtensionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionControl.swift; sourceTree = "<group>"; };
+		0A149ACE1FFA2F7800E12932 /* DocentListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentListTableViewCell.swift; sourceTree = "<group>"; };
+		0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentListTableViewCell.xib; sourceTree = "<group>"; };
+		0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentPlayListHeaderCell.xib; sourceTree = "<group>"; };
+		0A72FAF71FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListTableViewController.swift; sourceTree = "<group>"; };
+		0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListTableViewCell.swift; sourceTree = "<group>"; };
+		0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListHeaderCell.swift; sourceTree = "<group>"; };
 		0AEFBF081FF93D0A0090920B /* Easy Fun Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Fun Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AEFBF101FF93D0A0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,8 +85,14 @@
 			isa = PBXGroup;
 			children = (
 				0A149AB81FF9FA7300E12932 /* audio */,
-				0A149AB41FF9EAFB00E12932 /* DocentPlayerViewController.swift */,
 				0A149ABF1FFA1A4200E12932 /* DocentMainViewController.swift */,
+				0A149AC31FFA202C00E12932 /* DocentAroundTableViewController.swift */,
+				0A149AC51FFA209A00E12932 /* DocentMyTableViewController.swift */,
+				0A149ACE1FFA2F7800E12932 /* DocentListTableViewCell.swift */,
+				0A72FAF71FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift */,
+				0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */,
+				0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */,
+				0A149AB41FF9EAFB00E12932 /* DocentPlayerViewController.swift */,
 			);
 			path = DocentViewController;
 			sourceTree = "<group>";
@@ -109,9 +135,19 @@
 			path = audio;
 			sourceTree = "<group>";
 		};
+		0A149ACB1FFA2F0D00E12932 /* DocentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */,
+				0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */,
+			);
+			path = DocentViewController;
+			sourceTree = "<group>";
+		};
 		0A617E921FF93FF900268A91 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0A72FAFB1FFA5D650051EF9A /* MainViewController */,
 				0A149AB01FF9EA9300E12932 /* HomeViewController */,
 				0A149AB11FF9EA9500E12932 /* RecommendViewController */,
 				0A149AAF1FF9EA7F00E12932 /* DocentViewController */,
@@ -179,6 +215,7 @@
 		0A617E991FF940F300268A91 /* Function */ = {
 			isa = PBXGroup;
 			children = (
+				0A149AC71FFA213800E12932 /* ExtensionControl.swift */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -187,8 +224,17 @@
 			isa = PBXGroup;
 			children = (
 				0A149AB61FF9F86400E12932 /* ToggleButton.swift */,
+				0A149ACB1FFA2F0D00E12932 /* DocentViewController */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		0A72FAFB1FFA5D650051EF9A /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 		0AEFBEFF1FF93D0A0090920B = {
@@ -310,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A149AD11FFA2F7800E12932 /* DocentListTableViewCell.xib in Resources */,
 				0AEFBF161FF93D0B0090920B /* LaunchScreen.storyboard in Resources */,
 				0A149AAA1FF9D5BA00E12932 /* Docent.storyboard in Resources */,
 				0A149AA81FF9D58D00E12932 /* Recommend.storyboard in Resources */,
@@ -318,6 +365,7 @@
 				0A149AAC1FF9D5CE00E12932 /* Search.storyboard in Resources */,
 				0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */,
 				0A149ABD1FF9FADB00E12932 /* Life In Motion.wav in Resources */,
+				0A149AD71FFA527A00E12932 /* DocentPlayListHeaderCell.xib in Resources */,
 				0A149ABE1FF9FADB00E12932 /* NYC (Frank Sinatra Sample).wav in Resources */,
 				0A149AA61FF9D54B00E12932 /* Home.storyboard in Resources */,
 				0A149ABC1FF9FADB00E12932 /* Moo Latte x Roux Spana - James in Heaven.mp3 in Resources */,
@@ -380,9 +428,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A149AB51FF9EAFB00E12932 /* DocentPlayerViewController.swift in Sources */,
+				0A149AC41FFA202C00E12932 /* DocentAroundTableViewController.swift in Sources */,
+				0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */,
 				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
+				0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */,
+				0A72FAFF1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift in Sources */,
+				0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */,
+				0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */,
 				0A149AC01FFA1A4200E12932 /* DocentMainViewController.swift in Sources */,
+				0A149AC61FFA209A00E12932 /* DocentMyTableViewController.swift in Sources */,
 				0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */,
+				0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

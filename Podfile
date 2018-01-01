@@ -8,7 +8,7 @@ target 'Easy_Fun_Art' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
     pod 'RAMAnimatedTabBarController'
-    pod 'SJSegmentedScrollView'
+    pod 'XLPagerTabStrip', '~> 8.0'
 
   # Pods for Easy_Fun_Art
 

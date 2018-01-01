@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,8 +44,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2lV-qy-fn4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="7Ca-vA-0mf" kind="relationship" relationship="viewControllers" id="ARe-Z5-lib"/>
@@ -57,6 +59,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQJ-WL-G4u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1242" y="134"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="pWS-b3-tRW">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="wEH-qq-Nwh" customClass="SplashViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="krw-9p-cEq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="bg_splash" translatesAutoresizingMaskIntoConstraints="NO" id="u2h-H9-xIp">
+                                <rect key="frame" x="0.0" y="0.0" width="631" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="u2h-H9-xIp" secondAttribute="height" multiplier="2089:2208" id="VIu-Uw-v18"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" image="splash_title" translatesAutoresizingMaskIntoConstraints="NO" id="Qfx-aV-MjX">
+                                <rect key="frame" x="56" y="259" width="284" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qfx-aV-MjX" secondAttribute="height" multiplier="71:21" id="R8A-wB-fIx"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="u2h-H9-xIp" firstAttribute="top" secondItem="krw-9p-cEq" secondAttribute="top" id="4MY-vj-dZS"/>
+                            <constraint firstItem="u2h-H9-xIp" firstAttribute="leading" secondItem="krw-9p-cEq" secondAttribute="leading" id="4r8-B6-1qd"/>
+                            <constraint firstAttribute="bottom" secondItem="u2h-H9-xIp" secondAttribute="bottom" id="Ec8-rt-1Z2"/>
+                            <constraint firstItem="u2h-H9-xIp" firstAttribute="height" secondItem="krw-9p-cEq" secondAttribute="height" id="O6f-pj-jp0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TDT-bR-dVU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lLh-e4-ldy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-887.20000000000005" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jtl-Db-jTi">
@@ -298,7 +335,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_splash" width="2089" height="2208"/>
         <image name="recipeGrayicon" width="24" height="19"/>
+        <image name="splash_title" width="932" height="280"/>
     </resources>
     <color key="tintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -7,29 +7,49 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
-class DocentMainViewController: UIViewController {
+class DocentMainViewController: ButtonBarPagerTabStripViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        barPagerSetting()
+        self.title = "도슨트"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        let aroundMeViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentAroundTableViewController.reuseIdentifier) as! DocentAroundTableViewController
+        let myExhibitionViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentMyTableViewController.reuseIdentifier) as! DocentMyTableViewController
+        return [aroundMeViewController, myExhibitionViewController]
     }
-    */
+    
+    func barPagerSetting() {
+        settings.style.buttonBarBackgroundColor = .white
+        settings.style.buttonBarItemBackgroundColor = .white
+        settings.style.selectedBarBackgroundColor = #colorLiteral(red: 0.9926154017, green: 0.8786800504, blue: 0, alpha: 1)
+        settings.style.buttonBarItemFont = .systemFont(ofSize: 15.0)
+        settings.style.selectedBarHeight = 2.0
+        settings.style.buttonBarMinimumLineSpacing = 0
+        settings.style.buttonBarItemTitleColor = #colorLiteral(red: 0.9926154017, green: 0.8786800504, blue: 0, alpha: 1)
+        settings.style.buttonBarItemsShouldFillAvailableWidth = true
+        settings.style.buttonBarLeftContentInset = 0
+        settings.style.buttonBarRightContentInset = 0
+        
+        changeCurrentIndexProgressive = { [weak self] (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            guard changeCurrentIndex == true else { return }
+            oldCell?.label.textColor = #colorLiteral(red: 0.1930259168, green: 0.1930313706, blue: 0.19302845, alpha: 1)
+            newCell?.label.textColor = #colorLiteral(red: 0.1930259168, green: 0.1930313706, blue: 0.19302845, alpha: 1)
+        }
+        self.tabBarController?.tabBar.unselectedItemTintColor = .clear
+    }
 
 }
