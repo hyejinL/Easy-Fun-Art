@@ -18,7 +18,7 @@ class DocentPlayerViewController: UIViewController {
     @IBOutlet weak var playButton: ToggleButton!
     @IBOutlet weak var nextPlayButton: UIButton!
     @IBOutlet weak var beforePlayButton: UIButton!
-    @IBOutlet weak var playProgressView: UIProgressView!
+    @IBOutlet weak var playSlider: UISlider!
     @IBOutlet weak var playTimeLabel: UILabel!
     @IBOutlet weak var currentPlayTimeLabel: UILabel!
     @IBOutlet weak var scriptView: UIView!
@@ -53,7 +53,7 @@ class DocentPlayerViewController: UIViewController {
         
         audioDuration = Int(audioPlayer.duration+1)
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePlayProgressView), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePlaySlider), userInfo: nil, repeats: true)
         playTimeLabel.text = "\(Int(audioDuration/60)) : \(audioDuration%60)"
         docentFirstSetting()
         
@@ -93,13 +93,21 @@ class DocentPlayerViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @objc func updatePlayProgressView() {
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        if sender.isTracking {
+            return
+        }
+        audioPlayer.currentTime = TimeInterval(playSlider.value)*audioPlayer.duration
+        updatePlaySlider()
+    }
+    
+    @objc func updatePlaySlider() {
         audioCurrentTime = Int(audioPlayer.currentTime+1)
         audioCurrentMinute = Int(audioCurrentTime/60)
         audioCurrentSecond = audioCurrentTime%60
         
         if audioPlayer.isPlaying {
-            playProgressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
+            playSlider.setValue(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
             if audioCurrentSecond < 10 {
                 currentPlayTimeLabel.text = "\(audioCurrentMinute) : 0\(audioCurrentSecond)"
             } else {
@@ -150,9 +158,13 @@ class DocentPlayerViewController: UIViewController {
     }
     
     func docentFirstSetting() {
-        playProgressView.progress = 0
+        playSlider.value = 0
         currentPlayTimeLabel.text = "0 : 00"
         playButton.isChecked = false
+    }
+    
+    func fixSliderThumbSize() {
+        let thumbImage = UIImage()
     }
     
     func scriptLabelSpacing(text: String) {
