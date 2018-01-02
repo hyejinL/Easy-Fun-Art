@@ -122,7 +122,7 @@
                                     <action selector="pressedStopDocent:" destination="1aT-DC-czv" eventType="touchUpInside" id="wkX-Z2-thh"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1pK-9H-Qn3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="1pK-9H-Qn3">
                                 <rect key="frame" x="31" y="86" width="315" height="315"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1pK-9H-Qn3" secondAttribute="height" multiplier="1:1" id="4Mn-kE-mT9"/>
@@ -519,6 +519,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1" width="634" height="630"/>
         <image name="btn_docent_play" width="31" height="57"/>
         <image name="btn_docentlist_info" width="34" height="34"/>
         <image name="btn_docentlist_play" width="31" height="31"/>

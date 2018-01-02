@@ -67,7 +67,7 @@ class SplashViewController: UIViewController {
             self.backgroundLeadingConstant.isActive = false
             self.view.layoutIfNeeded()
         }
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.8) {
             self.facebookStartButton.isHidden = false; self.kakaotalkStartButton.isHidden = false
             UIView.animate(withDuration: 0.5) {
                 self.facebookStartButton.alpha = 1; self.kakaotalkStartButton.alpha = 1

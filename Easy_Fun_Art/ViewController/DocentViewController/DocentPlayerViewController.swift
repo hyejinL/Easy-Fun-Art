@@ -64,7 +64,8 @@ class DocentPlayerViewController: UIViewController {
         scriptLabelSpacing(text: stringValue)
     }
     
-    @IBAction func pressedPlayButton(_ sender: Any) {
+    @IBAction func pressedPlayButton(_ sender: UIButton) {
+        sender.buttonAnimation()
         if !audioPlayer.isPlaying {
             audioPlayer.play()
         } else {
@@ -72,20 +73,21 @@ class DocentPlayerViewController: UIViewController {
         }
     }
     
-    @IBAction func pressedNextButton(_ sender: Any) {
-        
+    @IBAction func pressedNextButton(_ sender: UIButton) {
+        sender.buttonAnimation()
     }
     
-    @IBAction func pressedBeforeButton(_ sender: Any) {
-        
+    @IBAction func pressedBeforeButton(_ sender: UIButton) {
+        sender.buttonAnimation()
     }
     
-    @IBAction func pressedScriptButton(_ sender: Any) {
+    @IBAction func pressedScriptButton(_ sender: UIButton) {
+        sender.buttonAnimation()
         scriptViewShowAndHidden()
     }
     
-    @IBAction func pressedLocationButton(_ sender: Any) {
-        
+    @IBAction func pressedLocationButton(_ sender: UIButton) {
+        sender.buttonAnimation()
     }
     
     @IBAction func pressedStopDocent(_ sender: Any) {
