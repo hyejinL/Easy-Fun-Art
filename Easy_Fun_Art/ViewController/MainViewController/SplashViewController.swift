@@ -57,6 +57,11 @@ class SplashViewController: UIViewController {
         }
     }
     
+    @IBAction func pressedKakaoStart(_ sender: Any) {
+        let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
+        self.present(tabbarViewController, animated: true, completion: nil)
+    }
+    
     func splashAnimation() {
         UIView.animate(withDuration: 4.5) {
             self.backgroundLeadingConstant.isActive = false

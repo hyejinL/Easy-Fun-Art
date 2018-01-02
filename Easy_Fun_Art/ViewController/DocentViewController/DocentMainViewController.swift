@@ -14,17 +14,13 @@ class DocentMainViewController: ButtonBarPagerTabStripViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
         barPagerSetting()
+        
         self.title = "도슨트"
+        let backItem = UIBarButtonItem()
+        backItem.title = " "
+        self.navigationItem.backBarButtonItem = backItem
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let aroundMeViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentAroundTableViewController.reuseIdentifier) as! DocentAroundTableViewController

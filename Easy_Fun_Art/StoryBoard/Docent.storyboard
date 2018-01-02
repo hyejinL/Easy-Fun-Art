@@ -79,11 +79,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="S7g-gS-VCw">
-                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="S7g-gS-VCw">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S7g-gS-VCw" id="Dv1-hz-l3K">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -163,6 +163,7 @@
                                 <state key="normal" image="docentplaying_place"/>
                                 <connections>
                                     <action selector="pressedLocationButton:" destination="1aT-DC-czv" eventType="touchUpInside" id="Hlg-3L-Tvq"/>
+                                    <segue destination="ZfH-Ct-wwA" kind="presentation" id="EkW-V6-WWm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60U-gS-INU" customClass="ToggleButton" customModule="Easy_Fun_Art" customModuleProvider="target">
@@ -261,6 +262,10 @@
                                     <constraint firstItem="adJ-8E-lIL" firstAttribute="centerX" secondItem="tH2-lp-RhH" secondAttribute="centerX" id="t4l-j2-Jj7"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="c1q-SN-6pU">
+                                <rect key="frame" x="129" y="527" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -312,6 +317,7 @@
                         <outlet property="beforePlayButton" destination="Swq-qY-2m3" id="RQ3-Da-YK8"/>
                         <outlet property="currentPlayTimeLabel" destination="caQ-Cm-tL3" id="qIA-gw-fxK"/>
                         <outlet property="docentImageView" destination="1pK-9H-Qn3" id="eL7-tc-zEN"/>
+                        <outlet property="docentStopButton" destination="eHv-LB-86R" id="bth-8L-qFQ"/>
                         <outlet property="docentTitleLabel" destination="lnF-au-gjp" id="W3a-mo-EtK"/>
                         <outlet property="exhibitionTitleLabel" destination="XOq-yG-7mn" id="Gi0-kQ-J2E"/>
                         <outlet property="nextPlayButton" destination="oqn-Wi-ahw" id="vy2-ZO-Q7T"/>
@@ -327,6 +333,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1R-yv-8gK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064.8" y="139.880059970015"/>
+        </scene>
+        <!--Docent End View Controller-->
+        <scene sceneID="AAq-28-cx1">
+            <objects>
+                <viewController storyboardIdentifier="DocentEndViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="ZfH-Ct-wwA" customClass="DocentEndViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fPF-sH-dFD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbg-7O-D3R">
+                                <rect key="frame" x="62" y="212" width="250" height="263"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1HL-lo-HLz">
+                                        <rect key="frame" x="0.0" y="221" width="250" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nc-sx-c0M">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="42"/>
+                                                <color key="backgroundColor" red="0.98823529409999999" green="0.86274509799999999" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="그래요">
+                                                    <color key="titleColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmi-6d-OSd">
+                                                <rect key="frame" x="125" y="0.0" width="125" height="42"/>
+                                                <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="싫어요">
+                                                    <color key="titleColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pressedRefuseReview:" destination="ZfH-Ct-wwA" eventType="touchUpInside" id="WZk-Vb-ait"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_popup_review" translatesAutoresizingMaskIntoConstraints="NO" id="tbg-N8-2it">
+                                        <rect key="frame" x="76" y="34.5" width="98" height="82"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vbg-7O-D3R" secondAttribute="height" multiplier="250:263" id="6mb-Js-siu"/>
+                                    <constraint firstAttribute="bottom" secondItem="1HL-lo-HLz" secondAttribute="bottom" id="7ho-AS-j3Q"/>
+                                    <constraint firstItem="1HL-lo-HLz" firstAttribute="height" secondItem="vbg-7O-D3R" secondAttribute="height" multiplier="42:263" id="AN5-kI-TT7"/>
+                                    <constraint firstItem="tbg-N8-2it" firstAttribute="centerY" secondItem="vbg-7O-D3R" secondAttribute="centerY" constant="-56" id="sb6-35-2W2"/>
+                                    <constraint firstAttribute="trailing" secondItem="1HL-lo-HLz" secondAttribute="trailing" id="yto-Yf-yyI"/>
+                                    <constraint firstItem="1HL-lo-HLz" firstAttribute="leading" secondItem="vbg-7O-D3R" secondAttribute="leading" id="z1T-PS-s0L"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신의 의견을 남겨주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwK-qP-bCs">
+                                <rect key="frame" x="121" y="386" width="131" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전시는 어떠셨나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5kr-Fd-bFW">
+                                <rect key="frame" x="92" y="356.5" width="190" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.76000000000000001" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tbg-N8-2it" firstAttribute="centerX" secondItem="5kr-Fd-bFW" secondAttribute="centerX" id="3mO-Yo-9C0"/>
+                            <constraint firstItem="5kr-Fd-bFW" firstAttribute="centerX" secondItem="FwK-qP-bCs" secondAttribute="centerX" id="4Vh-pc-rWg"/>
+                            <constraint firstItem="vbg-7O-D3R" firstAttribute="width" secondItem="fPF-sH-dFD" secondAttribute="width" multiplier="250:375" id="Dhm-qx-OON"/>
+                            <constraint firstItem="5kr-Fd-bFW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vbg-7O-D3R" secondAttribute="trailing" constant="-30" id="Sf0-wm-Sa3"/>
+                            <constraint firstItem="5kr-Fd-bFW" firstAttribute="centerY" secondItem="vbg-7O-D3R" secondAttribute="centerY" constant="26" id="Vv2-Kn-ACY"/>
+                            <constraint firstItem="vbg-7O-D3R" firstAttribute="centerY" secondItem="7Of-EP-VE6" secondAttribute="centerY" id="Yak-9t-Qb6"/>
+                            <constraint firstItem="5kr-Fd-bFW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vbg-7O-D3R" secondAttribute="leading" constant="30" id="byF-0I-n4s"/>
+                            <constraint firstItem="5kr-Fd-bFW" firstAttribute="centerX" secondItem="vbg-7O-D3R" secondAttribute="centerX" id="diA-dY-npf"/>
+                            <constraint firstItem="vbg-7O-D3R" firstAttribute="centerX" secondItem="7Of-EP-VE6" secondAttribute="centerX" id="n6L-kX-Osd"/>
+                            <constraint firstItem="FwK-qP-bCs" firstAttribute="top" secondItem="5kr-Fd-bFW" secondAttribute="bottom" constant="3" id="qHO-hl-eF9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Of-EP-VE6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NS2-WY-86T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1805.5999999999999" y="139.880059970015"/>
         </scene>
         <!--Docent My Table View Controller-->
         <scene sceneID="qi1-h2-xjN">
@@ -435,5 +521,6 @@
         <image name="docentplaying_place" width="25" height="24"/>
         <image name="docentplaying_script" width="20" height="24"/>
         <image name="docentplaying_stop" width="28" height="57"/>
+        <image name="img_popup_review" width="98" height="82"/>
     </resources>
 </document>

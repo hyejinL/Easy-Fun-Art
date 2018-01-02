@@ -12,6 +12,7 @@ import AVFoundation
 class DocentPlayerViewController: UIViewController {
     
     @IBOutlet weak var exhibitionTitleLabel: UILabel!
+    @IBOutlet weak var docentStopButton: UIButton!
     @IBOutlet weak var docentImageView: UIImageView!
     @IBOutlet weak var docentTitleLabel: UILabel!
     @IBOutlet weak var playButton: ToggleButton!
@@ -27,16 +28,19 @@ class DocentPlayerViewController: UIViewController {
     
     var audioPlayer =  AVAudioPlayer()
     var music = ["NYC (Frank Sinatra Sample)", "Life In Motion"]
+    var audioDuration = 0
+    var audioCurrentTime = 0
+    var audioCurrentMinute = 0
+    var audioCurrentSecond = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "NYC (Frank Sinatra Sample)", ofType: "wav")!))
             audioPlayer.prepareToPlay()
             
-            var audioSession = AVAudioSession.sharedInstance()
+            let audioSession = AVAudioSession.sharedInstance()
             
             do {
                 try audioSession.setCategory(AVAudioSessionCategoryPlayback)
@@ -47,21 +51,17 @@ class DocentPlayerViewController: UIViewController {
             print(error.localizedDescription)
         }
         
+        audioDuration = Int(audioPlayer.duration+1)
+        
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePlayProgressView), userInfo: nil, repeats: true)
-        playProgressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: false)
-        playTimeLabel.text = "\(Int(audioPlayer.duration/60)) : \(Int(audioPlayer.duration))"
-        currentPlayTimeLabel.text = "0 : 00"
+        playTimeLabel.text = "\(Int(audioDuration/60)) : \(audioDuration%60)"
+        docentFirstSetting()
         
         scriptView.isHidden = true
         scriptView.alpha = 0
         
         let stringValue = "국립현대미술관은 현대영화사에 있어 독보적인 작품세계를 구현한 중요감독들의 작품을 전시로 재구성해 소개하는 프로젝트의 일환으로 <필립 가렐, 찬란한 절망>(2015)에 이어 두 번째 기획으로 미국 독립 실험영화의 대부인 요나스 메카스의 전시 <요나스 메카스 – 찰나, 힐긋, 돌아보다>를 개최한다. 아시아에서 처음으로 개최되는 이번 전시는 미국 아방가르드 영화의 역사를 개척한 리투아니아 출신의 실험영화 감독 요나스 메카스 인생의 중요한 지점, 변화, 흐름을 따라 구성된다. 요나스 메카스는 삶의 매순간을 일기를 쓰듯 자. 국립현대미술관은 현대영화사에 있어 독보적인 작품세계를 구현한 중요감독들의 작품을 전시로 재구성해 소개하는 프로젝트의 일환으로 <필립 가렐, 찬란한 절망>(2015)에 이어 두 번째 기획으로 미국 독립 실험영화의 대부인 요나스 메카스의 전시 <요나스 메카스 – 찰나, 힐긋, 돌아보다>를 개최한다. 아시아에서 처음으로 개최되는 이번 전시는 미국 아방가르드 영화의 역사를 개척한 리투아니아 출신의 실험영화 감독 요나스 메카스 인생의 중요한 지점, 변화, 흐름을 따라 구성된다. 요나스 메카스는 삶의 매순간을 일기를 쓰듯 자."
-        scriptLabelSpacint(text: stringValue)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        scriptLabelSpacing(text: stringValue)
     }
     
     @IBAction func pressedPlayButton(_ sender: Any) {
@@ -94,30 +94,70 @@ class DocentPlayerViewController: UIViewController {
     }
     
     @objc func updatePlayProgressView() {
+        audioCurrentTime = Int(audioPlayer.currentTime+1)
+        audioCurrentMinute = Int(audioCurrentTime/60)
+        audioCurrentSecond = audioCurrentTime%60
+        
         if audioPlayer.isPlaying {
             playProgressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
-            currentPlayTimeLabel.text = "\(Int(audioPlayer.currentTime/60)) : \(Int(audioPlayer.currentTime))"
+            if audioCurrentSecond < 10 {
+                currentPlayTimeLabel.text = "\(audioCurrentMinute) : 0\(audioCurrentSecond)"
+            } else {
+                currentPlayTimeLabel.text = "\(audioCurrentMinute) : \(audioCurrentSecond)"
+            }
+        }
+        if Int(audioCurrentTime) == Int(audioDuration) {
+            scriptViewHidden(completion: {
+                let docentEndViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentEndViewController.reuseIdentifier) as! DocentEndViewController
+                self.present(docentEndViewController, animated: true, completion: {
+                    self.audioPlayer.stop()
+                    self.docentFirstSetting()
+                })
+            })
         }
     }
     
     func scriptViewShowAndHidden() {
         if scriptView.isHidden {
-            scriptView.isHidden = false
-            UIView.animate(withDuration: 0.4, delay: 0.3, animations: {
-                self.scriptView.alpha = 1
-            })
+            scriptViewShow()
         } else {
-            UIView.animate(withDuration: 0.4, delay: 0.3, animations: {
-                self.scriptView.alpha = 0
-            }, completion: { _ in
-                self.scriptView.isHidden = true
-            })
+            scriptViewHidden(completion: {})
         }
     }
     
-    func scriptLabelSpacint(text: String) {
+    func scriptViewShow() {
+        scriptView.isHidden = false
+        UIView.animate(withDuration: 0.4, delay: 0.3, animations: {
+            self.scriptView.alpha = 1
+            self.exhibitionTitleLabel.alpha = 0
+            self.docentStopButton.alpha = 0
+        })
+    }
+    
+    func scriptViewHidden(completion: @escaping ()->Void) {
+        if !scriptView.isHidden {
+            UIView.animate(withDuration: 0.4, delay: 0.3, animations: {
+                self.scriptView.alpha = 0
+                self.exhibitionTitleLabel.alpha = 1
+                self.docentStopButton.alpha = 1
+            }, completion: { _ in
+                self.scriptView.isHidden = true
+                completion()
+            })
+        } else {
+            completion()
+        }
+    }
+    
+    func docentFirstSetting() {
+        playProgressView.progress = 0
+        currentPlayTimeLabel.text = "0 : 00"
+        playButton.isChecked = false
+    }
+    
+    func scriptLabelSpacing(text: String) {
         let attrString = NSMutableAttributedString(string: text)
-        var style = NSMutableParagraphStyle()
+        let style = NSMutableParagraphStyle()
         style.lineSpacing = 12 // change line spacing between paragraph like 36 or 48
         style.minimumLineHeight = 10 // change line spacing between each line like 30 or 40
         style.alignment = .justified

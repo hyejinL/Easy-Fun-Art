@@ -16,11 +16,6 @@ class DocentAroundTableViewController: UITableViewController, IndicatorInfoProvi
 
         setUpTableView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "내 주변 전시")
