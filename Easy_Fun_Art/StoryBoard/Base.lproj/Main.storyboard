@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TWh-qI-3xl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wEH-qq-Nwh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -74,22 +75,50 @@
                                     <constraint firstAttribute="width" secondItem="u2h-H9-xIp" secondAttribute="height" multiplier="2089:2208" id="VIu-Uw-v18"/>
                                 </constraints>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" image="splash_title" translatesAutoresizingMaskIntoConstraints="NO" id="Qfx-aV-MjX">
-                                <rect key="frame" x="56" y="259" width="284" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Qfx-aV-MjX" secondAttribute="height" multiplier="71:21" id="R8A-wB-fIx"/>
-                                </constraints>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="당  신  의일  상  에전  시  를더  하  다" translatesAutoresizingMaskIntoConstraints="NO" id="ryf-8e-uuf">
+                                <rect key="frame" x="142.5" y="253.5" width="90" height="140"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwx-UY-oy6">
+                                <rect key="frame" x="40" y="511" width="295" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dwx-UY-oy6" secondAttribute="height" multiplier="295:43" id="9rM-eH-AbT"/>
+                                </constraints>
+                                <state key="normal" image="btn_join_facebook"/>
+                                <connections>
+                                    <action selector="pressedFacebookStart:" destination="wEH-qq-Nwh" eventType="touchUpInside" id="i5s-LP-f2F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqd-Ij-dtN">
+                                <rect key="frame" x="40" y="564" width="295" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tqd-Ij-dtN" secondAttribute="height" multiplier="295:43" id="2gG-kn-wak"/>
+                                </constraints>
+                                <state key="normal" image="btn_join_katalk"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tqd-Ij-dtN" firstAttribute="width" secondItem="dwx-UY-oy6" secondAttribute="width" id="0RC-66-vpd"/>
                             <constraint firstItem="u2h-H9-xIp" firstAttribute="top" secondItem="krw-9p-cEq" secondAttribute="top" id="4MY-vj-dZS"/>
                             <constraint firstItem="u2h-H9-xIp" firstAttribute="leading" secondItem="krw-9p-cEq" secondAttribute="leading" id="4r8-B6-1qd"/>
+                            <constraint firstItem="dwx-UY-oy6" firstAttribute="centerY" secondItem="u2h-H9-xIp" secondAttribute="centerY" constant="199" id="DbE-bg-Shp"/>
                             <constraint firstAttribute="bottom" secondItem="u2h-H9-xIp" secondAttribute="bottom" id="Ec8-rt-1Z2"/>
+                            <constraint firstItem="ryf-8e-uuf" firstAttribute="centerX" secondItem="TDT-bR-dVU" secondAttribute="centerX" id="F3D-bG-voM"/>
                             <constraint firstItem="u2h-H9-xIp" firstAttribute="height" secondItem="krw-9p-cEq" secondAttribute="height" id="O6f-pj-jp0"/>
+                            <constraint firstItem="tqd-Ij-dtN" firstAttribute="top" secondItem="dwx-UY-oy6" secondAttribute="bottom" constant="10" id="je3-3g-3me"/>
+                            <constraint firstItem="dwx-UY-oy6" firstAttribute="width" secondItem="krw-9p-cEq" secondAttribute="width" multiplier="295:375" id="kK3-5a-PJs"/>
+                            <constraint firstAttribute="trailing" secondItem="u2h-H9-xIp" secondAttribute="trailing" priority="100" id="lAD-Qq-wZg"/>
+                            <constraint firstItem="tqd-Ij-dtN" firstAttribute="centerX" secondItem="dwx-UY-oy6" secondAttribute="centerX" id="pYc-b0-Gh7"/>
+                            <constraint firstItem="ryf-8e-uuf" firstAttribute="centerY" secondItem="TDT-bR-dVU" secondAttribute="centerY" constant="-20" id="t24-qN-UGh"/>
+                            <constraint firstItem="dwx-UY-oy6" firstAttribute="centerX" secondItem="ryf-8e-uuf" secondAttribute="centerX" id="xYU-jn-gOD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TDT-bR-dVU"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundLeadingConstant" destination="4r8-B6-1qd" id="pdm-Tp-He2"/>
+                        <outlet property="facebookStartButton" destination="dwx-UY-oy6" id="oz3-Ma-6a5"/>
+                        <outlet property="kakaotalkStartButton" destination="tqd-Ij-dtN" id="zBy-mh-rCZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLh-e4-ldy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,7 +146,7 @@
         <scene sceneID="IUK-K2-Lfk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Ca-vA-0mf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="홈" image="recipeGrayicon" id="F0Y-xC-mh8" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="홈" image="tabbar_home_on" selectedImage="tabbar_home_on" id="F0Y-xC-mh8" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -153,7 +182,7 @@
         <scene sceneID="HXt-Z7-uhH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W2Y-L3-D7D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="추천" image="recipeGrayicon" id="Y2E-6Q-ZTO" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="추천" image="tabbar_recommend_on" selectedImage="tabbar_recommend_on" id="Y2E-6Q-ZTO" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -199,7 +228,7 @@
         <scene sceneID="4px-gi-2h1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tdh-a2-p9b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="도슨트" image="recipeGrayicon" id="Vl0-OL-8UN" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="도슨트" image="tabbar_docent_on" selectedImage="tabbar_docent_on" id="Vl0-OL-8UN" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -229,7 +258,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2234" y="806"/>
+            <point key="canvasLocation" x="2572" y="805.54722638680664"/>
         </scene>
         <!--Docent-->
         <scene sceneID="8Po-1d-Vnw">
@@ -239,13 +268,13 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJW-Wf-6pH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2942" y="805"/>
+            <point key="canvasLocation" x="3280" y="804.19790104947538"/>
         </scene>
         <!--검색-->
         <scene sceneID="dUX-RO-bpc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VEq-Lc-JsZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="검색" image="recipeGrayicon" id="xUm-Pz-IO5" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="검색" image="tabbar_search_on" selectedImage="tabbar_search_on" id="xUm-Pz-IO5" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -291,7 +320,7 @@
         <scene sceneID="zdu-by-NOU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xb8-dS-vU1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="마이페이지" image="recipeGrayicon" id="JNM-TX-vdl" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="tabbar_mypage_on" selectedImage="tabbar_mypage_on" id="JNM-TX-vdl" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -336,8 +365,14 @@
     </scenes>
     <resources>
         <image name="bg_splash" width="2089" height="2208"/>
-        <image name="recipeGrayicon" width="24" height="19"/>
-        <image name="splash_title" width="932" height="280"/>
+        <image name="btn_join_facebook" width="295" height="43"/>
+        <image name="btn_join_katalk" width="295" height="43"/>
+        <image name="tabbar_docent_on" width="25" height="20"/>
+        <image name="tabbar_home_on" width="20" height="20"/>
+        <image name="tabbar_mypage_on" width="17" height="20"/>
+        <image name="tabbar_recommend_on" width="20" height="20"/>
+        <image name="tabbar_search_on" width="20" height="20"/>
+        <image name="당  신  의일  상  에전  시  를더  하  다" width="90" height="140"/>
     </resources>
     <color key="tintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -56,19 +56,7 @@ class DocentPlayerViewController: UIViewController {
         scriptView.alpha = 0
         
         let stringValue = "국립현대미술관은 현대영화사에 있어 독보적인 작품세계를 구현한 중요감독들의 작품을 전시로 재구성해 소개하는 프로젝트의 일환으로 <필립 가렐, 찬란한 절망>(2015)에 이어 두 번째 기획으로 미국 독립 실험영화의 대부인 요나스 메카스의 전시 <요나스 메카스 – 찰나, 힐긋, 돌아보다>를 개최한다. 아시아에서 처음으로 개최되는 이번 전시는 미국 아방가르드 영화의 역사를 개척한 리투아니아 출신의 실험영화 감독 요나스 메카스 인생의 중요한 지점, 변화, 흐름을 따라 구성된다. 요나스 메카스는 삶의 매순간을 일기를 쓰듯 자. 국립현대미술관은 현대영화사에 있어 독보적인 작품세계를 구현한 중요감독들의 작품을 전시로 재구성해 소개하는 프로젝트의 일환으로 <필립 가렐, 찬란한 절망>(2015)에 이어 두 번째 기획으로 미국 독립 실험영화의 대부인 요나스 메카스의 전시 <요나스 메카스 – 찰나, 힐긋, 돌아보다>를 개최한다. 아시아에서 처음으로 개최되는 이번 전시는 미국 아방가르드 영화의 역사를 개척한 리투아니아 출신의 실험영화 감독 요나스 메카스 인생의 중요한 지점, 변화, 흐름을 따라 구성된다. 요나스 메카스는 삶의 매순간을 일기를 쓰듯 자."
-        let attrString = NSMutableAttributedString(string: stringValue)
-        var style = NSMutableParagraphStyle()
-        style.lineSpacing = 12 // change line spacing between paragraph like 36 or 48
-        style.minimumLineHeight = 10 // change line spacing between each line like 30 or 40
-        style.alignment = .justified
-        
-        // Line spacing attribute
-        attrString.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: NSRange(location: 0, length: stringValue.characters.count))
-        
-        // Character spacing attribute
-        attrString.addAttribute(NSAttributedStringKey.kern, value: 2, range: NSMakeRange(0, attrString.length))
-        
-        scriptDocentContentLabel.attributedText = attrString
+        scriptLabelSpacint(text: stringValue)
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,6 +113,22 @@ class DocentPlayerViewController: UIViewController {
                 self.scriptView.isHidden = true
             })
         }
+    }
+    
+    func scriptLabelSpacint(text: String) {
+        let attrString = NSMutableAttributedString(string: text)
+        var style = NSMutableParagraphStyle()
+        style.lineSpacing = 12 // change line spacing between paragraph like 36 or 48
+        style.minimumLineHeight = 10 // change line spacing between each line like 30 or 40
+        style.alignment = .justified
+        
+        // Line spacing attribute
+        attrString.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: NSRange(location: 0, length: text.characters.count))
+        
+        // Character spacing attribute
+        attrString.addAttribute(NSAttributedStringKey.kern, value: 2, range: NSMakeRange(0, attrString.length))
+        
+        scriptDocentContentLabel.attributedText = attrString
     }
 
 }
