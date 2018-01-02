@@ -9,6 +9,9 @@ target 'Easy_Fun_Art' do
     pod 'SwiftyJSON'
     pod 'RAMAnimatedTabBarController'
     pod 'XLPagerTabStrip', '~> 8.0'
+    pod 'FacebookCore'
+    pod 'FacebookLogin'
+    pod 'FacebookShare'
 
   # Pods for Easy_Fun_Art
 

@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FacebookCore
+import FacebookLogin
+import FBSDKLoginKit
 
 class SplashViewController: UIViewController {
 
     @IBOutlet weak var backgroundLeadingConstant: NSLayoutConstraint!
     @IBOutlet weak var facebookStartButton: UIButton!
     @IBOutlet weak var kakaotalkStartButton: UIButton!
+    
+    var fbData: UserDataRequest.Response?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +34,27 @@ class SplashViewController: UIViewController {
     }
     
     @IBAction func pressedFacebookStart(_ sender: Any) {
-        let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
-        self.present(tabbarViewController, animated: true, completion: nil)
+//        let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
+//        self.present(tabbarViewController, animated: true, completion: nil)
+        let loginManager = LoginManager()
+        
+        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) { (loginResult) in
+            switch loginResult {
+            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+                self.getFacebookUserData()
+                
+                let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
+                self.present(tabbarViewController, animated: true, completion: nil)
+
+                break
+            case .failed(let err as NSError):
+                print(err.localizedDescription)
+                break
+            case .cancelled:
+                print("페북 로그인 취소")
+                break
+            }
+        }
     }
     
     func splashAnimation() {
@@ -46,14 +71,22 @@ class SplashViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getFacebookUserData() {
+        
+        let connection = GraphRequestConnection()
+        
+        connection.add(UserDataRequest()) {
+            (response: HTTPURLResponse?, result: GraphRequestResult<UserDataRequest>) in
+            switch result {
+            case .success(let graphResponse):
+                self.fbData = graphResponse
+                print(graphResponse.email, graphResponse.id, graphResponse.name, graphResponse.profileURL)
+                break
+            case .failed :
+                break
+            }
+        }
+        connection.start()
     }
-    */
 
 }

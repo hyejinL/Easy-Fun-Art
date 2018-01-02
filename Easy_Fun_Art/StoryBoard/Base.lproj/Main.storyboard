@@ -116,8 +116,8 @@
                     </view>
                     <connections>
                         <outlet property="backgroundLeadingConstant" destination="4r8-B6-1qd" id="pdm-Tp-He2"/>
-                        <outlet property="facebookStartButton" destination="dwx-UY-oy6" id="oz3-Ma-6a5"/>
-                        <outlet property="kakaotalkStartButton" destination="tqd-Ij-dtN" id="zBy-mh-rCZ"/>
+                        <outlet property="facebookStartButton" destination="dwx-UY-oy6" id="y5P-QJ-G0w"/>
+                        <outlet property="kakaotalkStartButton" destination="tqd-Ij-dtN" id="qsF-R5-WiC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLh-e4-ldy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -258,7 +258,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2572" y="805.54722638680664"/>
+            <point key="canvasLocation" x="2241" y="805"/>
         </scene>
         <!--Docent-->
         <scene sceneID="8Po-1d-Vnw">
@@ -268,7 +268,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJW-Wf-6pH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3280" y="804.19790104947538"/>
+            <point key="canvasLocation" x="2843" y="804"/>
         </scene>
         <!--검색-->
         <scene sceneID="dUX-RO-bpc">

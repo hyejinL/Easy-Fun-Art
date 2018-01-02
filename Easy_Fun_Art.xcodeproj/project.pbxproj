@@ -28,6 +28,7 @@
 		0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */; };
 		0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */; };
 		0A72FAFF1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */; };
+		0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */; };
 		0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */; };
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListTableViewCell.swift; sourceTree = "<group>"; };
 		0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListHeaderCell.swift; sourceTree = "<group>"; };
+		0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
 		0AEFBF081FF93D0A0090920B /* Easy Fun Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Fun Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AEFBF101FF93D0A0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				0A149AC71FFA213800E12932 /* ExtensionControl.swift */,
+				0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				0A149AB51FF9EAFB00E12932 /* DocentPlayerViewController.swift in Sources */,
 				0A149AC41FFA202C00E12932 /* DocentAroundTableViewController.swift in Sources */,
 				0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */,
+				0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */,
 				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
 				0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */,
 				0A72FAFF1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift in Sources */,
