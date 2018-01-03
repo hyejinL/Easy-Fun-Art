@@ -182,7 +182,7 @@ class DocentPlayerViewController: UIViewController {
     
     func docentFirstSetting() {
         playSlider.value = 0
-        currentPlayTimeLabel.text = "0 : 00"
+        currentPlayTimeLabel.text = "00 : 00"
         playButton.isChecked = false
     }
     
