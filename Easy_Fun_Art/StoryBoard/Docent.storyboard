@@ -201,6 +201,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z49-QW-vGb">
                                 <rect key="frame" x="173" y="619" width="31" height="22"/>
                                 <state key="normal" image="docentplaying_bottomplayingbar"/>
+                                <connections>
+                                    <action selector="pressedOpenDocentPlayView:" destination="1aT-DC-czv" eventType="touchUpInside" id="7gP-N3-Ey8"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tH2-lp-RhH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="446.5"/>

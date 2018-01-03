@@ -31,6 +31,8 @@
 		0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */; };
 		0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */; };
 		0ACC27331FFBBCF4007E9BA4 /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */; };
+		0ACC27351FFBD590007E9BA4 /* DocentCurrentPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC27341FFBD590007E9BA4 /* DocentCurrentPlayView.swift */; };
+		0ACC27371FFBD5A3007E9BA4 /* DocentCurrentPlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACC27361FFBD5A3007E9BA4 /* DocentCurrentPlayView.xib */; };
 		0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */; };
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
 		0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentEndViewController.swift; sourceTree = "<group>"; };
 		0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
+		0ACC27341FFBD590007E9BA4 /* DocentCurrentPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentCurrentPlayView.swift; sourceTree = "<group>"; };
+		0ACC27361FFBD5A3007E9BA4 /* DocentCurrentPlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentCurrentPlayView.xib; sourceTree = "<group>"; };
 		0AEFBF081FF93D0A0090920B /* Easy Fun Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Fun Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AEFBF101FF93D0A0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */,
 				0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */,
 				0A149AB41FF9EAFB00E12932 /* DocentPlayerViewController.swift */,
+				0ACC27341FFBD590007E9BA4 /* DocentCurrentPlayView.swift */,
 				0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */,
 			);
 			path = DocentViewController;
@@ -147,6 +152,7 @@
 			children = (
 				0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */,
 				0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */,
+				0ACC27361FFBD5A3007E9BA4 /* DocentCurrentPlayView.xib */,
 			);
 			path = DocentViewController;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				0A149AAE1FF9D5DF00E12932 /* MyPage.storyboard in Resources */,
 				0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */,
 				0A149AAC1FF9D5CE00E12932 /* Search.storyboard in Resources */,
+				0ACC27371FFBD5A3007E9BA4 /* DocentCurrentPlayView.xib in Resources */,
 				0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */,
 				0A149ABD1FF9FADB00E12932 /* Life In Motion.wav in Resources */,
 				0A149AD71FFA527A00E12932 /* DocentPlayListHeaderCell.xib in Resources */,
@@ -443,6 +450,7 @@
 				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
 				0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */,
 				0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */,
+				0ACC27351FFBD590007E9BA4 /* DocentCurrentPlayView.swift in Sources */,
 				0A72FAFF1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift in Sources */,
 				0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */,
 				0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */,

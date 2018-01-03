@@ -26,7 +26,9 @@ class DocentPlayerViewController: UIViewController {
     @IBOutlet weak var scriptDocentTitleLabel: UILabel!
     @IBOutlet weak var scriptDocentContentLabel: UILabel!
     
-    var audioPlayer =  AVAudioPlayer()
+    var audioPlayer = AVAudioPlayer()
+    var avPlayer = AVPlayer()
+    var timer = Timer()
     var music = ["NYC (Frank Sinatra Sample)", "Life In Motion"]
     var audioDuration = 0
     var audioCurrentTime = 0
@@ -35,27 +37,38 @@ class DocentPlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let player = AVPlayerItem(url: URL(string: "http://cdn.mos.musicradar.com/audio/samples/80s-heat-demos/AM_Eighties08_85-01.mp3")!)
+        avPlayer = AVPlayer(playerItem: player)
+        avPlayer.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(), context: nil)
 
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "NYC (Frank Sinatra Sample)", ofType: "wav")!))
-            audioPlayer.prepareToPlay()
-            
-            let audioSession = AVAudioSession.sharedInstance()
-            
-            do {
-                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
-        } catch let error as NSError {
-            print(error.localizedDescription)
+        if let duration = avPlayer.currentItem?.asset.duration.seconds {
+            audioDuration = Int(duration+1)
         }
+//        do {
+////            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "NYC (Frank Sinatra Sample)", ofType: "wav")!))
+////            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"))
+////            // http://cdn.mos.musicradar.com/audio/samples/80s-heat-demos/AM_Eighties08_85-01.mp3
+////            print(audioPlayer)
+////            audioPlayer.prepareToPlay()
+//
+//            let audioSession = AVAudioSession.sharedInstance()
+//
+//            do {
+//                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+//            } catch let error as NSError {
+//                print(error.localizedDescription)
+//            }
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
         
-        audioDuration = Int(audioPlayer.duration+1)
+//        audioDuration = Int(audioPlayer.duration+1)
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePlaySlider), userInfo: nil, repeats: true)
-        playTimeLabel.text = "\(Int(audioDuration/60)) : \(audioDuration%60)"
+        
+        playTimeLabel.text = String(format: "%02d : %02d", audioDuration/60, audioDuration%60)
         docentFirstSetting()
+        
         
         scriptView.isHidden = true
         scriptView.alpha = 0
@@ -64,12 +77,38 @@ class DocentPlayerViewController: UIViewController {
         scriptLabelSpacing(text: stringValue)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        docentFirstSetting()
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if (keyPath == "status") {
+            let status: AVPlayerStatus = avPlayer.status
+            switch status {
+            case AVPlayerStatus.readyToPlay:
+                print("---------- ReadyToPlay ----------")
+                break
+            case AVPlayerStatus.unknown, AVPlayerStatus.failed:
+                print("---------- FAILED ----------")
+                break
+            }
+        }
+    }
+    
     @IBAction func pressedPlayButton(_ sender: UIButton) {
         sender.buttonAnimation()
-        if !audioPlayer.isPlaying {
-            audioPlayer.play()
+//        if !audioPlayer.isPlaying {
+//            audioPlayer.play()
+//        } else {
+//            audioPlayer.pause()
+//        }
+        if avPlayer.rate == 0.0 {
+            avPlayer.play()
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePlaySlider), userInfo: nil, repeats: true)
         } else {
-            audioPlayer.pause()
+            avPlayer.pause()
+            timer.invalidate()
         }
     }
     
@@ -91,7 +130,17 @@ class DocentPlayerViewController: UIViewController {
     }
     
     @IBAction func pressedStopDocent(_ sender: Any) {
-        audioPlayer.stop()
+        avPlayer.pause()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func pressedOpenDocentPlayView(_ sender: Any) {
+        let currentPlayView = DocentCurrentPlayView().instanceFromNib()
+        currentPlayView.frame = CGRect(x: 0, y: self.view.frame.height-49-60.0*self.view.frame.height/667, width: self.view.frame.width, height: 60.0*self.view.frame.height/667)
+        currentPlayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(currentPlayViewAction)))
+        
+        let window = UIApplication.shared.keyWindow!
+        window.addSubview(currentPlayView)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -99,32 +148,41 @@ class DocentPlayerViewController: UIViewController {
         if sender.isTracking {
             return
         }
-        audioPlayer.currentTime = TimeInterval(playSlider.value)*audioPlayer.duration
+//        audioPlayer.currentTime = TimeInterval(playSlider.value)*audioPlayer.duration
+        guard let duration = avPlayer.currentItem?.asset.duration.seconds else { return }
+        avPlayer.seek(to: CMTime(seconds: TimeInterval(playSlider.value)*duration, preferredTimescale: avPlayer.currentTime().timescale))
         updatePlaySlider()
     }
     
     @objc func updatePlaySlider() {
-        audioCurrentTime = Int(audioPlayer.currentTime+1)
-        audioCurrentMinute = Int(audioCurrentTime/60)
-        audioCurrentSecond = audioCurrentTime%60
         
-        if audioPlayer.isPlaying {
-            playSlider.setValue(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
-            if audioCurrentSecond < 10 {
-                currentPlayTimeLabel.text = "\(audioCurrentMinute) : 0\(audioCurrentSecond)"
-            } else {
-                currentPlayTimeLabel.text = "\(audioCurrentMinute) : \(audioCurrentSecond)"
-            }
+        if avPlayer.rate != 0 {
+            audioCurrentTime = Int(avPlayer.currentTime().seconds+1)
+            audioCurrentMinute = Int(audioCurrentTime/60)
+            audioCurrentSecond = audioCurrentTime%60
+            print(audioCurrentTime, audioCurrentMinute, audioCurrentSecond)
+
+            guard let duration = avPlayer.currentItem?.asset.duration.seconds else { return }
+            playSlider.setValue(Float(avPlayer.currentTime().seconds/duration), animated: true)
+            print(Float(avPlayer.currentTime().seconds/duration))
+            
+            currentPlayTimeLabel.text = String(format: "%02d : %02d", audioCurrentMinute, audioCurrentSecond)
         }
         if Int(audioCurrentTime) == Int(audioDuration) {
             scriptViewHidden(completion: {
                 let docentEndViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentEndViewController.reuseIdentifier) as! DocentEndViewController
                 self.present(docentEndViewController, animated: true, completion: {
-                    self.audioPlayer.stop()
+                    self.avPlayer.pause()
+                    self.timer.invalidate()
                     self.docentFirstSetting()
                 })
             })
         }
+    }
+    
+    @objc func currentPlayViewAction() {
+        let docentPlayerViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayerViewController.reuseIdentifier) as! DocentPlayerViewController
+        self.present(docentPlayerViewController, animated: true, completion: nil)
     }
     
     func scriptViewShowAndHidden() {
@@ -161,8 +219,10 @@ class DocentPlayerViewController: UIViewController {
     
     func docentFirstSetting() {
         playSlider.value = 0
-        currentPlayTimeLabel.text = "0 : 00"
+        currentPlayTimeLabel.text = "00 : 00"
         playButton.isChecked = false
+//        avPlayer.seek(to: CMTime(seconds: 0.0, preferredTimescale: avPlayer.currentTime().timescale))
+        avPlayer.seek(to: kCMTimeZero)
     }
     
     func fixSliderThumbSize() {
