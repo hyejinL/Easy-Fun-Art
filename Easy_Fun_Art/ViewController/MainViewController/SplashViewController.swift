@@ -43,8 +43,10 @@ class SplashViewController: UIViewController {
             case .success(grantedPermissions: _, declinedPermissions: _, token: _):
                 self.getFacebookUserData()
                 
-                let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
-                self.present(tabbarViewController, animated: true, completion: nil)
+//                let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
+//                self.present(tabbarViewController, animated: true, completion: nil)
+                let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
+                self.present(analysisStartViewController, animated: true, completion: nil)
 
                 break
             case .failed(let err as NSError):
@@ -58,8 +60,8 @@ class SplashViewController: UIViewController {
     }
     
     @IBAction func pressedKakaoStart(_ sender: Any) {
-        let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
-        self.present(tabbarViewController, animated: true, completion: nil)
+        let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
+        self.present(analysisStartViewController, animated: true, completion: nil)
     }
     
     func splashAnimation() {

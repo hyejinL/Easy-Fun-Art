@@ -13,7 +13,7 @@ class ToggleButton : UIButton {
     @IBInspectable var trueImage: UIImage?
     @IBInspectable var falseImage: UIImage?
     
-    var title = ""
+    var title: String = ""
     var isChecked: Bool = false {
         didSet {
             if isChecked {

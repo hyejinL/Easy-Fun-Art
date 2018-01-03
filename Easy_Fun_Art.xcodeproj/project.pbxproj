@@ -31,6 +31,10 @@
 		0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */; };
 		0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */; };
 		0ACC27331FFBBCF4007E9BA4 /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */; };
+		0ACC273A1FFD6002007E9BA4 /* AnalysisStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC27391FFD6002007E9BA4 /* AnalysisStartViewController.swift */; };
+		0ACC273C1FFD6079007E9BA4 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC273B1FFD6079007E9BA4 /* UserInfoViewController.swift */; };
+		0ACC273E1FFD6091007E9BA4 /* GenreCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC273D1FFD6091007E9BA4 /* GenreCheckViewController.swift */; };
+		0ACC27401FFD60C9007E9BA4 /* GenreCheckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC273F1FFD60C9007E9BA4 /* GenreCheckCollectionViewCell.swift */; };
 		0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */; };
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
@@ -63,6 +67,10 @@
 		0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
 		0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentEndViewController.swift; sourceTree = "<group>"; };
 		0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
+		0ACC27391FFD6002007E9BA4 /* AnalysisStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisStartViewController.swift; sourceTree = "<group>"; };
+		0ACC273B1FFD6079007E9BA4 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		0ACC273D1FFD6091007E9BA4 /* GenreCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCheckViewController.swift; sourceTree = "<group>"; };
+		0ACC273F1FFD60C9007E9BA4 /* GenreCheckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCheckCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AEFBF081FF93D0A0090920B /* Easy Fun Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Fun Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AEFBF101FF93D0A0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -242,8 +250,20 @@
 			isa = PBXGroup;
 			children = (
 				0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */,
+				0ACC27381FFD5F2B007E9BA4 /* AnalysisViewController */,
 			);
 			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		0ACC27381FFD5F2B007E9BA4 /* AnalysisViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0ACC27391FFD6002007E9BA4 /* AnalysisStartViewController.swift */,
+				0ACC273B1FFD6079007E9BA4 /* UserInfoViewController.swift */,
+				0ACC273D1FFD6091007E9BA4 /* GenreCheckViewController.swift */,
+				0ACC273F1FFD60C9007E9BA4 /* GenreCheckCollectionViewCell.swift */,
+			);
+			path = AnalysisViewController;
 			sourceTree = "<group>";
 		};
 		0AEFBEFF1FF93D0A0090920B = {
@@ -439,14 +459,18 @@
 				0A149AB51FF9EAFB00E12932 /* DocentPlayerViewController.swift in Sources */,
 				0A149AC41FFA202C00E12932 /* DocentAroundTableViewController.swift in Sources */,
 				0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */,
+				0ACC27401FFD60C9007E9BA4 /* GenreCheckCollectionViewCell.swift in Sources */,
 				0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */,
 				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
 				0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */,
 				0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */,
+				0ACC273A1FFD6002007E9BA4 /* AnalysisStartViewController.swift in Sources */,
 				0A72FAFF1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift in Sources */,
+				0ACC273C1FFD6079007E9BA4 /* UserInfoViewController.swift in Sources */,
 				0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */,
 				0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */,
 				0A149AC01FFA1A4200E12932 /* DocentMainViewController.swift in Sources */,
+				0ACC273E1FFD6091007E9BA4 /* GenreCheckViewController.swift in Sources */,
 				0A149AC61FFA209A00E12932 /* DocentMyTableViewController.swift in Sources */,
 				0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */,
 				0ACC27331FFBBCF4007E9BA4 /* UIExtension.swift in Sources */,
