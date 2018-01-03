@@ -32,13 +32,25 @@ class DocentPlayerViewController: UIViewController {
     var audioCurrentTime = 0
     var audioCurrentMinute = 0
     var audioCurrentSecond = 0
+    var soundData = Data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "NYC (Frank Sinatra Sample)", ofType: "wav")!))
+            do {
+                if let url = URL(string : gsno("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")){
+                    soundData = try Data(contentsOf: url)
+                }
+            } catch let error as Error {
+                print(error.localizedDescription)
+            }
+            
+//            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "NYC (Frank Sinatra Sample)", ofType: "wav")!))
+            audioPlayer = try AVAudioPlayer(data: soundData)
             audioPlayer.prepareToPlay()
+            // https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3
+            // http://cdn.mos.musicradar.com/audio/samples/80s-heat-demos/AM_Eighties08_85-01.mp3
             
             let audioSession = AVAudioSession.sharedInstance()
             
@@ -54,7 +66,8 @@ class DocentPlayerViewController: UIViewController {
         audioDuration = Int(audioPlayer.duration+1)
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePlaySlider), userInfo: nil, repeats: true)
-        playTimeLabel.text = "\(Int(audioDuration/60)) : \(audioDuration%60)"
+//        playTimeLabel.text = "\(Int(audioDuration/60)) : \(audioDuration%60)"
+        playTimeLabel.text = String(format: "%02d : %02d", audioDuration/60, audioDuration%60)
         docentFirstSetting()
         
         scriptView.isHidden = true
@@ -62,6 +75,13 @@ class DocentPlayerViewController: UIViewController {
         
         let stringValue = "국립현대미술관은 현대영화사에 있어 독보적인 작품세계를 구현한 중요감독들의 작품을 전시로 재구성해 소개하는 프로젝트의 일환으로 <필립 가렐, 찬란한 절망>(2015)에 이어 두 번째 기획으로 미국 독립 실험영화의 대부인 요나스 메카스의 전시 <요나스 메카스 – 찰나, 힐긋, 돌아보다>를 개최한다. 아시아에서 처음으로 개최되는 이번 전시는 미국 아방가르드 영화의 역사를 개척한 리투아니아 출신의 실험영화 감독 요나스 메카스 인생의 중요한 지점, 변화, 흐름을 따라 구성된다. 요나스 메카스는 삶의 매순간을 일기를 쓰듯 자. 국립현대미술관은 현대영화사에 있어 독보적인 작품세계를 구현한 중요감독들의 작품을 전시로 재구성해 소개하는 프로젝트의 일환으로 <필립 가렐, 찬란한 절망>(2015)에 이어 두 번째 기획으로 미국 독립 실험영화의 대부인 요나스 메카스의 전시 <요나스 메카스 – 찰나, 힐긋, 돌아보다>를 개최한다. 아시아에서 처음으로 개최되는 이번 전시는 미국 아방가르드 영화의 역사를 개척한 리투아니아 출신의 실험영화 감독 요나스 메카스 인생의 중요한 지점, 변화, 흐름을 따라 구성된다. 요나스 메카스는 삶의 매순간을 일기를 쓰듯 자."
         scriptLabelSpacing(text: stringValue)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        audioPlayer.stop()
+        docentFirstSetting()
     }
     
     @IBAction func pressedPlayButton(_ sender: UIButton) {
@@ -110,11 +130,12 @@ class DocentPlayerViewController: UIViewController {
         
         if audioPlayer.isPlaying {
             playSlider.setValue(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
-            if audioCurrentSecond < 10 {
-                currentPlayTimeLabel.text = "\(audioCurrentMinute) : 0\(audioCurrentSecond)"
-            } else {
-                currentPlayTimeLabel.text = "\(audioCurrentMinute) : \(audioCurrentSecond)"
-            }
+//            if audioCurrentSecond < 10 {
+//                currentPlayTimeLabel.text = "\(audioCurrentMinute) : 0\(audioCurrentSecond)"
+//            } else {
+//                currentPlayTimeLabel.text = "\(audioCurrentMinute) : \(audioCurrentSecond)"
+//            }
+            currentPlayTimeLabel.text = String(format: "%02d : %02d", audioCurrentMinute, audioCurrentSecond)
         }
         if Int(audioCurrentTime) == Int(audioDuration) {
             scriptViewHidden(completion: {
