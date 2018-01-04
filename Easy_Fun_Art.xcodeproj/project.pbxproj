@@ -42,6 +42,13 @@
 		0ACC274A1FFDF761007E9BA4 /* MoodCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC27491FFDF761007E9BA4 /* MoodCheckViewController.swift */; };
 		0ACC274C1FFDF76B007E9BA4 /* TopicCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC274B1FFDF76B007E9BA4 /* TopicCheckViewController.swift */; };
 		0ACC274E1FFDF77C007E9BA4 /* AnalysisEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC274D1FFDF77C007E9BA4 /* AnalysisEndViewController.swift */; };
+		0ACFA01A1FFE5CFC00664489 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA0191FFE5CFC00664489 /* MainViewController.swift */; };
+		0ACFA01C1FFE5D7200664489 /* MainPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA01B1FFE5D7200664489 /* MainPopUpViewController.swift */; };
+		0ACFA01F1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA01D1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift */; };
+		0ACFA0201FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFA01E1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.xib */; };
+		0ACFA0231FFE5E3700664489 /* MainRecoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA0211FFE5E3700664489 /* MainRecoCollectionViewCell.swift */; };
+		0ACFA0241FFE5E3700664489 /* MainRecoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFA0221FFE5E3700664489 /* MainRecoCollectionViewCell.xib */; };
+		0ACFA0271FFE67E500664489 /* MainTopRecoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA0261FFE67E500664489 /* MainTopRecoCollectionViewCell.swift */; };
 		0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */; };
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
@@ -85,6 +92,13 @@
 		0ACC27491FFDF761007E9BA4 /* MoodCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCheckViewController.swift; sourceTree = "<group>"; };
 		0ACC274B1FFDF76B007E9BA4 /* TopicCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCheckViewController.swift; sourceTree = "<group>"; };
 		0ACC274D1FFDF77C007E9BA4 /* AnalysisEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisEndViewController.swift; sourceTree = "<group>"; };
+		0ACFA0191FFE5CFC00664489 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0ACFA01B1FFE5D7200664489 /* MainPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPopUpViewController.swift; sourceTree = "<group>"; };
+		0ACFA01D1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecoHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		0ACFA01E1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainRecoHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		0ACFA0211FFE5E3700664489 /* MainRecoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecoCollectionViewCell.swift; sourceTree = "<group>"; };
+		0ACFA0221FFE5E3700664489 /* MainRecoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainRecoCollectionViewCell.xib; sourceTree = "<group>"; };
+		0ACFA0261FFE67E500664489 /* MainTopRecoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopRecoCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AEFBF081FF93D0A0090920B /* Easy Fun Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Fun Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AEFBF101FF93D0A0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +143,11 @@
 		0A149AB01FF9EA9300E12932 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0ACFA0191FFE5CFC00664489 /* MainViewController.swift */,
+				0ACFA0261FFE67E500664489 /* MainTopRecoCollectionViewCell.swift */,
+				0ACFA01D1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift */,
+				0ACFA0211FFE5E3700664489 /* MainRecoCollectionViewCell.swift */,
+				0ACFA01B1FFE5D7200664489 /* MainPopUpViewController.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -255,6 +274,7 @@
 			children = (
 				0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */,
 				0A149AB61FF9F86400E12932 /* ToggleButton.swift */,
+				0ACFA0251FFE5E4400664489 /* MainViewController */,
 				0A149ACB1FFA2F0D00E12932 /* DocentViewController */,
 			);
 			path = UI;
@@ -285,6 +305,15 @@
 				0ACC274D1FFDF77C007E9BA4 /* AnalysisEndViewController.swift */,
 			);
 			path = AnalysisViewController;
+			sourceTree = "<group>";
+		};
+		0ACFA0251FFE5E4400664489 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0ACFA01E1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.xib */,
+				0ACFA0221FFE5E3700664489 /* MainRecoCollectionViewCell.xib */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 		0AEFBEFF1FF93D0A0090920B = {
@@ -413,6 +442,8 @@
 				0A149AAE1FF9D5DF00E12932 /* MyPage.storyboard in Resources */,
 				0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */,
 				0A149AAC1FF9D5CE00E12932 /* Search.storyboard in Resources */,
+				0ACFA0201FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.xib in Resources */,
+				0ACFA0241FFE5E3700664489 /* MainRecoCollectionViewCell.xib in Resources */,
 				0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */,
 				0A149ABD1FF9FADB00E12932 /* Life In Motion.wav in Resources */,
 				0A149AD71FFA527A00E12932 /* DocentPlayListHeaderCell.xib in Resources */,
@@ -477,6 +508,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ACFA0231FFE5E3700664489 /* MainRecoCollectionViewCell.swift in Sources */,
+				0ACFA01C1FFE5D7200664489 /* MainPopUpViewController.swift in Sources */,
 				0ACC27481FFDF757007E9BA4 /* PlaceCheckViewController.swift in Sources */,
 				0A149AB51FF9EAFB00E12932 /* DocentPlayerViewController.swift in Sources */,
 				0A149AC41FFA202C00E12932 /* DocentAroundTableViewController.swift in Sources */,
@@ -485,6 +518,7 @@
 				0ACC27401FFD60C9007E9BA4 /* GenreCheckCollectionViewCell.swift in Sources */,
 				0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */,
 				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
+				0ACFA0271FFE67E500664489 /* MainTopRecoCollectionViewCell.swift in Sources */,
 				0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */,
 				0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */,
 				0ACC273A1FFD6002007E9BA4 /* AnalysisStartViewController.swift in Sources */,
@@ -496,11 +530,13 @@
 				0ACC27421FFDF720007E9BA4 /* PlaceCheckCollectionViewCell.swift in Sources */,
 				0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */,
 				0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */,
+				0ACFA01F1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift in Sources */,
 				0ACC274C1FFDF76B007E9BA4 /* TopicCheckViewController.swift in Sources */,
 				0A149AC01FFA1A4200E12932 /* DocentMainViewController.swift in Sources */,
 				0ACC273E1FFD6091007E9BA4 /* GenreCheckViewController.swift in Sources */,
 				0A149AC61FFA209A00E12932 /* DocentMyTableViewController.swift in Sources */,
 				0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */,
+				0ACFA01A1FFE5CFC00664489 /* MainViewController.swift in Sources */,
 				0ACC27331FFBBCF4007E9BA4 /* UIExtension.swift in Sources */,
 				0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */,
 			);

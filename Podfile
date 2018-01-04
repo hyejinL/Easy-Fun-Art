@@ -12,6 +12,7 @@ target 'Easy_Fun_Art' do
     pod 'FacebookCore'
     pod 'FacebookLogin'
     pod 'FacebookShare'
+    pod 'Cosmos'
 
   # Pods for Easy_Fun_Art
 
