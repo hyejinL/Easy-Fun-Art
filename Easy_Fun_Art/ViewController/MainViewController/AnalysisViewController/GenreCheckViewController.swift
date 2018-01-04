@@ -40,10 +40,14 @@ class GenreCheckViewController: UIViewController {
 //    }
 
     @IBAction func pressedAnalysisNextButton(_ sender: Any) {
-        let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
-        self.present(tabbarViewController, animated: true, completion: nil)
+        let placeCheckViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: PlaceCheckViewController.reuseIdentifier) as! PlaceCheckViewController
+        
+        self.navigationController?.pushViewController(placeCheckViewController, animated: true)
     }
     
+    @IBAction func pressedAnalysisBeforeButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension GenreCheckViewController: UICollectionViewDelegate, UICollectionViewDataSource {
