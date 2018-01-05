@@ -99,6 +99,9 @@
                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGN-j7-Rgb">
+                        <rect key="frame" x="145" y="0.0" width="230" height="131"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,6 +109,7 @@
                 <constraint firstItem="KcU-Lf-FVi" firstAttribute="leading" secondItem="5Z2-hj-osC" secondAttribute="trailing" constant="15" id="1Cs-Po-bmI"/>
                 <constraint firstItem="5Z2-hj-osC" firstAttribute="trailing" secondItem="qBv-rv-Pog" secondAttribute="trailing" id="27p-dc-3QE"/>
                 <constraint firstItem="qBv-rv-Pog" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6uu-u1-XbF"/>
+                <constraint firstItem="QGN-j7-Rgb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8Av-bq-mJu"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KcU-Lf-FVi" secondAttribute="trailing" constant="15" id="ATM-CC-FWC"/>
                 <constraint firstItem="76d-Ry-9ka" firstAttribute="leading" secondItem="qBv-rv-Pog" secondAttribute="trailing" id="H8l-5G-Z7T"/>
                 <constraint firstItem="5Z2-hj-osC" firstAttribute="top" secondItem="qBv-rv-Pog" secondAttribute="top" id="HaD-zr-rCA"/>
@@ -114,13 +118,17 @@
                 <constraint firstAttribute="bottom" secondItem="qBv-rv-Pog" secondAttribute="bottom" id="On1-dg-Wyd"/>
                 <constraint firstAttribute="bottom" secondItem="76d-Ry-9ka" secondAttribute="bottom" id="P7h-b0-ypz"/>
                 <constraint firstItem="KcU-Lf-FVi" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="19" id="XnZ-xU-ew8"/>
+                <constraint firstItem="x6a-QR-dMR" firstAttribute="height" secondItem="qBv-rv-Pog" secondAttribute="height" multiplier="36:175" id="ab6-Tw-pDG"/>
                 <constraint firstItem="5Z2-hj-osC" firstAttribute="bottom" secondItem="qBv-rv-Pog" secondAttribute="bottom" id="abU-HZ-0n9"/>
                 <constraint firstItem="qBv-rv-Pog" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gc6-Nc-hhw"/>
+                <constraint firstItem="76d-Ry-9ka" firstAttribute="top" secondItem="QGN-j7-Rgb" secondAttribute="bottom" constant="8" id="h1C-1c-jnN"/>
                 <constraint firstItem="2h9-Nj-SD7" firstAttribute="top" secondItem="KcU-Lf-FVi" secondAttribute="bottom" constant="14" id="m81-qw-RcD"/>
                 <constraint firstItem="2h9-Nj-SD7" firstAttribute="leading" secondItem="KcU-Lf-FVi" secondAttribute="leading" id="mdI-yd-tie"/>
                 <constraint firstItem="3Am-EM-R2V" firstAttribute="leading" secondItem="2h9-Nj-SD7" secondAttribute="leading" id="rxQ-DA-3rG"/>
                 <constraint firstItem="qBv-rv-Pog" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="145:375" id="sRe-1b-BGA"/>
                 <constraint firstItem="5Z2-hj-osC" firstAttribute="leading" secondItem="qBv-rv-Pog" secondAttribute="leading" id="taI-jI-e1m"/>
+                <constraint firstAttribute="trailing" secondItem="QGN-j7-Rgb" secondAttribute="trailing" id="tc7-lx-3Mw"/>
+                <constraint firstItem="QGN-j7-Rgb" firstAttribute="leading" secondItem="qBv-rv-Pog" secondAttribute="trailing" id="wz0-fK-iMh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="125" height="49"/>
@@ -128,6 +136,7 @@
                 <outlet property="exhibitionImageView" destination="qBv-rv-Pog" id="RXe-dv-nhL"/>
                 <outlet property="exhibitionRatingView" destination="Gkt-TL-Gdz" id="23q-gN-gDF"/>
                 <outlet property="goDocentButton" destination="ZNX-aJ-bs3" id="qe2-KW-uYO"/>
+                <outlet property="goExhibitionDetailView" destination="QGN-j7-Rgb" id="KSI-M3-gub"/>
                 <outlet property="likeButton" destination="x6a-QR-dMR" id="Cic-TB-814"/>
             </connections>
             <point key="canvasLocation" x="107.5" y="53.5"/>

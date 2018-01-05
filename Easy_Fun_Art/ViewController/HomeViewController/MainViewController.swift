@@ -26,12 +26,18 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        bottomRecommendCollectionViewHeight.constant = bottomRecommendCollectionView.contentSize.height
+        bottomRecommendCollectionViewHeight.constant = bottomRecommendCollectionView.contentSize.height+100
     }
     
     @objc func goDocentPopUp() {
         let mainPopUpViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: MainPopUpViewController.reuseIdentifier) as! MainPopUpViewController
         self.present(mainPopUpViewController, animated: true, completion: nil)
+    }
+    
+    @objc func goExhibitionDetailView() {
+        let exhibitionInfoViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoViewController.reuseIdentifier) as! ExhibitionInfoViewController
+        self.navigationController?.pushViewController(exhibitionInfoViewController, animated: true)
+//        self.present(exhibitionInfoViewController, animated: true, completion: nil)
     }
 }
 
@@ -78,6 +84,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainRecoCollectionViewCell.reuseIdentifier, for: indexPath) as! MainRecoCollectionViewCell
             cell.exhibitionRatingView.rating = Double(indexPath.row)+1.7
             cell.goDocentButton.addTarget(self, action: #selector(goDocentPopUp), for: .touchUpInside)
+            cell.goExhibitionDetailView.addTarget(self, action: #selector(goExhibitionDetailView), for: .touchUpInside)
 
             return cell
         }

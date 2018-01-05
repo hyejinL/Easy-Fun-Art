@@ -24,6 +24,7 @@
 		0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A149ACE1FFA2F7800E12932 /* DocentListTableViewCell.swift */; };
 		0A149AD11FFA2F7800E12932 /* DocentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */; };
 		0A149AD71FFA527A00E12932 /* DocentPlayListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */; };
+		0A1A22D41FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */; };
 		0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAF71FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift */; };
 		0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */; };
 		0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */; };
@@ -49,6 +50,7 @@
 		0ACFA0231FFE5E3700664489 /* MainRecoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA0211FFE5E3700664489 /* MainRecoCollectionViewCell.swift */; };
 		0ACFA0241FFE5E3700664489 /* MainRecoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFA0221FFE5E3700664489 /* MainRecoCollectionViewCell.xib */; };
 		0ACFA0271FFE67E500664489 /* MainTopRecoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA0261FFE67E500664489 /* MainTopRecoCollectionViewCell.swift */; };
+		0ACFA02D1FFEB3E700664489 /* ExhibitionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA02C1FFEB3E700664489 /* ExhibitionInfoViewController.swift */; };
 		0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */; };
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
@@ -74,6 +76,7 @@
 		0A149ACE1FFA2F7800E12932 /* DocentListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentListTableViewCell.swift; sourceTree = "<group>"; };
 		0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentListTableViewCell.xib; sourceTree = "<group>"; };
 		0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentPlayListHeaderCell.xib; sourceTree = "<group>"; };
+		0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionInfoHeaderViewController.swift; sourceTree = "<group>"; };
 		0A72FAF71FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListTableViewController.swift; sourceTree = "<group>"; };
 		0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListTableViewCell.swift; sourceTree = "<group>"; };
 		0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		0ACFA0211FFE5E3700664489 /* MainRecoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRecoCollectionViewCell.swift; sourceTree = "<group>"; };
 		0ACFA0221FFE5E3700664489 /* MainRecoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainRecoCollectionViewCell.xib; sourceTree = "<group>"; };
 		0ACFA0261FFE67E500664489 /* MainTopRecoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopRecoCollectionViewCell.swift; sourceTree = "<group>"; };
+		0ACFA02C1FFEB3E700664489 /* ExhibitionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionInfoViewController.swift; sourceTree = "<group>"; };
 		0AEFBF081FF93D0A0090920B /* Easy Fun Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Fun Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AEFBF101FF93D0A0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				0ACFA01D1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift */,
 				0ACFA0211FFE5E3700664489 /* MainRecoCollectionViewCell.swift */,
 				0ACFA01B1FFE5D7200664489 /* MainPopUpViewController.swift */,
+				0ACFA02C1FFEB3E700664489 /* ExhibitionInfoViewController.swift */,
+				0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				0A149AC41FFA202C00E12932 /* DocentAroundTableViewController.swift in Sources */,
 				0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */,
 				0ACC27461FFDF743007E9BA4 /* TopicCheckCollectionViewCell.swift in Sources */,
+				0ACFA02D1FFEB3E700664489 /* ExhibitionInfoViewController.swift in Sources */,
 				0ACC27401FFD60C9007E9BA4 /* GenreCheckCollectionViewCell.swift in Sources */,
 				0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */,
 				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
@@ -536,6 +543,7 @@
 				0ACC273E1FFD6091007E9BA4 /* GenreCheckViewController.swift in Sources */,
 				0A149AC61FFA209A00E12932 /* DocentMyTableViewController.swift in Sources */,
 				0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */,
+				0A1A22D41FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift in Sources */,
 				0ACFA01A1FFE5CFC00664489 /* MainViewController.swift in Sources */,
 				0ACC27331FFBBCF4007E9BA4 /* UIExtension.swift in Sources */,
 				0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */,
@@ -612,7 +620,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -663,7 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
