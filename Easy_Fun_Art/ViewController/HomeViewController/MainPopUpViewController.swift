@@ -10,26 +10,30 @@ import UIKit
 
 class MainPopUpViewController: UIViewController {
 
+    @IBOutlet weak var docentPopUpView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        docentPopUpView.viewAnimation()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func pressedDismissButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    @IBAction func goExhibitionDetailView(_ sender: Any) {
+        
+        let exhibitionInfoViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoViewController.reuseIdentifier) as! ExhibitionInfoViewController
+        let navi = self.presentingViewController as? UINavigationController
+        
+        self.dismiss(animated: true) {
+            navi?.pushViewController(exhibitionInfoViewController, animated: true)
+        }
+    }
 }

@@ -20,3 +20,16 @@ extension UIButton {
         })
     }
 }
+
+extension UIView {
+    
+    func viewAnimation() {
+        UIView.animate(withDuration: 0.13, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        }, completion:{ _ in
+            UIView.animate(withDuration: 0.13, animations: {
+                self.transform = CGAffineTransform.identity
+            })
+        })
+    }
+}

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -215,6 +214,9 @@
                                         <state key="normal" title="자세히 보기">
                                             <color key="titleColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="goExhibitionDetailView:" destination="1pz-rF-Dah" eventType="touchUpInside" id="WjI-0r-qXq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBE-zd-Yh4">
                                         <rect key="frame" x="234.5" y="14" width="14.5" height="20.5"/>
@@ -222,6 +224,9 @@
                                             <constraint firstAttribute="width" secondItem="ZBE-zd-Yh4" secondAttribute="height" multiplier="8:11" id="koA-cp-dx6"/>
                                         </constraints>
                                         <state key="normal" image="btn_popup_close"/>
+                                        <connections>
+                                            <action selector="pressedDismissButton:" destination="1pz-rF-Dah" eventType="touchUpInside" id="gdh-c4-9fH"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ufv-q6-OrE">
                                         <rect key="frame" x="0.0" y="47.5" width="263" height="208"/>
@@ -294,6 +299,9 @@
                             <constraint firstItem="dX5-Nu-gpn" firstAttribute="centerY" secondItem="Ljr-Qx-bm4" secondAttribute="centerY" id="yY8-Qt-3fm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="docentPopUpView" destination="dX5-Nu-gpn" id="Fr6-OP-Onv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXN-hP-sce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
