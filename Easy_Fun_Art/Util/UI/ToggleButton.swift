@@ -36,5 +36,6 @@ class ToggleButton : UIButton {
     
     @objc func buttonPressed (sender: UIButton) {
         isChecked = !isChecked
+        sender.buttonAnimation()
     }
 }

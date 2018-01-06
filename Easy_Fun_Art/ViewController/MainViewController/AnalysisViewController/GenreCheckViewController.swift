@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GenreCheckViewController: UIViewController {
+class GenreCheckViewController : UIViewController {
 
     @IBOutlet weak var genreCollectionView: UICollectionView!
     @IBOutlet weak var genreCollectionViewHeight: NSLayoutConstraint!

@@ -32,12 +32,16 @@
 		0A1A22E220009B5900389767 /* StarRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22E120009B5900389767 /* StarRatingViewController.swift */; };
 		0A1A22E420009B6600389767 /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22E320009B6600389767 /* LikeViewController.swift */; };
 		0A1A22E62000CAEF00389767 /* MyPageMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22E52000CAEF00389767 /* MyPageMainViewController.swift */; };
+		0A1A22E82000E28D00389767 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22E72000E28D00389767 /* APIService.swift */; };
+		0A1A22EA2000E32400389767 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22E92000E32400389767 /* UserService.swift */; };
+		0A1A22EC2000E58700389767 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22EB2000E58700389767 /* User.swift */; };
 		0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAF71FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift */; };
 		0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */; };
 		0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */; };
 		0A72FAFF1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */; };
 		0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */; };
 		0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */; };
+		0AC3C259200123FD009ACD14 /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC3C258200123FD009ACD14 /* CustomLoadingView.swift */; };
 		0ACC27331FFBBCF4007E9BA4 /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */; };
 		0ACC273A1FFD6002007E9BA4 /* AnalysisStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC27391FFD6002007E9BA4 /* AnalysisStartViewController.swift */; };
 		0ACC273C1FFD6079007E9BA4 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC273B1FFD6079007E9BA4 /* UserInfoViewController.swift */; };
@@ -91,12 +95,16 @@
 		0A1A22E120009B5900389767 /* StarRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingViewController.swift; sourceTree = "<group>"; };
 		0A1A22E320009B6600389767 /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 		0A1A22E52000CAEF00389767 /* MyPageMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMainViewController.swift; sourceTree = "<group>"; };
+		0A1A22E72000E28D00389767 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		0A1A22E92000E32400389767 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		0A1A22EB2000E58700389767 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0A72FAF71FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListTableViewController.swift; sourceTree = "<group>"; };
 		0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListTableViewCell.swift; sourceTree = "<group>"; };
 		0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListHeaderCell.swift; sourceTree = "<group>"; };
 		0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
 		0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentEndViewController.swift; sourceTree = "<group>"; };
+		0AC3C258200123FD009ACD14 /* CustomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
 		0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
 		0ACC27391FFD6002007E9BA4 /* AnalysisStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisStartViewController.swift; sourceTree = "<group>"; };
 		0ACC273B1FFD6079007E9BA4 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +268,7 @@
 		0A617E951FF9404800268A91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A1A22EB2000E58700389767 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +276,8 @@
 		0A617E961FF9407000268A91 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				0A1A22E72000E28D00389767 /* APIService.swift */,
+				0A1A22E92000E32400389767 /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -301,6 +312,7 @@
 			children = (
 				0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */,
 				0A149AB61FF9F86400E12932 /* ToggleButton.swift */,
+				0AC3C258200123FD009ACD14 /* CustomLoadingView.swift */,
 				0ACFA0251FFE5E4400664489 /* MainViewController */,
 				0A149ACB1FFA2F0D00E12932 /* DocentViewController */,
 			);
@@ -549,6 +561,8 @@
 				0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */,
 				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
 				0ACFA0271FFE67E500664489 /* MainTopRecoCollectionViewCell.swift in Sources */,
+				0AC3C259200123FD009ACD14 /* CustomLoadingView.swift in Sources */,
+				0A1A22EA2000E32400389767 /* UserService.swift in Sources */,
 				0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */,
 				0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */,
 				0ACC273A1FFD6002007E9BA4 /* AnalysisStartViewController.swift in Sources */,
@@ -556,6 +570,7 @@
 				0ACC274E1FFDF77C007E9BA4 /* AnalysisEndViewController.swift in Sources */,
 				0ACC274A1FFDF761007E9BA4 /* MoodCheckViewController.swift in Sources */,
 				0ACC273C1FFD6079007E9BA4 /* UserInfoViewController.swift in Sources */,
+				0A1A22E82000E28D00389767 /* APIService.swift in Sources */,
 				0ACC27441FFDF72F007E9BA4 /* MoodCheckCollectionViewCell.swift in Sources */,
 				0ACC27421FFDF720007E9BA4 /* PlaceCheckCollectionViewCell.swift in Sources */,
 				0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */,
@@ -575,6 +590,7 @@
 				0ACFA01A1FFE5CFC00664489 /* MainViewController.swift in Sources */,
 				0ACC27331FFBBCF4007E9BA4 /* UIExtension.swift in Sources */,
 				0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */,
+				0A1A22EC2000E58700389767 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

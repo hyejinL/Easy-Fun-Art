@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import NVActivityIndicatorView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        NVActivityIndicatorView.DEFAULT_TYPE = .lineScalePulseOut
+        NVActivityIndicatorView.DEFAULT_COLOR = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(3.0)
         
         // facebook login 설정
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

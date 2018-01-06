@@ -19,6 +19,7 @@ class SplashViewController: UIViewController {
     @IBOutlet weak var kakaotalkStartButton: UIButton!
     
     var fbData: UserDataRequest.Response?
+    let userdefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,34 +35,33 @@ class SplashViewController: UIViewController {
     }
     
     @IBAction func pressedFacebookStart(_ sender: Any) {
-//        let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
-//        self.present(tabbarViewController, animated: true, completion: nil)
-        let loginManager = LoginManager()
+        loading(.start)
         
-        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) { (loginResult) in
-            switch loginResult {
-            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
-                self.getFacebookUserData()
-                
-//                let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
-//                self.present(tabbarViewController, animated: true, completion: nil)
-                let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
-                self.present(analysisStartViewController, animated: true, completion: nil)
-
-                break
-            case .failed(let err as NSError):
-                print(err.localizedDescription)
-                break
-            case .cancelled:
-                print("페북 로그인 취소")
-                break
+        if (FBSDKAccessToken.current()) != nil {
+            getFacebookUserData()
+        } else {
+            let loginManager = LoginManager()
+            
+            loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) { (loginResult) in
+                switch loginResult {
+                case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+                    self.getFacebookUserData()
+                    
+                    break
+                case .failed(let err as NSError):
+                    print(err.localizedDescription)
+                    break
+                case .cancelled:
+                    print("페북 로그인 취소")
+                    break
+                }
             }
         }
     }
     
     @IBAction func pressedKakaoStart(_ sender: Any) {
-        let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
-        self.present(analysisStartViewController, animated: true, completion: nil)
+        let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
+        self.present(tabbarViewController, animated: true, completion: nil)
     }
     
     func splashAnimation() {
@@ -88,12 +88,33 @@ class SplashViewController: UIViewController {
             case .success(let graphResponse):
                 self.fbData = graphResponse
                 print(graphResponse.email, graphResponse.id, graphResponse.name, graphResponse.profileURL)
+                self.userdefault.set("facebook", forKey: "loginType")
+                self.loginAction(graphResponse: graphResponse)
                 break
             case .failed :
                 break
             }
         }
         connection.start()
+    }
+    
+    func loginAction(graphResponse: UserDataRequest.Response) {
+        UserService.sharedInstance.userLogin(snsToken: graphResponse.id) { (result) in
+            switch result {
+            case .success(let userToken):
+                self.userdefault.set(userToken, forKey: "token")
+                
+                let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
+                self.present(analysisStartViewController, animated: true, completion: {
+                    self.loading(.end)
+                })
+                
+                break
+            case .error(let msg):
+                print(msg)
+                break
+            }
+        }
     }
 
 }

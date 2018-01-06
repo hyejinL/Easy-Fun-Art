@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+enum LoadingState {
+    case start
+    case end
+}
+
 extension NSObject{
     static var reuseIdentifier: String {
         return String(describing: self)
@@ -52,6 +57,14 @@ extension UIViewController {
         present(alert, animated: true)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.3) {
             alert.dismiss(animated: true)
+        }
+    }
+    
+    func loading(_ state: LoadingState) {
+        if state == .start {
+            CustomLoadingView.shared.startLoading(view)
+        } else {
+            CustomLoadingView.shared.stopLoading()
         }
     }
 }

@@ -15,6 +15,7 @@ target 'Easy_Fun_Art' do
     pod 'FacebookShare'
     pod 'Cosmos'
     pod 'SJSegmentedScrollView', '1.3.8'
+    pod 'NVActivityIndicatorView'
 
   # Pods for Easy_Fun_Art
 

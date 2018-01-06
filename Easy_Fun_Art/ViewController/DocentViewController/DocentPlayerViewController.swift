@@ -39,21 +39,21 @@ class DocentPlayerViewController: UIViewController {
 
         do {
             do {
-                if let url = URL(string : gsno("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")){
+                if let url = URL(string : gsno("http://ds54q4yvb82ly.cloudfront.net/Little+Dream.mp3")){
                     soundData = try Data(contentsOf: url)
                 }
             } catch let error as Error {
                 print(error.localizedDescription)
             }
-            
+
 //            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "NYC (Frank Sinatra Sample)", ofType: "wav")!))
             audioPlayer = try AVAudioPlayer(data: soundData)
             audioPlayer.prepareToPlay()
             // https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3
             // http://cdn.mos.musicradar.com/audio/samples/80s-heat-demos/AM_Eighties08_85-01.mp3
-            
+
             let audioSession = AVAudioSession.sharedInstance()
-            
+
             do {
                 try audioSession.setCategory(AVAudioSessionCategoryPlayback)
             } catch let error as NSError {
@@ -62,6 +62,24 @@ class DocentPlayerViewController: UIViewController {
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+//        do {
+//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+//            try AVAudioSession.sharedInstance().setActive(true)
+//
+//            audioPlayer = try AVAudioPlayer(contentsOf: URL(string: "http://13.124.97.161:3000/")!)
+//
+//            audioPlayer.play()
+//        } catch let error as NSError {
+//
+//
+//
+//            print(error.localizedDescription)
+//
+//        } catch {
+//
+//            print("AVAudioPlayer init failed")
+//
+//        }
         
         audioDuration = Int(audioPlayer.duration+1)
         

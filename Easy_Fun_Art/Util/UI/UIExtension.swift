@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    func buttonAnimation() {
+    @objc func buttonAnimation() {
         UIView.animate(withDuration: 0.13, animations: {
             self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         }, completion:{ _ in
@@ -22,7 +22,6 @@ extension UIButton {
 }
 
 extension UIView {
-    
     func viewAnimation() {
         UIView.animate(withDuration: 0.13, animations: {
             self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)

@@ -26,6 +26,9 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.29.0):
     - FBSDKCoreKit
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
   - RAMAnimatedTabBarController (3.0.1)
   - SJSegmentedScrollView (1.3.8)
   - SwiftyJSON (4.0.0)
@@ -37,6 +40,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - NVActivityIndicatorView
   - RAMAnimatedTabBarController
   - SJSegmentedScrollView (= 1.3.8)
   - SwiftyJSON
@@ -52,11 +56,12 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
   FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
   FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   RAMAnimatedTabBarController: 78bafa7a1c1b162f0d4a86a936c0d1ee4a06ffcc
   SJSegmentedScrollView: 2308af5e7dbbbcbf7042efd47128f162186ed078
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: 186929892486f0f26733040260ff8a2b60f17eed
+PODFILE CHECKSUM: a69091c8e4d929ec5868121183e0d60fcc2d062f
 
 COCOAPODS: 1.2.1
