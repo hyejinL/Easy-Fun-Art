@@ -39,6 +39,11 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(exhibitionInfoViewController, animated: true)
 //        self.present(exhibitionInfoViewController, animated: true, completion: nil)
     }
+    
+    @objc func pressedLikeIt() {
+        let likeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: LikeViewController.reuseIdentifier) as! LikeViewController
+        self.present(likeViewController, animated: true, completion: nil)
+    }
 }
 
 extension MainViewController {
@@ -85,6 +90,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.exhibitionRatingView.rating = Double(indexPath.row)+1.7
             cell.goDocentButton.addTarget(self, action: #selector(goDocentPopUp), for: .touchUpInside)
             cell.goExhibitionDetailView.addTarget(self, action: #selector(goExhibitionDetailView), for: .touchUpInside)
+            cell.likeButton.addTarget(self, action: #selector(pressedLikeIt), for: .touchUpInside)
 
             return cell
         }

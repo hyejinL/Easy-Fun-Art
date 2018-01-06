@@ -25,6 +25,12 @@
 		0A149AD11FFA2F7800E12932 /* DocentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */; };
 		0A149AD71FFA527A00E12932 /* DocentPlayListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */; };
 		0A1A22D41FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */; };
+		0A1A22DA1FFFF89700389767 /* ExhibitionDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22D91FFFF89700389767 /* ExhibitionDetailInfoViewController.swift */; };
+		0A1A22DC1FFFF8DE00389767 /* GalleryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22DB1FFFF8DE00389767 /* GalleryInfoViewController.swift */; };
+		0A1A22DE1FFFF8F000389767 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22DD1FFFF8F000389767 /* ReviewViewController.swift */; };
+		0A1A22E01FFFFAFA00389767 /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22DF1FFFFAFA00389767 /* HashTagCollectionViewCell.swift */; };
+		0A1A22E220009B5900389767 /* StarRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22E120009B5900389767 /* StarRatingViewController.swift */; };
+		0A1A22E420009B6600389767 /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22E320009B6600389767 /* LikeViewController.swift */; };
 		0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAF71FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift */; };
 		0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */; };
 		0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */; };
@@ -77,6 +83,12 @@
 		0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentListTableViewCell.xib; sourceTree = "<group>"; };
 		0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentPlayListHeaderCell.xib; sourceTree = "<group>"; };
 		0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionInfoHeaderViewController.swift; sourceTree = "<group>"; };
+		0A1A22D91FFFF89700389767 /* ExhibitionDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailInfoViewController.swift; sourceTree = "<group>"; };
+		0A1A22DB1FFFF8DE00389767 /* GalleryInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryInfoViewController.swift; sourceTree = "<group>"; };
+		0A1A22DD1FFFF8F000389767 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		0A1A22DF1FFFFAFA00389767 /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		0A1A22E120009B5900389767 /* StarRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingViewController.swift; sourceTree = "<group>"; };
+		0A1A22E320009B6600389767 /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 		0A72FAF71FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListTableViewController.swift; sourceTree = "<group>"; };
 		0A72FAF91FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListTableViewCell.swift; sourceTree = "<group>"; };
 		0A72FAFC1FFA5D7B0051EF9A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +166,12 @@
 				0ACFA01B1FFE5D7200664489 /* MainPopUpViewController.swift */,
 				0ACFA02C1FFEB3E700664489 /* ExhibitionInfoViewController.swift */,
 				0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */,
+				0A1A22D91FFFF89700389767 /* ExhibitionDetailInfoViewController.swift */,
+				0A1A22DF1FFFFAFA00389767 /* HashTagCollectionViewCell.swift */,
+				0A1A22DB1FFFF8DE00389767 /* GalleryInfoViewController.swift */,
+				0A1A22DD1FFFF8F000389767 /* ReviewViewController.swift */,
+				0A1A22E120009B5900389767 /* StarRatingViewController.swift */,
+				0A1A22E320009B6600389767 /* LikeViewController.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -519,8 +537,10 @@
 				0ACC27481FFDF757007E9BA4 /* PlaceCheckViewController.swift in Sources */,
 				0A149AB51FF9EAFB00E12932 /* DocentPlayerViewController.swift in Sources */,
 				0A149AC41FFA202C00E12932 /* DocentAroundTableViewController.swift in Sources */,
+				0A1A22E220009B5900389767 /* StarRatingViewController.swift in Sources */,
 				0A72FAFA1FFA5B5F0051EF9A /* DocentPlayListTableViewCell.swift in Sources */,
 				0ACC27461FFDF743007E9BA4 /* TopicCheckCollectionViewCell.swift in Sources */,
+				0A1A22E420009B6600389767 /* LikeViewController.swift in Sources */,
 				0ACFA02D1FFEB3E700664489 /* ExhibitionInfoViewController.swift in Sources */,
 				0ACC27401FFD60C9007E9BA4 /* GenreCheckCollectionViewCell.swift in Sources */,
 				0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */,
@@ -536,14 +556,18 @@
 				0ACC27441FFDF72F007E9BA4 /* MoodCheckCollectionViewCell.swift in Sources */,
 				0ACC27421FFDF720007E9BA4 /* PlaceCheckCollectionViewCell.swift in Sources */,
 				0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */,
+				0A1A22DC1FFFF8DE00389767 /* GalleryInfoViewController.swift in Sources */,
 				0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */,
 				0ACFA01F1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift in Sources */,
+				0A1A22DA1FFFF89700389767 /* ExhibitionDetailInfoViewController.swift in Sources */,
+				0A1A22DE1FFFF8F000389767 /* ReviewViewController.swift in Sources */,
 				0ACC274C1FFDF76B007E9BA4 /* TopicCheckViewController.swift in Sources */,
 				0A149AC01FFA1A4200E12932 /* DocentMainViewController.swift in Sources */,
 				0ACC273E1FFD6091007E9BA4 /* GenreCheckViewController.swift in Sources */,
 				0A149AC61FFA209A00E12932 /* DocentMyTableViewController.swift in Sources */,
 				0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */,
 				0A1A22D41FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift in Sources */,
+				0A1A22E01FFFFAFA00389767 /* HashTagCollectionViewCell.swift in Sources */,
 				0ACFA01A1FFE5CFC00664489 /* MainViewController.swift in Sources */,
 				0ACC27331FFBBCF4007E9BA4 /* UIExtension.swift in Sources */,
 				0A72FAFD1FFA5D7B0051EF9A /* SplashViewController.swift in Sources */,

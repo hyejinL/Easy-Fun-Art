@@ -22,10 +22,10 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         let firstViewController = storyboard.instantiateViewController(withIdentifier: DocentAroundTableViewController.reuseIdentifier) as! DocentAroundTableViewController
         firstViewController.title = "전시정보"
         
-        let secondViewController = storyboard.instantiateViewController(withIdentifier: DocentMyTableViewController.reuseIdentifier) as! DocentMyTableViewController
+        let secondViewController = storyboard.instantiateViewController(withIdentifier: DocentAroundTableViewController.reuseIdentifier) as! DocentAroundTableViewController
         secondViewController.title = "갤러리정보"
         
-        let thirdViewController = storyboard.instantiateViewController(withIdentifier: DocentMyTableViewController.reuseIdentifier) as! DocentMyTableViewController
+        let thirdViewController = storyboard.instantiateViewController(withIdentifier: DocentAroundTableViewController.reuseIdentifier) as! DocentAroundTableViewController
         thirdViewController.title = "리뷰"
         
         segmentControllers = [firstViewController, secondViewController, thirdViewController]
