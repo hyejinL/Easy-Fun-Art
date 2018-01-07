@@ -67,4 +67,25 @@ extension UIViewController {
             CustomLoadingView.shared.stopLoading()
         }
     }
+    
+    // MARK: View Height with Keyboard
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                let keyboard_height = keyboardSize.height
+                let centerY = (self.view.frame.height - keyboard_height)/2
+                self.view.center.y = centerY
+                view.layoutIfNeeded()
+//                check = false
+            }//if let keyboardSize
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+            view.layoutIfNeeded()
+//            check = true
+        }
+    }
 }

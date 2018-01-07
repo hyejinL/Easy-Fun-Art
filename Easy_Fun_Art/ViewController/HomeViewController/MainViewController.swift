@@ -13,6 +13,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var topRecommendCollectionView: UICollectionView!
     @IBOutlet weak var bottomRecommendCollectionView: UICollectionView!
     @IBOutlet weak var bottomRecommendCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var docentSearchTextField: UITextField!
+    
+    var homeTopData: [HomeExhibition]?
+    var homeBottomData: Home.HomeData.HomeBottomData?
+    var homeBottomTheme: [HomeExhibition]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +27,40 @@ class MainViewController: UIViewController {
         topRecommendCollectionView.delegate = self; topRecommendCollectionView.dataSource = self
         bottomRecommendCollectionView.delegate = self; bottomRecommendCollectionView.dataSource = self
         
+        docentSearchTextField.attributedPlaceholder = NSAttributedString(string: "도슨트를 위한 일련번호를 입력해주세요", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        
         setUpCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        mainNetworking()
+        loading(.start)
     }
     
     override func viewDidLayoutSubviews() {
         bottomRecommendCollectionViewHeight.constant = bottomRecommendCollectionView.contentSize.height+100
+    }
+    
+    func mainNetworking() {
+        HomeService.shareInstance.mainInfo { (result) in
+            switch result {
+            case .success(let homeData):
+                self.homeTopData = homeData.topData
+                self.homeBottomData = homeData.bottomResult
+                
+                self.topRecommendCollectionView.reloadData()
+                self.bottomRecommendCollectionView.reloadData()
+                
+                self.loading(.end)
+
+                break
+            case .error(let msg):
+                print(msg)
+                break
+            }
+        }
     }
     
     @objc func goDocentPopUp() {
@@ -37,7 +71,6 @@ class MainViewController: UIViewController {
     @objc func goExhibitionDetailView() {
         let exhibitionInfoViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoViewController.reuseIdentifier) as! ExhibitionInfoViewController
         self.navigationController?.pushViewController(exhibitionInfoViewController, animated: true)
-//        self.present(exhibitionInfoViewController, animated: true, completion: nil)
     }
     
     @objc func pressedLikeIt() {
@@ -66,31 +99,69 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 //        if kind == UICollectionElementKindSectionHeader {
 //        }
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainRecoHeaderCollectionViewCell.reuseIdentifier, for: indexPath)
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainRecoHeaderCollectionViewCell.reuseIdentifier, for: indexPath) as! MainRecoHeaderCollectionViewCell
+        
+        if indexPath.section == 0 {
+            view.mainHeaderTitleLabel.text = homeBottomData?.theme1[0].theme_title
+        } else if indexPath.section == 1 {
+            view.mainHeaderTitleLabel.text = homeBottomData?.theme2[0].theme_title
+        } else {
+            view.mainHeaderTitleLabel.text = homeBottomData?.theme3[0].theme_title
+        }
+        
+        
         return view
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == topRecommendCollectionView {
-            return 11
+            return gino(homeTopData?.count)
         } else {
-            return 3
+            if section == 0 {
+                return gino(homeBottomData?.theme1.count)
+            } else if section == 1 {
+                return gino(homeBottomData?.theme2.count)
+            } else {
+                return gino(homeBottomData?.theme3.count)
+            }
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == topRecommendCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainTopRecoCollectionViewCell.reuseIdentifier, for: indexPath) as! MainTopRecoCollectionViewCell
+            
             cell.exhibitionImageView.layer.cornerRadius = 5.0
             cell.exhibitionImageView.layer.masksToBounds = true
+            
+            cell.exhibitionId = gino(homeTopData?[indexPath.row].ex_id)
+            cell.exhibitionImageView.image = UIImage(named: gsno(homeTopData?[indexPath.row].ex_image))
+            cell.exhibitionTitleLabel.text = homeTopData?[indexPath.row].ex_title
 
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainRecoCollectionViewCell.reuseIdentifier, for: indexPath) as! MainRecoCollectionViewCell
-            cell.exhibitionRatingView.rating = Double(indexPath.row)+1.7
+            
             cell.goDocentButton.addTarget(self, action: #selector(goDocentPopUp), for: .touchUpInside)
             cell.goExhibitionDetailView.addTarget(self, action: #selector(goExhibitionDetailView), for: .touchUpInside)
             cell.likeButton.addTarget(self, action: #selector(pressedLikeIt), for: .touchUpInside)
+            
+            
+            if indexPath.section == 0 {
+                homeBottomTheme = homeBottomData?.theme1
+            } else if indexPath.section == 1 {
+                homeBottomTheme = homeBottomData?.theme2
+            } else {
+                homeBottomTheme = homeBottomData?.theme3
+            }
+            
+            cell.exhibitionId = gino(homeBottomTheme?[indexPath.row].ex_id)
+            cell.exhibitionRatingView.rating = Double(gfno(homeBottomTheme?[indexPath.row].ex_average_grade))
+            cell.exhibitionRatingLabel.text = String(format: "%.01f", gfno(homeBottomTheme?[indexPath.row].ex_average_grade))
+            cell.exhibitionTitleLabel.text = homeBottomTheme?[indexPath.row].ex_title
+            cell.exhibitionDateLabel.text = "\(gsno(homeBottomTheme?[indexPath.row].ex_start_date)) ~ \(gsno(homeBottomTheme?[indexPath.row].ex_end_date))"
+            cell.galleryId = gino(homeBottomTheme?[indexPath.row].gallery_id)
+            cell.exhibitionLocationLabel.text = homeBottomTheme?[indexPath.row].gallery_name
 
             return cell
         }

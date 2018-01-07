@@ -12,4 +12,5 @@ class MainTopRecoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var exhibitionImageView: UIImageView!
     @IBOutlet weak var exhibitionTitleLabel: UILabel!
     
+    var exhibitionId = 0
 }

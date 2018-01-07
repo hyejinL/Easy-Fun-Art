@@ -22,8 +22,9 @@ class GenreCheckViewController : UIViewController {
                  "7":["title":"현대미술", "isOn":0],
                  "8":["title":"팝아트", "isOn":0],
                  "9":["title":"풍경화", "isOn":0],
-                 "10":["title":"인물화", "isOn":0],
-                 "11":["title":"사진전", "isOn":0]]
+                 "10":["title":"카툰", "isOn":0],
+                 "11":["title":"인물화", "isOn":0],
+                 "12":["title":"사진전", "isOn":0]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,7 @@ extension GenreCheckViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenreCheckCollectionViewCell.reuseIdentifier, for: indexPath) as! GenreCheckCollectionViewCell
+        
         cell.genreToggleButton.setImage(UIImage(named: "btn_genre\(indexPath.row+1)_off"), for: .normal)
         cell.genreToggleButton.falseImage = UIImage(named: "btn_genre\(indexPath.row+1)_off")
         cell.genreToggleButton.trueImage = UIImage(named: "btn_genre\(indexPath.row+1)_on")

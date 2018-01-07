@@ -185,6 +185,7 @@
                     <connections>
                         <outlet property="bottomRecommendCollectionView" destination="AQi-Th-CWX" id="ey3-qf-xSK"/>
                         <outlet property="bottomRecommendCollectionViewHeight" destination="msm-r5-WXI" id="2LW-uM-uxO"/>
+                        <outlet property="docentSearchTextField" destination="9wd-mS-Ki2" id="KaM-Vg-kDI"/>
                         <outlet property="topRecommendCollectionView" destination="eEE-DC-Nay" id="oFg-bQ-d9v"/>
                     </connections>
                 </viewController>

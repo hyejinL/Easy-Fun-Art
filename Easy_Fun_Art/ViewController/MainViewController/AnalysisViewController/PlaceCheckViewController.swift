@@ -12,14 +12,14 @@ class PlaceCheckViewController: UIViewController {
 
     @IBOutlet weak var placeCollectionView: UICollectionView!
     
-    var place = ["1":["title":"북촌", "isOn":0],
+    var place = ["1":["title":"서촌", "isOn":0],
                  "2":["title":"강남", "isOn":0],
                  "3":["title":"홍대/합정", "isOn":0],
                  "4":["title":"인사동", "isOn":0],
                  "5":["title":"이태원", "isOn":0],
                  "6":["title":"충무로", "isOn":0],
                  "7":["title":"혜화/대학로", "isOn":0],
-                 "8":["title":"삼청동/서촌", "isOn":0],
+                 "8":["title":"삼청동/북촌", "isOn":0],
                  "9":["title":"기타", "isOn":0]]
     
     override func viewDidLoad() {
@@ -49,6 +49,7 @@ extension PlaceCheckViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.placeToggleButton.setImage(UIImage(named: "btn_place\(indexPath.row+1)_off"), for: .normal)
         cell.placeToggleButton.falseImage = UIImage(named: "btn_place\(indexPath.row+1)_off")
         cell.placeToggleButton.trueImage = UIImage(named: "btn_place\(indexPath.row+1)_on")
+        cell.layer.cornerRadius = cell.frame.width/2
         return cell
     }
 }

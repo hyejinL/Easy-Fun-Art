@@ -10,6 +10,8 @@ import UIKit
 
 class MainRecoHeaderCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var mainHeaderTitleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -41,6 +41,9 @@
 		0A72FAFF1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */; };
 		0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */; };
 		0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */; };
+		0AAF117720016A7B00A6B274 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF117620016A7B00A6B274 /* HomeService.swift */; };
+		0AAF117920016C4400A6B274 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF117820016C4400A6B274 /* Home.swift */; };
+		0AAF117B20016E0400A6B274 /* HomeExhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF117A20016E0400A6B274 /* HomeExhibition.swift */; };
 		0AC3C259200123FD009ACD14 /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC3C258200123FD009ACD14 /* CustomLoadingView.swift */; };
 		0ACC27331FFBBCF4007E9BA4 /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */; };
 		0ACC273A1FFD6002007E9BA4 /* AnalysisStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC27391FFD6002007E9BA4 /* AnalysisStartViewController.swift */; };
@@ -104,6 +107,9 @@
 		0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListHeaderCell.swift; sourceTree = "<group>"; };
 		0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
 		0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentEndViewController.swift; sourceTree = "<group>"; };
+		0AAF117620016A7B00A6B274 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		0AAF117820016C4400A6B274 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		0AAF117A20016E0400A6B274 /* HomeExhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExhibition.swift; sourceTree = "<group>"; };
 		0AC3C258200123FD009ACD14 /* CustomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
 		0ACC27321FFBBCF4007E9BA4 /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
 		0ACC27391FFD6002007E9BA4 /* AnalysisStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisStartViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				0A1A22EB2000E58700389767 /* User.swift */,
+				0AAF117820016C4400A6B274 /* Home.swift */,
+				0AAF117A20016E0400A6B274 /* HomeExhibition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 			children = (
 				0A1A22E72000E28D00389767 /* APIService.swift */,
 				0A1A22E92000E32400389767 /* UserService.swift */,
+				0AAF117620016A7B00A6B274 /* HomeService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -571,6 +580,7 @@
 				0ACC274A1FFDF761007E9BA4 /* MoodCheckViewController.swift in Sources */,
 				0ACC273C1FFD6079007E9BA4 /* UserInfoViewController.swift in Sources */,
 				0A1A22E82000E28D00389767 /* APIService.swift in Sources */,
+				0AAF117720016A7B00A6B274 /* HomeService.swift in Sources */,
 				0ACC27441FFDF72F007E9BA4 /* MoodCheckCollectionViewCell.swift in Sources */,
 				0ACC27421FFDF720007E9BA4 /* PlaceCheckCollectionViewCell.swift in Sources */,
 				0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */,
@@ -581,7 +591,9 @@
 				0A1A22DE1FFFF8F000389767 /* ReviewViewController.swift in Sources */,
 				0ACC274C1FFDF76B007E9BA4 /* TopicCheckViewController.swift in Sources */,
 				0A149AC01FFA1A4200E12932 /* DocentMainViewController.swift in Sources */,
+				0AAF117B20016E0400A6B274 /* HomeExhibition.swift in Sources */,
 				0ACC273E1FFD6091007E9BA4 /* GenreCheckViewController.swift in Sources */,
+				0AAF117920016C4400A6B274 /* Home.swift in Sources */,
 				0A1A22E62000CAEF00389767 /* MyPageMainViewController.swift in Sources */,
 				0A149AC61FFA209A00E12932 /* DocentMyTableViewController.swift in Sources */,
 				0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */,

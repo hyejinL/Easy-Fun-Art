@@ -109,6 +109,9 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="falseImage" value="btn_female_off"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="trueImage" value="btn_female_on"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="pressedCheckGenderButton:" destination="cVy-Tj-mnd" eventType="touchUpInside" id="VqK-vG-8Uf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTY-dq-su6" customClass="ToggleButton" customModule="Easy_Fun_Art" customModuleProvider="target">
                                         <rect key="frame" x="85" y="0.0" width="70" height="93"/>
@@ -117,6 +120,9 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="falseImage" value="btn_male_off"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="trueImage" value="btn_male_on"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="pressedCheckGenderButton:" destination="cVy-Tj-mnd" eventType="touchUpInside" id="fAF-sW-gTt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -140,6 +146,9 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="falseImage" value="btn_age10_off"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="trueImage" value="btn_age10_on"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="pressedCheckAgeButton:" destination="cVy-Tj-mnd" eventType="touchUpInside" id="M7v-zj-HmQ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU2-3V-y2u" customClass="ToggleButton" customModule="Easy_Fun_Art" customModuleProvider="target">
                                                 <rect key="frame" x="97" y="0.0" width="87" height="37"/>
@@ -148,6 +157,9 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="falseImage" value="btn_age20_off"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="trueImage" value="btn_age20_on"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="pressedCheckAgeButton:" destination="cVy-Tj-mnd" eventType="touchUpInside" id="Ee5-cc-KYh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xd3-wf-Z6M" customClass="ToggleButton" customModule="Easy_Fun_Art" customModuleProvider="target">
                                                 <rect key="frame" x="194" y="0.0" width="87" height="37"/>
@@ -156,6 +168,9 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="falseImage" value="btn_age30_off"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="trueImage" value="btn_age30_on"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="pressedCheckAgeButton:" destination="cVy-Tj-mnd" eventType="touchUpInside" id="ipW-Az-lEs"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -175,6 +190,9 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="falseImage" value="btn_age40_off"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="trueImage" value="btn_age40_on"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="pressedCheckAgeButton:" destination="cVy-Tj-mnd" eventType="touchUpInside" id="sBz-xh-McV"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuv-lj-s0n" customClass="ToggleButton" customModule="Easy_Fun_Art" customModuleProvider="target">
                                                 <rect key="frame" x="97" y="0.0" width="87" height="37"/>
@@ -183,6 +201,9 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="falseImage" value="btn_age50_off"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="trueImage" value="btn_age50_on"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="pressedCheckAgeButton:" destination="cVy-Tj-mnd" eventType="touchUpInside" id="SwR-Ca-jLC"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKo-C6-2rA" customClass="ToggleButton" customModule="Easy_Fun_Art" customModuleProvider="target">
                                                 <rect key="frame" x="194" y="0.0" width="87" height="37"/>
@@ -191,6 +212,9 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="falseImage" value="btn_age60_off"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="trueImage" value="btn_age60_on"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="pressedCheckAgeButton:" destination="cVy-Tj-mnd" eventType="touchUpInside" id="Oxk-hv-tWN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -272,6 +296,18 @@
                         <viewLayoutGuide key="safeArea" id="HL9-SG-p9a"/>
                     </view>
                     <navigationItem key="navigationItem" id="WVn-ch-J7n"/>
+                    <connections>
+                        <outlet property="age10sButton" destination="vak-Qz-mk6" id="QUj-6l-jAa"/>
+                        <outlet property="age20sButton" destination="CU2-3V-y2u" id="XjQ-oe-mXU"/>
+                        <outlet property="age30sButton" destination="xd3-wf-Z6M" id="nsJ-hq-NVy"/>
+                        <outlet property="age40sButton" destination="t4V-3s-RwN" id="FMS-my-AkX"/>
+                        <outlet property="age50sButton" destination="fuv-lj-s0n" id="huZ-8S-jzY"/>
+                        <outlet property="age60sButton" destination="DKo-C6-2rA" id="qNe-e3-ebN"/>
+                        <outlet property="femaleButton" destination="Wir-WJ-ysE" id="0om-ff-Icy"/>
+                        <outlet property="maleButton" destination="dTY-dq-su6" id="pdM-mV-zLd"/>
+                        <outlet property="nicknameErrMsgLabel" destination="rNZ-YC-6Sd" id="87b-8a-K3Y"/>
+                        <outlet property="userNicknameTextField" destination="5C2-24-wz3" id="GQs-La-j0L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Z1-dB-OXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

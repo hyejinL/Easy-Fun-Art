@@ -133,8 +133,12 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="125" height="49"/>
             <connections>
+                <outlet property="exhibitionDateLabel" destination="2h9-Nj-SD7" id="kpa-9z-aKF"/>
                 <outlet property="exhibitionImageView" destination="qBv-rv-Pog" id="RXe-dv-nhL"/>
+                <outlet property="exhibitionLocationLabel" destination="3Am-EM-R2V" id="IER-M8-0I9"/>
+                <outlet property="exhibitionRatingLabel" destination="TUj-Cl-T9o" id="c4X-hJ-7Yb"/>
                 <outlet property="exhibitionRatingView" destination="Gkt-TL-Gdz" id="23q-gN-gDF"/>
+                <outlet property="exhibitionTitleLabel" destination="KcU-Lf-FVi" id="H4f-UK-3zM"/>
                 <outlet property="goDocentButton" destination="ZNX-aJ-bs3" id="qe2-KW-uYO"/>
                 <outlet property="goExhibitionDetailView" destination="QGN-j7-Rgb" id="KSI-M3-gub"/>
                 <outlet property="likeButton" destination="x6a-QR-dMR" id="Cic-TB-814"/>
