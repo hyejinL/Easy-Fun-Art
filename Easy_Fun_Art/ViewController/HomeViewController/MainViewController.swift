@@ -30,13 +30,11 @@ class MainViewController: UIViewController {
         docentSearchTextField.attributedPlaceholder = NSAttributedString(string: "도슨트를 위한 일련번호를 입력해주세요", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         
         setUpCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         mainNetworking()
         loading(.start)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(pressedLikeIt), name: NSNotification.Name("likeExhibition"), object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,7 +71,20 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(exhibitionInfoViewController, animated: true)
     }
     
-    @objc func pressedLikeIt() {
+    @objc func pressedLikeIt(_ notification: Notification) {
+//        guard let cellId = notification.userInfo?["cellId"] as? Int,
+//            let theme = notification.userInfo?["theme"] as? [HomeExhibition],
+//            let like = notification.userInfo?["likeFlag"] as? Int else { return }
+//        let theme2 = notification.userInfo?["theme"] as? [HomeExhibition]
+//
+//        for element in theme {
+//            if element.ex_id == cellId {
+//                if homeBottomTheme == theme2 {
+////                    homeBottomTheme?[cellId].likeFlag = notification.userInfo?["likeFlag"] as? Int
+//                }
+//            }
+//        }
+        
         let likeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: LikeViewController.reuseIdentifier) as! LikeViewController
         self.present(likeViewController, animated: true, completion: nil)
     }
@@ -109,7 +120,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             view.mainHeaderTitleLabel.text = homeBottomData?.theme3[0].theme_title
         }
         
-        
         return view
     }
 
@@ -144,7 +154,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             cell.goDocentButton.addTarget(self, action: #selector(goDocentPopUp), for: .touchUpInside)
             cell.goExhibitionDetailView.addTarget(self, action: #selector(goExhibitionDetailView), for: .touchUpInside)
-            cell.likeButton.addTarget(self, action: #selector(pressedLikeIt), for: .touchUpInside)
             
             
             if indexPath.section == 0 {
@@ -155,6 +164,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 homeBottomTheme = homeBottomData?.theme3
             }
             
+            cell.exhibitionTheme = homeBottomTheme
             cell.exhibitionId = gino(homeBottomTheme?[indexPath.row].ex_id)
             cell.exhibitionRatingView.rating = Double(gfno(homeBottomTheme?[indexPath.row].ex_average_grade))
             cell.exhibitionRatingLabel.text = String(format: "%.01f", gfno(homeBottomTheme?[indexPath.row].ex_average_grade))

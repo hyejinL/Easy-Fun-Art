@@ -27,10 +27,10 @@
                             <constraint firstAttribute="width" secondItem="FaP-bX-OQL" secondAttribute="height" multiplier="80:79" id="lni-zq-FZl"/>
                         </constraints>
                     </imageView>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="btn_docentlist_play" translatesAutoresizingMaskIntoConstraints="NO" id="ZQY-D7-cSr">
-                        <rect key="frame" x="324" y="24.5" width="31" height="31"/>
+                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="btn_docent_next" translatesAutoresizingMaskIntoConstraints="NO" id="ZQY-D7-cSr">
+                        <rect key="frame" x="320" y="22.5" width="35" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="ZQY-D7-cSr" secondAttribute="height" multiplier="1:1" id="YGk-a7-ybZ"/>
+                            <constraint firstAttribute="width" secondItem="ZQY-D7-cSr" secondAttribute="height" multiplier="1:1" id="u7Q-Fx-BSJ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWT-4a-YJK">
@@ -47,7 +47,6 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ZQY-D7-cSr" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="31:375" id="Czp-8I-xiF"/>
                     <constraint firstItem="FaP-bX-OQL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ldv-Qh-Zml"/>
                     <constraint firstItem="iWT-4a-YJK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-6" id="NT0-8e-Yfj"/>
                     <constraint firstItem="iWT-4a-YJK" firstAttribute="leading" secondItem="FaP-bX-OQL" secondAttribute="trailing" constant="25" id="PQQ-od-Am6"/>
@@ -59,14 +58,20 @@
                     <constraint firstAttribute="bottom" secondItem="FaP-bX-OQL" secondAttribute="bottom" id="irL-s4-5EJ"/>
                     <constraint firstItem="ZQY-D7-cSr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BYK-zy-vgF" secondAttribute="trailing" constant="25" id="kN9-fA-876"/>
                     <constraint firstAttribute="trailing" secondItem="ZQY-D7-cSr" secondAttribute="trailing" constant="20" id="lId-pI-fWj"/>
+                    <constraint firstItem="ZQY-D7-cSr" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="35:375" id="yTn-IO-PQO"/>
                     <constraint firstItem="BYK-zy-vgF" firstAttribute="top" secondItem="iWT-4a-YJK" secondAttribute="bottom" constant="5" id="zob-o2-AbK"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="44" y="67.5"/>
+            <connections>
+                <outlet property="exhibitionImageView" destination="FaP-bX-OQL" id="BQ8-XU-ueU"/>
+                <outlet property="exhibitionTitleLabel" destination="iWT-4a-YJK" id="XZh-dn-vly"/>
+                <outlet property="galleryNameLabel" destination="BYK-zy-vgF" id="gXZ-BJ-zbi"/>
+            </connections>
+            <point key="canvasLocation" x="43.5" y="67"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="btn_docentlist_play" width="31" height="31"/>
+        <image name="btn_docent_next" width="35" height="35"/>
     </resources>
 </document>

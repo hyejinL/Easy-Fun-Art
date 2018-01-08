@@ -65,6 +65,8 @@
 		0ACFA0241FFE5E3700664489 /* MainRecoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFA0221FFE5E3700664489 /* MainRecoCollectionViewCell.xib */; };
 		0ACFA0271FFE67E500664489 /* MainTopRecoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA0261FFE67E500664489 /* MainTopRecoCollectionViewCell.swift */; };
 		0ACFA02D1FFEB3E700664489 /* ExhibitionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFA02C1FFEB3E700664489 /* ExhibitionInfoViewController.swift */; };
+		0ADDA1B820027E930031A1C4 /* DocentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDA1B720027E930031A1C4 /* DocentService.swift */; };
+		0AE0F05C200282E1003C5D9E /* PlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0F05B200282E1003C5D9E /* PlayList.swift */; };
 		0AEFBF0C1FF93D0A0090920B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */; };
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
@@ -131,6 +133,8 @@
 		0ACFA0221FFE5E3700664489 /* MainRecoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainRecoCollectionViewCell.xib; sourceTree = "<group>"; };
 		0ACFA0261FFE67E500664489 /* MainTopRecoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopRecoCollectionViewCell.swift; sourceTree = "<group>"; };
 		0ACFA02C1FFEB3E700664489 /* ExhibitionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionInfoViewController.swift; sourceTree = "<group>"; };
+		0ADDA1B720027E930031A1C4 /* DocentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentService.swift; sourceTree = "<group>"; };
+		0AE0F05B200282E1003C5D9E /* PlayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayList.swift; sourceTree = "<group>"; };
 		0AEFBF081FF93D0A0090920B /* Easy Fun Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Fun Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEFBF0B1FF93D0A0090920B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AEFBF101FF93D0A0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 				0A1A22EB2000E58700389767 /* User.swift */,
 				0AAF117820016C4400A6B274 /* Home.swift */,
 				0AAF117A20016E0400A6B274 /* HomeExhibition.swift */,
+				0AE0F05B200282E1003C5D9E /* PlayList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				0A1A22E72000E28D00389767 /* APIService.swift */,
 				0A1A22E92000E32400389767 /* UserService.swift */,
 				0AAF117620016A7B00A6B274 /* HomeService.swift */,
+				0ADDA1B720027E930031A1C4 /* DocentService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				0ACFA0271FFE67E500664489 /* MainTopRecoCollectionViewCell.swift in Sources */,
 				0AC3C259200123FD009ACD14 /* CustomLoadingView.swift in Sources */,
 				0A1A22EA2000E32400389767 /* UserService.swift in Sources */,
+				0AE0F05C200282E1003C5D9E /* PlayList.swift in Sources */,
 				0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */,
 				0A72FAF81FFA5B0C0051EF9A /* DocentPlayListTableViewController.swift in Sources */,
 				0ACC273A1FFD6002007E9BA4 /* AnalysisStartViewController.swift in Sources */,
@@ -584,6 +591,7 @@
 				0ACC27441FFDF72F007E9BA4 /* MoodCheckCollectionViewCell.swift in Sources */,
 				0ACC27421FFDF720007E9BA4 /* PlaceCheckCollectionViewCell.swift in Sources */,
 				0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */,
+				0ADDA1B820027E930031A1C4 /* DocentService.swift in Sources */,
 				0A1A22DC1FFFF8DE00389767 /* GalleryInfoViewController.swift in Sources */,
 				0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */,
 				0ACFA01F1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift in Sources */,

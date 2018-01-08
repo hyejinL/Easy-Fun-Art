@@ -10,6 +10,12 @@ import UIKit
 
 class DocentListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var exhibitionImageView: UIImageView!
+    @IBOutlet weak var exhibitionTitleLabel: UILabel!
+    @IBOutlet weak var galleryNameLabel: UILabel!
+    
+    var exhibitionId = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

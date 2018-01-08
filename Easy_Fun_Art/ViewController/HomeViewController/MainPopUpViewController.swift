@@ -11,10 +11,16 @@ import UIKit
 class MainPopUpViewController: UIViewController {
 
     @IBOutlet weak var docentPopUpView: UIView!
+    @IBOutlet weak var exhibitionImageView: UIImageView!
+    
+//    var 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        exhibitionImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
+        exhibitionImageView.contentMode = .scaleAspectFill // OR .scaleAspectFill
+        exhibitionImageView.clipsToBounds = true
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -75,7 +75,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="115" height="36"/>
                                 <state key="normal" image="btn_main_docent"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6a-QR-dMR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6a-QR-dMR" customClass="ToggleButton" customModule="Easy_Fun_Art" customModuleProvider="target">
                                 <rect key="frame" x="115" y="0.0" width="115" height="36"/>
                                 <state key="normal" image="btn_main_like_off"/>
                             </button>
@@ -141,7 +141,7 @@
                 <outlet property="exhibitionTitleLabel" destination="KcU-Lf-FVi" id="H4f-UK-3zM"/>
                 <outlet property="goDocentButton" destination="ZNX-aJ-bs3" id="qe2-KW-uYO"/>
                 <outlet property="goExhibitionDetailView" destination="QGN-j7-Rgb" id="KSI-M3-gub"/>
-                <outlet property="likeButton" destination="x6a-QR-dMR" id="Cic-TB-814"/>
+                <outlet property="likeButton" destination="x6a-QR-dMR" id="gCF-j9-T79"/>
             </connections>
             <point key="canvasLocation" x="107.5" y="53.5"/>
         </collectionViewCell>

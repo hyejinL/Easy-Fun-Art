@@ -11,14 +11,30 @@ import XLPagerTabStrip
 
 class DocentMyTableViewController: UITableViewController, IndicatorInfoProvider {
 
+    var playListData = [HomeExhibition]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpTableView()
+        updatePlayList()
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "찜한 전시")
+    }
+    
+    func updatePlayList() {
+        DocentService.shareInstance.likeExhibitionList() { (result) in
+            switch result {
+            case .success(let listData):
+                self.playListData = listData
+                break
+            case .error(let msg):
+                print(msg)
+                break
+            }
+        }
     }
 
 }
@@ -38,11 +54,17 @@ extension DocentMyTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return playListData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DocentListTableViewCell.reuseIdentifier, for: indexPath) as! DocentListTableViewCell
+        
+        cell.exhibitionId = gino(playListData[indexPath.row].ex_id)
+        cell.exhibitionImageView.imageFromUrl(gsno(playListData[indexPath.row].ex_image), defaultImgPath: "")
+        cell.exhibitionTitleLabel.text = playListData[indexPath.row].ex_title
+        cell.galleryNameLabel.text = playListData[indexPath.row].gallery_name
+        
         return cell
     }
     
@@ -50,30 +72,5 @@ extension DocentMyTableViewController {
         let docentPlayListViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
         self.navigationController?.pushViewController(docentPlayListViewController, animated: true)
     }
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
 }
 

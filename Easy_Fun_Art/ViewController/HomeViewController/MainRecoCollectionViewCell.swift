@@ -19,14 +19,42 @@ class MainRecoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var exhibitionLocationLabel: UILabel!
     @IBOutlet weak var goDocentButton: UIButton!
     @IBOutlet weak var goExhibitionDetailView: UIButton!
-    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likeButton: ToggleButton!
     
+    var type = "theme1"
+    var exhibitionTheme: [HomeExhibition]?
     var exhibitionId = 0
     var galleryId = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        likeButton.falseImage = #imageLiteral(resourceName: "btn_main_like_off")
+        likeButton.trueImage = #imageLiteral(resourceName: "btn_main_like_on")
+        
+        likeButton.layer.borderColor = #colorLiteral(red: 0.6498134136, green: 0.660738945, blue: 0.6677950025, alpha: 1)
+        likeButton.layer.borderWidth = 0.5
+        goDocentButton.layer.borderColor = #colorLiteral(red: 0.6498134136, green: 0.660738945, blue: 0.6677950025, alpha: 1)
+        goDocentButton.layer.borderWidth = 0.5
+        
+        likeButton.addTarget(self, action: #selector(likeExhibition), for: .touchUpInside)
+    }
+    
+    
+    
+    @objc func likeExhibition() {
+        HomeService.shareInstance.likeExhibition(exhibitionId: exhibitionId) { (result) in
+            switch result {
+            case .success(let likeFlag):
+                print(likeFlag)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "likeExhibition"), object: self, userInfo: ["cellId":self.exhibitionId, "theme":self.exhibitionTheme, "likeFlag":likeFlag])
+                break
+            case .error(let msg):
+                print(msg)
+                break
+            }
+        }
     }
 
 }

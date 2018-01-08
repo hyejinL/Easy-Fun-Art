@@ -39,9 +39,7 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         
         delegate = self
         headerViewHeight = 302
-        
         super.viewDidLoad()
-        
 //        self.navigationController?.navigationBar.isHidden = true
         UIApplication.shared.statusBarStyle = .lightContent
         
@@ -62,7 +60,6 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         
         UIApplication.shared.statusBarStyle = .default
     }
-    
 
 }
 
@@ -79,3 +76,5 @@ extension ExhibitionInfoViewController: SJSegmentedViewControllerDelegate {
         }
     }
 }
+
+

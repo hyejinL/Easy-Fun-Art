@@ -45,4 +45,35 @@ struct HomeService: APIService {
             }
         }
     }
+    
+    func likeExhibition(exhibitionId: Int, completion: @escaping (Result<Int>)->Void) {
+        let URL = url("/api/home/like")
+        let token = [
+            "user_token" : gsno(userdefault.string(forKey: "token"))
+        ]
+        let params = [
+            "exId" : exhibitionId
+        ]
+        
+        Alamofire.request(URL, method: .get, parameters: params, headers: token).responseData() { res in
+            switch res.result {
+            case .success:
+                if let value = res.result.value {
+                    if let status = JSON(value)["status"].string {
+                        if status == "success" {
+                            guard let likeFlag = JSON(value)["data"]["likeFlag"].int else { return }
+                            completion(.success(likeFlag))
+                        } else {
+                            guard let msg = JSON(value)["message"].string else { return }
+                            completion(.error(msg))
+                        }
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
 }

@@ -36,6 +36,8 @@ class DocentPlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fixSliderThumbSize()
 
         do {
             do {
@@ -148,14 +150,12 @@ class DocentPlayerViewController: UIViewController {
         
         if audioPlayer.isPlaying {
             playSlider.setValue(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
-//            if audioCurrentSecond < 10 {
-//                currentPlayTimeLabel.text = "\(audioCurrentMinute) : 0\(audioCurrentSecond)"
-//            } else {
-//                currentPlayTimeLabel.text = "\(audioCurrentMinute) : \(audioCurrentSecond)"
-//            }
             currentPlayTimeLabel.text = String(format: "%02d : %02d", audioCurrentMinute, audioCurrentSecond)
+            if Float(audioPlayer.currentTime)+1 > Float(audioPlayer.duration) {
+                audioPlayer.currentTime = audioPlayer.duration
+            }
         }
-        if Int(audioCurrentTime) == Int(audioDuration) {
+        if audioCurrentTime == audioDuration {
             scriptViewHidden(completion: {
                 let docentEndViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentEndViewController.reuseIdentifier) as! DocentEndViewController
                 self.present(docentEndViewController, animated: true, completion: {
@@ -205,7 +205,9 @@ class DocentPlayerViewController: UIViewController {
     }
     
     func fixSliderThumbSize() {
-        let thumbImage = UIImage()
+        let thumbImage = #imageLiteral(resourceName: "docent_slider")
+        playSlider.setThumbImage(thumbImage, for: .normal)
+        playSlider.setThumbImage(thumbImage, for: .highlighted)
     }
     
     func scriptLabelSpacing(text: String) {

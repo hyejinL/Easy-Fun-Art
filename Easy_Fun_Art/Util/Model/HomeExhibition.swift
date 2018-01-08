@@ -15,8 +15,8 @@ struct HomeExhibition: Codable {
     let ex_image: String?
     let ex_start_date: String?
     let ex_end_date: String?
-    let ex_average_grade: Float
-    let gallery_id: Int
+    let ex_average_grade: Float?
+    let gallery_id: Int?
     let gallery_name: String?
     let likeFlag: Int?
 }

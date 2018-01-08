@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 enum LoadingState {
     case start
@@ -86,6 +87,21 @@ extension UIViewController {
             self.view.frame.origin.y = 0
             view.layoutIfNeeded()
 //            check = true
+        }
+    }
+}
+
+extension UIImageView {
+    public func imageFromUrl(_ urlString: String?, defaultImgPath : String) {
+        let defaultImg = UIImage(named: defaultImgPath)
+        if let url = urlString {
+            if url.isEmpty {
+                self.image = defaultImg
+            } else {
+                self.kf.setImage(with: URL(string: url), placeholder: defaultImg, options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
+            }
+        } else {
+            self.image = defaultImg
         }
     }
 }

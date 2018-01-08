@@ -16,6 +16,7 @@ target 'Easy_Fun_Art' do
     pod 'Cosmos'
     pod 'SJSegmentedScrollView', '1.3.8'
     pod 'NVActivityIndicatorView'
+    pod 'Kingfisher'
 
   # Pods for Easy_Fun_Art
 
