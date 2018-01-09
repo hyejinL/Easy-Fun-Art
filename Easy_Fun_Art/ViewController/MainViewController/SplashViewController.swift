@@ -50,9 +50,11 @@ class SplashViewController: UIViewController {
                     break
                 case .failed(let err as NSError):
                     print(err.localizedDescription)
+                    self.loading(.end)
                     break
                 case .cancelled:
                     print("페북 로그인 취소")
+                    self.loading(.end)
                     break
                 }
             }
@@ -102,6 +104,7 @@ class SplashViewController: UIViewController {
         UserService.sharedInstance.userLogin(snsToken: graphResponse.id) { (result) in
             switch result {
             case .success(let level):
+                print(level)
                 if level == 10 {
                     let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
                     self.present(analysisStartViewController, animated: true, completion: {

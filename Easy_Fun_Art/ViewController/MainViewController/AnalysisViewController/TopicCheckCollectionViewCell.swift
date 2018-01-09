@@ -9,6 +9,8 @@
 import UIKit
 
 class TopicCheckCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var topicToggleButton: ToggleButton!
+    
+    var id = -1
+    
 }

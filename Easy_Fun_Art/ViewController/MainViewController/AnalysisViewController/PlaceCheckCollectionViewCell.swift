@@ -11,4 +11,6 @@ import UIKit
 class PlaceCheckCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var placeToggleButton: ToggleButton!
     
+    var id = -1
+    
 }

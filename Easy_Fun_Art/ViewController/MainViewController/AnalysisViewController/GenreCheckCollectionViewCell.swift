@@ -11,4 +11,5 @@ import UIKit
 class GenreCheckCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var genreToggleButton: ToggleButton!
     
+    var id = -1
 }

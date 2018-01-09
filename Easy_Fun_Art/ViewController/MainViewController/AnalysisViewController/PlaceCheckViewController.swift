@@ -12,30 +12,49 @@ class PlaceCheckViewController: UIViewController {
 
     @IBOutlet weak var placeCollectionView: UICollectionView!
     
-    var place = ["1":["title":"서촌", "isOn":0],
-                 "2":["title":"강남", "isOn":0],
-                 "3":["title":"홍대/합정", "isOn":0],
-                 "4":["title":"인사동", "isOn":0],
-                 "5":["title":"이태원", "isOn":0],
-                 "6":["title":"충무로", "isOn":0],
-                 "7":["title":"혜화/대학로", "isOn":0],
-                 "8":["title":"삼청동/북촌", "isOn":0],
-                 "9":["title":"기타", "isOn":0]]
+    var place = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    
+    var genre = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         placeCollectionView.delegate = self; placeCollectionView.dataSource = self
     }
-
+    
     @IBAction func pressedAnalysisNextButton(_ sender: Any) {
         let moodCheckViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: MoodCheckViewController.reuseIdentifier) as! MoodCheckViewController
+        
+        var placeText = ""
+        
+        for (i, element) in place.enumerated() {
+            placeText += "\(element)"
+            if i < place.count-1 {
+                placeText += ","
+            }
+        }
+        print(genre)
+        
+        moodCheckViewController.genre = genre
+        moodCheckViewController.place = placeText
         
         self.navigationController?.pushViewController(moodCheckViewController, animated: true)
     }
     
     @IBAction func pressedAnalysisBeforeButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func choosePreference(_ button: ToggleButton) {
+        button.buttonAnimation()
+        
+        guard let cell = button.superview?.superview as? PlaceCheckCollectionViewCell else { return }
+        
+        if button.isChecked {
+            place[cell.id] = 1
+        } else {
+            place[cell.id] = 0
+        }
     }
 }
 
@@ -49,7 +68,10 @@ extension PlaceCheckViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.placeToggleButton.setImage(UIImage(named: "btn_place\(indexPath.row+1)_off"), for: .normal)
         cell.placeToggleButton.falseImage = UIImage(named: "btn_place\(indexPath.row+1)_off")
         cell.placeToggleButton.trueImage = UIImage(named: "btn_place\(indexPath.row+1)_on")
+        cell.placeToggleButton.addTarget(self, action: #selector(choosePreference(_:)), for: .touchUpInside)
+        cell.id = indexPath.row
         cell.layer.cornerRadius = cell.frame.width/2
+        
         return cell
     }
 }

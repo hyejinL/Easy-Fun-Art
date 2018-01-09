@@ -9,6 +9,8 @@
 import UIKit
 
 class MoodCheckCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var moodToggleButton: ToggleButton!
+    
+    var id = -1
+    
 }

@@ -27,8 +27,8 @@ struct UserService: APIService {
                     if let status = JSON(value)["status"].string {
                         if status == "success" {
                             guard let token = JSON(value)["data"]["token"].string, let level = JSON(value)["data"]["level"].int else { return }
-//                            self.userdefault.set(token, forKey: "token")
-                            self.userdefault.set("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjY0LCJ1c2VyTGV2ZWwiOjEwLCJpYXQiOjE1MTU0MTkzMTgsImV4cCI6MTUyNDA1OTMxOCwiaXNzIjoiRWFzeUZ1bkFydCJ9.QdKv0XTxKJ8YvqPOuGbjkydFfVaZuINeUmsEZmiSIpg", forKey: "token")
+                            self.userdefault.set(token, forKey: "token")
+                            
                             completion(.success(level))
                         } else {
                             guard let msg = JSON(value)["msg"].string else { return }
@@ -92,6 +92,42 @@ struct UserService: APIService {
                 if let value = res.result.value {
                     if let status = JSON(value)["status"].string {
                         if status == "success" {
+                            self.userdefault.set(gsno(JSON(value)["data"]["token"].string), forKey: "token")
+                            
+                            completion(.success(()))
+                        } else {
+                            guard let msg = JSON(value)["msg"].string else { return }
+                            completion(.error(msg))
+                        }
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    func sendUserPreference(preGenre: String, prePlace: String, preMood: String, preTopic: String, completion: @escaping (Result<Void>)->Void) {
+        let URL = url("/api/preference")
+        let token = [
+            "user_token" : gsno(userdefault.string(forKey: "token"))
+        ]
+        let body: [String : String] = [
+            "prePlace" : prePlace,
+            "preMood" : preMood,
+            "preGenre" : preGenre,
+            "preSubject" : preTopic
+        ]
+        
+        Alamofire.request(URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: token).responseData() { res in
+            switch res.result {
+            case .success:
+                if let value = res.result.value {
+                    if let status = JSON(value)["status"].string {
+                        if status == "success" {
+                            self.userdefault.set(gsno(JSON(value)["data"]["token"].string), forKey: "token")
                             completion(.success(()))
                         } else {
                             guard let msg = JSON(value)["msg"].string else { return }

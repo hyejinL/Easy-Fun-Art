@@ -13,33 +13,56 @@ class MoodCheckViewController: UIViewController {
     @IBOutlet weak var moodCollectionView: UICollectionView!
     @IBOutlet weak var moodCollectionViewHeight: NSLayoutConstraint!
     
-    var mood = ["1":["title":"적막감", "isOn":0],
-                 "2":["title":"환상적인", "isOn":0],
-                 "3":["title":"세련된", "isOn":0],
-                 "4":["title":"편안한", "isOn":0],
-                 "5":["title":"강렬한", "isOn":0],
-                 "6":["title":"따뜻한", "isOn":0],
-                 "7":["title":"슬픈", "isOn":0],
-                 "8":["title":"유유자적한", "isOn":0],
-                 "9":["title":"우아한", "isOn":0],
-                 "10":["title":"시원한", "isOn":0],
-                 "11":["title":"사실적인", "isOn":0]]
+    var mood = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    
+    var genre = ""
+    var place = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         moodCollectionView.delegate = self; moodCollectionView.dataSource = self
-        moodCollectionViewHeight.constant = 11*85.0*self.view.frame.height/667 + 10*10.0
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        moodCollectionViewHeight.constant = moodCollectionView.contentSize.height
     }
 
     @IBAction func pressedAnalysisNextButton(_ sender: Any) {
         let topicCheckViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: TopicCheckViewController.reuseIdentifier) as! TopicCheckViewController
+        
+        var moodText = ""
+        
+        for (i, element) in mood.enumerated() {
+            moodText += "\(element)"
+            if i < mood.count-1 {
+                moodText += ","
+            }
+        }
+        
+        topicCheckViewController.genre = genre
+        topicCheckViewController.place = place
+        topicCheckViewController.mood = moodText
         
         self.navigationController?.pushViewController(topicCheckViewController, animated: true)
     }
     
     @IBAction func pressedAnalysisBeforeButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func choosePreference(_ button: ToggleButton) {
+        button.buttonAnimation()
+        
+        guard let cell = button.superview?.superview as? MoodCheckCollectionViewCell else { return }
+        
+        if button.isChecked {
+            mood[cell.id] = 1
+        } else {
+            mood[cell.id] = 0
+        }
     }
 
 }
@@ -54,6 +77,9 @@ extension MoodCheckViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.moodToggleButton.setImage(UIImage(named: "btn_mood\(indexPath.row+1)_off"), for: .normal)
         cell.moodToggleButton.falseImage = UIImage(named: "btn_mood\(indexPath.row+1)_off")
         cell.moodToggleButton.trueImage = UIImage(named: "btn_mood\(indexPath.row+1)_on")
+        cell.moodToggleButton.addTarget(self, action: #selector(choosePreference(_:)), for: .touchUpInside)
+        cell.id = indexPath.row
+        
         return cell
     }
 }

@@ -13,35 +13,36 @@ class GenreCheckViewController : UIViewController {
     @IBOutlet weak var genreCollectionView: UICollectionView!
     @IBOutlet weak var genreCollectionViewHeight: NSLayoutConstraint!
     
-    var genre = ["1":["title":"동양화", "isOn":0],
-                 "2":["title":"서양화", "isOn":0],
-                 "3":["title":"도예", "isOn":0],
-                 "4":["title":"금속", "isOn":0],
-                 "5":["title":"일러스트", "isOn":0],
-                 "6":["title":"목공", "isOn":0],
-                 "7":["title":"현대미술", "isOn":0],
-                 "8":["title":"팝아트", "isOn":0],
-                 "9":["title":"풍경화", "isOn":0],
-                 "10":["title":"카툰", "isOn":0],
-                 "11":["title":"인물화", "isOn":0],
-                 "12":["title":"사진전", "isOn":0]]
+    let userdefault = UserDefaults.standard
+    
+    var genre = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         genreCollectionView.delegate = self; genreCollectionView.dataSource = self
-//        print(genre.keys)
-        genreCollectionViewHeight.constant = 11*85.0*self.view.frame.height/667 + 10*10.0
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//        self.genreCollectionView.reloadData()
-//    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        genreCollectionViewHeight.constant = genreCollectionView.contentSize.height
+    }
 
     @IBAction func pressedAnalysisNextButton(_ sender: Any) {
         let placeCheckViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: PlaceCheckViewController.reuseIdentifier) as! PlaceCheckViewController
+        
+        var genreText = ""
+        
+        for (i, element) in genre.enumerated() {
+            genreText += "\(element)"
+            if i < genre.count-1 {
+                genreText += ","
+            }
+        }
+        
+        placeCheckViewController.genre = genreText
+        print(genreText)
         
         self.navigationController?.pushViewController(placeCheckViewController, animated: true)
     }
@@ -49,6 +50,19 @@ class GenreCheckViewController : UIViewController {
     @IBAction func pressedAnalysisBeforeButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func choosePreference(_ button: ToggleButton) {
+        button.buttonAnimation()
+        
+        guard let cell = button.superview?.superview as? GenreCheckCollectionViewCell else { return }
+        
+        if button.isChecked {
+            genre[cell.id] = 1
+        } else {
+            genre[cell.id] = 0
+        }
+    }
+    
 }
 
 extension GenreCheckViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -62,6 +76,9 @@ extension GenreCheckViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.genreToggleButton.setImage(UIImage(named: "btn_genre\(indexPath.row+1)_off"), for: .normal)
         cell.genreToggleButton.falseImage = UIImage(named: "btn_genre\(indexPath.row+1)_off")
         cell.genreToggleButton.trueImage = UIImage(named: "btn_genre\(indexPath.row+1)_on")
+        cell.genreToggleButton.addTarget(self, action: #selector(choosePreference(_:)), for: .touchUpInside)
+        cell.id = indexPath.row
+        
         return cell
     }
 }
