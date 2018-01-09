@@ -86,7 +86,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func mainNetworking() {
-        
         HomeService.shareInstance.mainInfo { (result) in
             switch result {
             case .success(let homeData):
@@ -232,6 +231,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.exhibitionDateLabel.text = "\(gsno(homeBottomTheme?[indexPath.row].ex_start_date)) ~ \(gsno(homeBottomTheme?[indexPath.row].ex_end_date))"
             cell.galleryId = gino(homeBottomTheme?[indexPath.row].gallery_id)
             cell.exhibitionLocationLabel.text = homeBottomTheme?[indexPath.row].gallery_name
+            cell.ratingViewWidth.constant = CGFloat(gfno(homeBottomTheme?[indexPath.row].ex_average_grade)/5)*55
             
             if gino(homeBottomTheme?[indexPath.row].likeFlag) == 1 {
                 cell.likeButton.isChecked = true

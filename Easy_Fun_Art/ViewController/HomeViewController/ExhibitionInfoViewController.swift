@@ -70,7 +70,7 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         super.viewWillDisappear(animated)
         
         UIApplication.shared.statusBarStyle = .default
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
         
         guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
         animatedTabBar.animationTabBarHidden(false)

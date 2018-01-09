@@ -10,20 +10,53 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--맞춤 추천-->
         <scene sceneID="T6K-XI-Y8c">
             <objects>
-                <viewController id="jf6-um-d8w" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecommendViewController" automaticallyAdjustsScrollViewInsets="NO" id="jf6-um-d8w" customClass="RecommendViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cLe-Y9-KBs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YBd-8s-v8V">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RpP-5b-WRB">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainRecoCollectionViewCell" id="WGN-vT-mBz" customClass="MainRecoCollectionViewCell" customModule="Easy_Fun_Art" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YBd-8s-v8V" secondAttribute="trailing" id="Wuf-9Q-xI4"/>
+                            <constraint firstItem="zrg-RS-Zou" firstAttribute="bottom" secondItem="YBd-8s-v8V" secondAttribute="bottom" id="XBL-ie-snN"/>
+                            <constraint firstItem="YBd-8s-v8V" firstAttribute="leading" secondItem="zrg-RS-Zou" secondAttribute="leading" id="ZFx-Rg-DBh"/>
+                            <constraint firstItem="YBd-8s-v8V" firstAttribute="top" secondItem="zrg-RS-Zou" secondAttribute="top" id="tHM-do-FoK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zrg-RS-Zou"/>
                     </view>
+                    <navigationItem key="navigationItem" title="맞춤 추천" id="wzN-xh-q5w"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="recommendListCollectionView" destination="YBd-8s-v8V" id="Z6X-ia-9Ii"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uj7-tS-qmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489" y="-119"/>
+            <point key="canvasLocation" x="488.80000000000001" y="-119.1904047976012"/>
         </scene>
     </scenes>
 </document>

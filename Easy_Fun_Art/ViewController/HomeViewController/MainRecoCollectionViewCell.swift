@@ -20,6 +20,7 @@ class MainRecoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var goDocentButton: UIButton!
     @IBOutlet weak var goExhibitionDetailView: UIButton!
     @IBOutlet weak var likeButton: ToggleButton!
+    @IBOutlet weak var ratingViewWidth: NSLayoutConstraint!
     
     var type = "theme1"
     var exhibitionTheme: [HomeExhibition]?
@@ -28,7 +29,6 @@ class MainRecoCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         likeButton.falseImage = #imageLiteral(resourceName: "btn_main_like_off")
         likeButton.trueImage = #imageLiteral(resourceName: "btn_main_like_on")
@@ -37,7 +37,7 @@ class MainRecoCollectionViewCell: UICollectionViewCell {
         likeButton.layer.borderWidth = 0.5
         goDocentButton.layer.borderColor = #colorLiteral(red: 0.6498134136, green: 0.660738945, blue: 0.6677950025, alpha: 1)
         goDocentButton.layer.borderWidth = 0.5
-        
+
         likeButton.addTarget(self, action: #selector(likeExhibition(_:)), for: .touchUpInside)
     }
     

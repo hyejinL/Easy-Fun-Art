@@ -27,7 +27,8 @@ struct UserService: APIService {
                     if let status = JSON(value)["status"].string {
                         if status == "success" {
                             guard let token = JSON(value)["data"]["token"].string, let level = JSON(value)["data"]["level"].int else { return }
-                            self.userdefault.set(token, forKey: "token")
+//                            self.userdefault.set(token, forKey: "token")
+                            self.userdefault.set("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjY0LCJ1c2VyTGV2ZWwiOjEwLCJpYXQiOjE1MTU0MTkzMTgsImV4cCI6MTUyNDA1OTMxOCwiaXNzIjoiRWFzeUZ1bkFydCJ9.QdKv0XTxKJ8YvqPOuGbjkydFfVaZuINeUmsEZmiSIpg", forKey: "token")
                             completion(.success(level))
                         } else {
                             guard let msg = JSON(value)["msg"].string else { return }

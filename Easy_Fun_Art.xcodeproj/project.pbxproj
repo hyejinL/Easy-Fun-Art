@@ -44,6 +44,7 @@
 		0A72FAFF1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */; };
 		0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */; };
 		0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */; };
+		0A8FC5832005243100CE8834 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8FC5822005243100CE8834 /* RecommendViewController.swift */; };
 		0AAF117720016A7B00A6B274 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF117620016A7B00A6B274 /* HomeService.swift */; };
 		0AAF117920016C4400A6B274 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF117820016C4400A6B274 /* Home.swift */; };
 		0AAF117B20016E0400A6B274 /* HomeExhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF117A20016E0400A6B274 /* HomeExhibition.swift */; };
@@ -115,6 +116,7 @@
 		0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayListHeaderCell.swift; sourceTree = "<group>"; };
 		0A72FB001FFB60B80051EF9A /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
 		0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentEndViewController.swift; sourceTree = "<group>"; };
+		0A8FC5822005243100CE8834 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		0AAF117620016A7B00A6B274 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		0AAF117820016C4400A6B274 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0AAF117A20016E0400A6B274 /* HomeExhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExhibition.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		0A149AB11FF9EA9500E12932 /* RecommendViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0A8FC5822005243100CE8834 /* RecommendViewController.swift */,
 			);
 			path = RecommendViewController;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
 				0ACFA0271FFE67E500664489 /* MainTopRecoCollectionViewCell.swift in Sources */,
 				0AC3C259200123FD009ACD14 /* CustomLoadingView.swift in Sources */,
+				0A8FC5832005243100CE8834 /* RecommendViewController.swift in Sources */,
 				0A1A22EA2000E32400389767 /* UserService.swift in Sources */,
 				0AE0F05C200282E1003C5D9E /* PlayList.swift in Sources */,
 				0A72FB031FFB8AD40051EF9A /* DocentEndViewController.swift in Sources */,

@@ -39,7 +39,8 @@
                             <view userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gkt-TL-Gdz" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="46.5" y="45.5" width="53" height="9"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Gkt-TL-Gdz" secondAttribute="height" multiplier="53:9" id="7by-2f-CzG"/>
+                                    <constraint firstAttribute="width" constant="53" id="Fee-KU-lRK"/>
+                                    <constraint firstAttribute="height" constant="9" id="ctL-he-ne4"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="img_main_star"/>
@@ -63,9 +64,8 @@
                         <constraints>
                             <constraint firstItem="TUj-Cl-T9o" firstAttribute="centerY" secondItem="5Z2-hj-osC" secondAttribute="centerY" constant="-10" id="AIB-Rd-yLb"/>
                             <constraint firstItem="TUj-Cl-T9o" firstAttribute="top" secondItem="Gkt-TL-Gdz" secondAttribute="bottom" constant="4" id="AfY-lC-uw5"/>
-                            <constraint firstItem="Gkt-TL-Gdz" firstAttribute="width" secondItem="5Z2-hj-osC" secondAttribute="width" multiplier="53:145" id="I7y-dk-nav"/>
-                            <constraint firstItem="Gkt-TL-Gdz" firstAttribute="centerX" secondItem="TUj-Cl-T9o" secondAttribute="centerX" id="NS6-0Y-DeR"/>
                             <constraint firstItem="TUj-Cl-T9o" firstAttribute="centerX" secondItem="5Z2-hj-osC" secondAttribute="centerX" id="TSQ-Ll-Q0U"/>
+                            <constraint firstItem="Gkt-TL-Gdz" firstAttribute="centerX" secondItem="5Z2-hj-osC" secondAttribute="centerX" id="bqg-pj-OHh"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="76d-Ry-9ka">
@@ -142,6 +142,7 @@
                 <outlet property="goDocentButton" destination="ZNX-aJ-bs3" id="qe2-KW-uYO"/>
                 <outlet property="goExhibitionDetailView" destination="QGN-j7-Rgb" id="KSI-M3-gub"/>
                 <outlet property="likeButton" destination="x6a-QR-dMR" id="gCF-j9-T79"/>
+                <outlet property="ratingViewWidth" destination="Fee-KU-lRK" id="Kg6-hB-pLr"/>
             </connections>
             <point key="canvasLocation" x="107.5" y="53.5"/>
         </collectionViewCell>
