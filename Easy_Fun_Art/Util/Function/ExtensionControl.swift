@@ -69,26 +69,6 @@ extension UIViewController {
         }
     }
     
-    // MARK: View Height with Keyboard
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if self.view.frame.origin.y == 0 {
-            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                let keyboard_height = keyboardSize.height
-                let centerY = (self.view.frame.height - keyboard_height)/2
-                self.view.center.y = centerY
-                view.layoutIfNeeded()
-//                check = false
-            }//if let keyboardSize
-        }
-    }
-    
-    @objc func keyboardWillHide() {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-            view.layoutIfNeeded()
-//            check = true
-        }
-    }
 }
 
 extension UIImageView {
@@ -103,5 +83,14 @@ extension UIImageView {
         } else {
             self.image = defaultImg
         }
+    }
+}
+
+extension UIView {
+    func loadNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nibName = type(of: self).description().components(separatedBy: ".").last!
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        return nib.instantiate(withOwner: self, options: nil).first as! UIView
     }
 }

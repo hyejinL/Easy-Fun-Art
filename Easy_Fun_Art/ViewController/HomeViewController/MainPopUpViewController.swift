@@ -12,15 +12,20 @@ class MainPopUpViewController: UIViewController {
 
     @IBOutlet weak var docentPopUpView: UIView!
     @IBOutlet weak var exhibitionImageView: UIImageView!
+    @IBOutlet weak var exhibitionTitleLabel: UILabel!
+    @IBOutlet weak var galleryTitleLabel: UILabel!
     
-//    var 
+    var exhibitionID: Int?
+    var exhibitionText: String?
+    var exhibitonImage: UIImage?
+    var galleryText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        exhibitionImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
-        exhibitionImageView.contentMode = .scaleAspectFill // OR .scaleAspectFill
-        exhibitionImageView.clipsToBounds = true
+        exhibitionTitleLabel.text = exhibitionText
+        exhibitionImageView.image = exhibitonImage
+        galleryTitleLabel.text = galleryText
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,12 +39,13 @@ class MainPopUpViewController: UIViewController {
     }
     
     @IBAction func goExhibitionDetailView(_ sender: Any) {
-        
-        let exhibitionInfoViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoViewController.reuseIdentifier) as! ExhibitionInfoViewController
-        let navi = self.presentingViewController as? UINavigationController
+        guard let tabBarController = self.presentingViewController as? UITabBarController else { return }
+        let navi = tabBarController.viewControllers?[0] as? UINavigationController
         
         self.dismiss(animated: true) {
-            navi?.pushViewController(exhibitionInfoViewController, animated: true)
+//            tabBarController.selectedIndex = 2
+            let docentPlayListTableViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
+            navi?.pushViewController(docentPlayListTableViewController, animated: true)
         }
     }
 }

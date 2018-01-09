@@ -24,8 +24,8 @@ class UserInfoViewController: UIViewController {
     var check = true
     var genderButton = [ToggleButton]()
     var ageButton = [ToggleButton]()
-    var gender = ""
-    var age = ""
+    var gender = -1
+    var age = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,16 +52,18 @@ class UserInfoViewController: UIViewController {
             } else {
                 for button in self.genderButton {
                     if button.isChecked {
-                        gender = button.title
+                        guard let checkButton = Int(button.title) else { return }
+                        gender = checkButton
                     }
                 }
                 for button in self.ageButton {
                     if button.isChecked {
-                        age = button.title
+                        guard let checkButton = Int(button.title) else { return }
+                        age = checkButton
                     }
                 }
                 
-                if nicknameErrMsgLabel.text == "" || gender == "" || age == "" {
+                if nicknameErrMsgLabel.text == "" || gender == -1 || age == -1 {
                     self.simpleAlert(title: "모든 항목을 채워주세요", msg: "")
                 } else {
                     nicknameCheck()
@@ -94,15 +96,15 @@ class UserInfoViewController: UIViewController {
         genderButton = [femaleButton, maleButton]
         ageButton = [age10sButton, age20sButton, age30sButton, age40sButton, age50sButton, age60sButton]
         
-        femaleButton.title = "여자"
-        maleButton.title = "남자"
+        femaleButton.title = "1"
+        maleButton.title = "0"
         
-        age10sButton.title = "10대"
-        age20sButton.title = "20대"
-        age30sButton.title = "30대"
-        age40sButton.title = "40대"
-        age50sButton.title = "50대"
-        age60sButton.title = "60대"
+        age10sButton.title = "10"
+        age20sButton.title = "20"
+        age30sButton.title = "30"
+        age40sButton.title = "40"
+        age50sButton.title = "50"
+        age60sButton.title = "60"
     }
     
     func nicknameErrMsgHidden() {
@@ -116,14 +118,16 @@ class UserInfoViewController: UIViewController {
         UserService.sharedInstance.userNicknameCheck(nickname: gsno(userNicknameTextField.text)) { (result) in
             switch result {
             case .success(let check):
-                if check == 1 {
+                if check == 0 {
                     self.nicknameErrMsgLabel.text = "이미 존재하는 닉네임입니다 :("
                     self.nicknameErrMsgHidden()
+                    self.loading(.end)
                 } else {
                     self.sendUserInfo()
                 }
                 break
             case .error(let msg):
+                print(msg)
                 break
             }
         }
@@ -140,6 +144,7 @@ class UserInfoViewController: UIViewController {
                 self.loading(.end)
                 break
             case  .error(let msg):
+                print(msg)
                 break
             }
         }
@@ -162,6 +167,27 @@ extension UserInfoViewController : UITextFieldDelegate {
     
     @objc func tapBackground(_ sender: UITapGestureRecognizer?) {
         self.userNicknameTextField.resignFirstResponder()
+    }
+    
+    // MARK: View Height with Keyboard
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                let keyboard_height = keyboardSize.height
+                let centerY = (self.view.frame.height - keyboard_height)/2
+                self.view.center.y = centerY
+                view.layoutIfNeeded()
+                //                check = false
+            }//if let keyboardSize
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+            view.layoutIfNeeded()
+            //            check = true
+        }
     }
     
 }

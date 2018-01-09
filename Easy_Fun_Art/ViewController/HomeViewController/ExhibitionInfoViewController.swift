@@ -8,6 +8,7 @@
 
 import UIKit
 import SJSegmentedScrollView
+import RAMAnimatedTabBarController
 
 class ExhibitionInfoViewController: SJSegmentedViewController {
     var selectedSegment:SJSegmentTab?
@@ -48,17 +49,31 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         view.frame.size.height = 0
         view.contentMode = .scaleAspectFit
         view.backgroundColor = .white
-        
         self.navigationItem.titleView = view
-
+        self.navigationController?.navigationBar.alpha = 0
+        self.navigationController?.navigationBar.isHidden = false
+        
+        segmentedScrollView.delegate = self
+        
         self.view.layoutIfNeeded()
 //        self.viewDidLayoutSubviews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
+        animatedTabBar.animationTabBarHidden(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.navigationBar.isHidden = true
+        
+        guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
+        animatedTabBar.animationTabBarHidden(false)
     }
 
 }
@@ -77,4 +92,15 @@ extension ExhibitionInfoViewController: SJSegmentedViewControllerDelegate {
     }
 }
 
+extension ExhibitionInfoViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 200 {
+            UIApplication.shared.statusBarStyle = .default
+        } else {
+            UIApplication.shared.statusBarStyle = .lightContent
+        }
+        self.navigationController?.navigationBar.alpha = 1.0-(309-scrollView.contentOffset.y)/309
+        
+    }
+}
 

@@ -101,13 +101,23 @@ class SplashViewController: UIViewController {
     func loginAction(graphResponse: UserDataRequest.Response) {
         UserService.sharedInstance.userLogin(snsToken: graphResponse.id) { (result) in
             switch result {
-            case .success(let userToken):
-                self.userdefault.set(userToken, forKey: "token")
-                
-                let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
-                self.present(analysisStartViewController, animated: true, completion: {
-                    self.loading(.end)
-                })
+            case .success(let level):
+                if level == 10 {
+                    let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
+                    self.present(analysisStartViewController, animated: true, completion: {
+                        self.loading(.end)
+                    })
+                } else if level == 20 {
+                    let genreCheckViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: GenreCheckViewController.reuseIdentifier) as! GenreCheckViewController
+                    self.present(genreCheckViewController, animated: true, completion: {
+                        self.loading(.end)
+                    })
+                } else if level == 50 {
+                    let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
+                    self.present(tabbarViewController, animated: true, completion: {
+                        self.loading(.end)
+                    })
+                }
                 
                 break
             case .error(let msg):

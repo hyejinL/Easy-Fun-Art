@@ -122,7 +122,7 @@
                                     <action selector="pressedStopDocent:" destination="1aT-DC-czv" eventType="touchUpInside" id="wkX-Z2-thh"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="1pK-9H-Qn3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="1pK-9H-Qn3">
                                 <rect key="frame" x="31" y="86" width="315" height="315"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1pK-9H-Qn3" secondAttribute="height" multiplier="1:1" id="4Mn-kE-mT9"/>
@@ -272,6 +272,12 @@
                                     <action selector="sliderValueChanged:" destination="1aT-DC-czv" eventType="valueChanged" id="9ZP-At-mn7"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E99-33-Ds2">
+                                <rect key="frame" x="163" y="609" width="51" height="42"/>
+                                <connections>
+                                    <action selector="openMusicBar:" destination="1aT-DC-czv" eventType="touchUpInside" id="8uy-UO-qpd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -281,7 +287,9 @@
                             <constraint firstItem="XOq-yG-7mn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gqc-wx-B7A" secondAttribute="leading" constant="85" id="4Hh-68-mDG"/>
                             <constraint firstItem="tH2-lp-RhH" firstAttribute="top" secondItem="NSa-Mm-6Y3" secondAttribute="top" id="4M3-ab-qRR"/>
                             <constraint firstItem="60U-gS-INU" firstAttribute="height" secondItem="NSa-Mm-6Y3" secondAttribute="height" multiplier="57:667" id="5IM-ZD-ckI"/>
+                            <constraint firstItem="E99-33-Ds2" firstAttribute="top" secondItem="Z49-QW-vGb" secondAttribute="top" constant="-10" id="79b-aR-bzO"/>
                             <constraint firstItem="Z49-QW-vGb" firstAttribute="centerX" secondItem="1pK-9H-Qn3" secondAttribute="centerX" id="9au-C3-d7K"/>
+                            <constraint firstItem="E99-33-Ds2" firstAttribute="bottom" secondItem="Z49-QW-vGb" secondAttribute="bottom" constant="10" id="B2W-qc-ZN3"/>
                             <constraint firstItem="Gqc-wx-B7A" firstAttribute="trailing" secondItem="zmq-uJ-QTq" secondAttribute="trailing" constant="31" id="Cg2-s0-ool"/>
                             <constraint firstItem="Gqc-wx-B7A" firstAttribute="trailing" secondItem="oqn-Wi-ahw" secondAttribute="trailing" constant="92" id="Dfz-9p-aGt"/>
                             <constraint firstItem="SUy-U3-Ngl" firstAttribute="width" secondItem="NSa-Mm-6Y3" secondAttribute="width" multiplier="25:375" id="Hmr-yt-4Qw"/>
@@ -310,9 +318,11 @@
                             <constraint firstItem="oqn-Wi-ahw" firstAttribute="centerY" secondItem="Swq-qY-2m3" secondAttribute="centerY" id="mNp-EE-ZDx"/>
                             <constraint firstItem="1pK-9H-Qn3" firstAttribute="width" secondItem="NSa-Mm-6Y3" secondAttribute="width" multiplier="315:375" id="n1G-N2-PPJ"/>
                             <constraint firstItem="eHv-LB-86R" firstAttribute="centerY" secondItem="XOq-yG-7mn" secondAttribute="centerY" id="nl1-b1-BzL"/>
+                            <constraint firstItem="E99-33-Ds2" firstAttribute="trailing" secondItem="Z49-QW-vGb" secondAttribute="trailing" constant="10" id="ns4-v3-uFG"/>
                             <constraint firstItem="60U-gS-INU" firstAttribute="centerX" secondItem="1pK-9H-Qn3" secondAttribute="centerX" id="qel-mQ-VzE"/>
                             <constraint firstItem="Gqc-wx-B7A" firstAttribute="trailing" secondItem="SUy-U3-Ngl" secondAttribute="trailing" constant="24" id="qsg-Zd-Tqf"/>
                             <constraint firstItem="zmq-uJ-QTq" firstAttribute="trailing" secondItem="di5-q9-6NI" secondAttribute="trailing" id="sCv-el-e0R"/>
+                            <constraint firstItem="E99-33-Ds2" firstAttribute="leading" secondItem="Z49-QW-vGb" secondAttribute="leading" constant="-10" id="tDU-AM-deh"/>
                             <constraint firstItem="lnF-au-gjp" firstAttribute="centerY" secondItem="Gqc-wx-B7A" secondAttribute="centerY" constant="90" id="u7X-oF-LpZ"/>
                             <constraint firstItem="Gqc-wx-B7A" firstAttribute="trailing" secondItem="eHv-LB-86R" secondAttribute="trailing" constant="18.5" id="uTS-W0-BtN"/>
                             <constraint firstItem="caQ-Cm-tL3" firstAttribute="top" secondItem="zmq-uJ-QTq" secondAttribute="bottom" constant="-5" id="uka-GZ-QEL"/>
@@ -519,7 +529,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="634" height="630"/>
+        <image name="1" width="145" height="175"/>
         <image name="btn_docent_play" width="31" height="57"/>
         <image name="btn_docentlist_info" width="34" height="34"/>
         <image name="btn_docentlist_play" width="31" height="31"/>

@@ -148,7 +148,7 @@
     </objects>
     <resources>
         <image name=" " width="16" height="16"/>
-        <image name="1" width="634" height="630"/>
+        <image name="1" width="145" height="175"/>
         <image name="btn_main_docent" width="115" height="36"/>
         <image name="btn_main_like_off" width="115" height="36"/>
         <image name="img_main_star" width="8" height="8"/>

@@ -33,6 +33,7 @@ class DocentPlayerViewController: UIViewController {
     var audioCurrentMinute = 0
     var audioCurrentSecond = 0
     var soundData = Data()
+    let playerView = DocentPlayerBarView.instanceFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,6 +144,20 @@ class DocentPlayerViewController: UIViewController {
         updatePlaySlider()
     }
     
+    @IBAction func openMusicBar(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+        playerView.frame = CGRect(x: 0, y: (667-99)*self.view.frame.height/667, width: self.view.frame.width, height: 50*self.view.frame.height/667)
+        
+        let backgroundTap = UITapGestureRecognizer(target: self, action: #selector(openDocentViewController))
+        playerView.addGestureRecognizer(backgroundTap)
+        
+        let window = UIApplication.shared.keyWindow!
+        window.addSubview(playerView)
+        
+    }
+    
     @objc func updatePlaySlider() {
         audioCurrentTime = Int(audioPlayer.currentTime+1)
         audioCurrentMinute = Int(audioCurrentTime/60)
@@ -164,6 +179,18 @@ class DocentPlayerViewController: UIViewController {
                 })
             })
         }
+    }
+    
+    @objc func openDocentViewController() {
+        let window = UIApplication.shared.keyWindow!
+        let docentPlayerViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayerViewController.reuseIdentifier) as! DocentPlayerViewController
+        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+//        self.present(docentPlayerViewController, animated: true, completion: {
+//            self.playerView.removeFromSuperview()
+//        })
+//        appDelegate.window?.rootViewController?.present(docentPlayerViewController, animated: true, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "openMusicBar"), object: self)
+        
     }
     
     func scriptViewShowAndHidden() {

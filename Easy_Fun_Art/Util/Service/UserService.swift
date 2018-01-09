@@ -14,7 +14,7 @@ struct UserService: APIService {
     static let sharedInstance = UserService()
     let userdefault = UserDefaults.standard
     
-    func userLogin(snsToken: String, completion: @escaping (Result<String>)->Void) {
+    func userLogin(snsToken: String, completion: @escaping (Result<Int>)->Void) {
         let URL = url("/api/login")
         let token = [
             "snsToken" : snsToken
@@ -26,8 +26,9 @@ struct UserService: APIService {
                 if let value = res.result.value {
                     if let status = JSON(value)["status"].string {
                         if status == "success" {
-                            guard let token = JSON(value)["data"]["token"].string else { return }
-                            completion(.success(token))
+                            guard let token = JSON(value)["data"]["token"].string, let level = JSON(value)["data"]["level"].int else { return }
+                            self.userdefault.set(token, forKey: "token")
+                            completion(.success(level))
                         } else {
                             guard let msg = JSON(value)["msg"].string else { return }
                             completion(.error(msg))
@@ -73,7 +74,7 @@ struct UserService: APIService {
         }
     }
     
-    func sendUserInfo(nickname: String, gender: String, age: String, completion: @escaping (Result<Void>)->Void) {
+    func sendUserInfo(nickname: String, gender: Int, age: Int, completion: @escaping (Result<Void>)->Void) {
         let URL = url("/api/preference/users")
         let token = [
             "user_token" : gsno(userdefault.string(forKey: "token"))

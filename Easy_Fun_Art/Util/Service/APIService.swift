@@ -19,7 +19,7 @@ protocol APIService {
 
 extension APIService {
     func url(_ path: String) -> String {
-        return "http://13.124.97.161:3000" + path
+        return "http://13.124.72.52:3000" + path
     }
     
     func gsno(_ value: String?) -> String {

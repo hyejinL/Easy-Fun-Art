@@ -8,40 +8,85 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var topRecommendCollectionView: UICollectionView!
     @IBOutlet weak var bottomRecommendCollectionView: UICollectionView!
     @IBOutlet weak var bottomRecommendCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var docentSearchTextField: UITextField!
+    @IBOutlet weak var scrollBiggerImageView: UIImageView!
+    @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var biggerImageViewTop: NSLayoutConstraint!
+    @IBOutlet weak var biggerImageViewHeight: NSLayoutConstraint!
     
     var homeTopData: [HomeExhibition]?
     var homeBottomData: Home.HomeData.HomeBottomData?
     var homeBottomTheme: [HomeExhibition]?
     
+    var keyboardDismissGesture: UITapGestureRecognizer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.navigationBar.isHidden = true
         
         topRecommendCollectionView.delegate = self; topRecommendCollectionView.dataSource = self
         bottomRecommendCollectionView.delegate = self; bottomRecommendCollectionView.dataSource = self
         
         docentSearchTextField.attributedPlaceholder = NSAttributedString(string: "도슨트를 위한 일련번호를 입력해주세요", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        docentSearchTextField.delegate = self
+        
+        self.automaticallyAdjustsScrollViewInsets = false
         
         setUpCollectionView()
         
         mainNetworking()
         loading(.start)
         
+        textFieldFirstSetting()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(pressedLikeIt), name: NSNotification.Name("likeExhibition"), object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         bottomRecommendCollectionViewHeight.constant = bottomRecommendCollectionView.contentSize.height+100
+        
+        let imageHeight = scrollBiggerImageView.frame.height
+
+//        let newOrigin = CGPoint(x: 0, y: -imageHeight)
+//
+//        mainScrollView.contentOffset = newOrigin
+//        mainScrollView.contentInset = UIEdgeInsets(top: imageHeight, left: 0, bottom: 0, right: 0)
+
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = mainScrollView.contentOffset.y
+        
+        if offsetY < 0 {
+            biggerImageViewTop.constant = offsetY
+            biggerImageViewHeight.constant = -offsetY+390*self.view.frame.height/667
+        } else {
+            scrollBiggerImageView.frame.size.height = scrollBiggerImageView.frame.height
+        }
+        
+        self.view.layoutIfNeeded()
     }
     
     func mainNetworking() {
+        
         HomeService.shareInstance.mainInfo { (result) in
             switch result {
             case .success(let homeData):
@@ -61,9 +106,16 @@ class MainViewController: UIViewController {
         }
     }
     
-    @objc func goDocentPopUp() {
+    @objc func goDocentPopUp(_ button: UIButton) {
         let mainPopUpViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: MainPopUpViewController.reuseIdentifier) as! MainPopUpViewController
-        self.present(mainPopUpViewController, animated: true, completion: nil)
+        guard let cell = button.superview?.superview?.superview as? MainRecoCollectionViewCell else { return }
+        
+        mainPopUpViewController.exhibitionID = cell.exhibitionId
+        mainPopUpViewController.exhibitionText = cell.exhibitionTitleLabel.text
+        mainPopUpViewController.exhibitonImage = cell.exhibitionImageView.image
+        mainPopUpViewController.galleryText = cell.exhibitionLocationLabel.text
+        
+        self.tabBarController?.present(mainPopUpViewController, animated: true, completion: nil)
     }
     
     @objc func goExhibitionDetailView() {
@@ -85,8 +137,15 @@ class MainViewController: UIViewController {
 //            }
 //        }
         
-        let likeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: LikeViewController.reuseIdentifier) as! LikeViewController
-        self.present(likeViewController, animated: true, completion: nil)
+        guard let like = notification.userInfo?["like"] as? Int else { return }
+        
+        if like == 1 {
+            let likeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: LikeViewController.reuseIdentifier) as! LikeViewController
+            let exhibitionText = notification.userInfo?["exhibitionText"] as? String
+            
+            likeViewController.exhibitionText = exhibitionText
+            self.present(likeViewController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -145,7 +204,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.exhibitionImageView.layer.masksToBounds = true
             
             cell.exhibitionId = gino(homeTopData?[indexPath.row].ex_id)
-            cell.exhibitionImageView.image = UIImage(named: gsno(homeTopData?[indexPath.row].ex_image))
+            cell.exhibitionImageView.imageFromUrl(gsno(homeTopData?[indexPath.row].ex_image), defaultImgPath: "1")
+                
             cell.exhibitionTitleLabel.text = homeTopData?[indexPath.row].ex_title
 
             return cell
@@ -172,8 +232,20 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.exhibitionDateLabel.text = "\(gsno(homeBottomTheme?[indexPath.row].ex_start_date)) ~ \(gsno(homeBottomTheme?[indexPath.row].ex_end_date))"
             cell.galleryId = gino(homeBottomTheme?[indexPath.row].gallery_id)
             cell.exhibitionLocationLabel.text = homeBottomTheme?[indexPath.row].gallery_name
+            
+            if gino(homeBottomTheme?[indexPath.row].likeFlag) == 1 {
+                cell.likeButton.isChecked = true
+            } else {
+                cell.likeButton.isChecked = false
+            }
 
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == topRecommendCollectionView {
+            goExhibitionDetailView()
         }
     }
 }
@@ -211,5 +283,46 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
             return UIEdgeInsets.zero
         }
     }
+}
+
+// 텍스트 필드 조정
+extension MainViewController : UITextFieldDelegate {
+    func textFieldFirstSetting() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    // MARK: Save Data after Return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.docentSearchTextField.resignFirstResponder()
+        return false
+    }
+    
+    @objc func tapBackground(_ sender: UITapGestureRecognizer?) {
+        self.docentSearchTextField.resignFirstResponder()
+    }
+    
+    func adjustKeyboardDismisTapGesture(isKeyboardVisible: Bool) {
+        if isKeyboardVisible {
+            if keyboardDismissGesture == nil {
+                keyboardDismissGesture = UITapGestureRecognizer(target: self, action: #selector(tapBackground(_:)))
+                view.addGestureRecognizer(keyboardDismissGesture!)
+            }
+        } else {
+            if keyboardDismissGesture != nil {
+                view.removeGestureRecognizer(keyboardDismissGesture!)
+                keyboardDismissGesture = nil
+            }
+        }
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        adjustKeyboardDismisTapGesture(isKeyboardVisible: true)
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        adjustKeyboardDismisTapGesture(isKeyboardVisible: false)
+    }
+    
 }
 

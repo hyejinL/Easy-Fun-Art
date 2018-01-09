@@ -41,8 +41,9 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="gSn-0H-W9W" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="36" id="Asd-CW-gUd"/>
+                <constraint firstItem="gSn-0H-W9W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="36" id="Asd-CW-gUd"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gSn-0H-W9W" secondAttribute="trailing" constant="36" id="Sdz-7F-nil"/>
+                <constraint firstItem="gSn-0H-W9W" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="dgn-cB-8f9"/>
                 <constraint firstItem="gSn-0H-W9W" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="i6N-rZ-eHe"/>
                 <constraint firstItem="tuK-9C-iuu" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="30:375" id="qqE-x5-omy"/>
             </constraints>

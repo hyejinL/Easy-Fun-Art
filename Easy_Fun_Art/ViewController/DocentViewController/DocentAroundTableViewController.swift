@@ -49,6 +49,7 @@ class DocentAroundTableViewController: UITableViewController, IndicatorInfoProvi
             switch result {
             case .success(let listData):
                 self.playListData = listData
+                self.tableView.reloadData()
                 break
             case .error(let msg):
                 print(msg)
@@ -106,7 +107,7 @@ extension DocentAroundTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: DocentListTableViewCell.reuseIdentifier, for: indexPath) as! DocentListTableViewCell
         
         cell.exhibitionId = gino(playListData[indexPath.row].ex_id)
-        cell.exhibitionImageView.imageFromUrl(gsno(playListData[indexPath.row].ex_image), defaultImgPath: "")
+        cell.exhibitionImageView.imageFromUrl(gsno(playListData[indexPath.row].ex_image), defaultImgPath: "1")
         cell.exhibitionTitleLabel.text = playListData[indexPath.row].ex_title
         cell.galleryNameLabel.text = playListData[indexPath.row].gallery_name
         

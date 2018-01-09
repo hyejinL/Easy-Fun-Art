@@ -14,6 +14,8 @@ class DocentPlayListTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setUpTableView()
+        
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     // MARK: - Table view data source

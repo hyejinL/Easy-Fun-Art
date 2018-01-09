@@ -24,6 +24,9 @@
 		0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A149ACE1FFA2F7800E12932 /* DocentListTableViewCell.swift */; };
 		0A149AD11FFA2F7800E12932 /* DocentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */; };
 		0A149AD71FFA527A00E12932 /* DocentPlayListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */; };
+		0A197BFB2003BEA200329524 /* DocentPlayerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A197BFA2003BEA200329524 /* DocentPlayerBarView.swift */; };
+		0A197BFD2003CA9200329524 /* DocentPlayerBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A197BFC2003CA9200329524 /* DocentPlayerBarView.xib */; };
+		0A197BFF2003E0E200329524 /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A197BFE2003E0E200329524 /* MyPageService.swift */; };
 		0A1A22D41FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */; };
 		0A1A22DA1FFFF89700389767 /* ExhibitionDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22D91FFFF89700389767 /* ExhibitionDetailInfoViewController.swift */; };
 		0A1A22DC1FFFF8DE00389767 /* GalleryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A22DB1FFFF8DE00389767 /* GalleryInfoViewController.swift */; };
@@ -92,6 +95,9 @@
 		0A149ACE1FFA2F7800E12932 /* DocentListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentListTableViewCell.swift; sourceTree = "<group>"; };
 		0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentListTableViewCell.xib; sourceTree = "<group>"; };
 		0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentPlayListHeaderCell.xib; sourceTree = "<group>"; };
+		0A197BFA2003BEA200329524 /* DocentPlayerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlayerBarView.swift; sourceTree = "<group>"; };
+		0A197BFC2003CA9200329524 /* DocentPlayerBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocentPlayerBarView.xib; sourceTree = "<group>"; };
+		0A197BFE2003E0E200329524 /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
 		0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionInfoHeaderViewController.swift; sourceTree = "<group>"; };
 		0A1A22D91FFFF89700389767 /* ExhibitionDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailInfoViewController.swift; sourceTree = "<group>"; };
 		0A1A22DB1FFFF8DE00389767 /* GalleryInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryInfoViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 				0A72FAFE1FFA8D610051EF9A /* DocentPlayListHeaderCell.swift */,
 				0A149AB41FF9EAFB00E12932 /* DocentPlayerViewController.swift */,
 				0A72FB021FFB8AD40051EF9A /* DocentEndViewController.swift */,
+				0A197BFA2003BEA200329524 /* DocentPlayerBarView.swift */,
 			);
 			path = DocentViewController;
 			sourceTree = "<group>";
@@ -233,6 +240,7 @@
 			children = (
 				0A149ACF1FFA2F7800E12932 /* DocentListTableViewCell.xib */,
 				0A149AD61FFA527A00E12932 /* DocentPlayListHeaderCell.xib */,
+				0A197BFC2003CA9200329524 /* DocentPlayerBarView.xib */,
 			);
 			path = DocentViewController;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 				0A1A22E92000E32400389767 /* UserService.swift */,
 				0AAF117620016A7B00A6B274 /* HomeService.swift */,
 				0ADDA1B720027E930031A1C4 /* DocentService.swift */,
+				0A197BFE2003E0E200329524 /* MyPageService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -491,6 +500,7 @@
 			files = (
 				0A149AD11FFA2F7800E12932 /* DocentListTableViewCell.xib in Resources */,
 				0AEFBF161FF93D0B0090920B /* LaunchScreen.storyboard in Resources */,
+				0A197BFD2003CA9200329524 /* DocentPlayerBarView.xib in Resources */,
 				0A149AAA1FF9D5BA00E12932 /* Docent.storyboard in Resources */,
 				0A149AA81FF9D58D00E12932 /* Recommend.storyboard in Resources */,
 				0A149AAE1FF9D5DF00E12932 /* MyPage.storyboard in Resources */,
@@ -562,8 +572,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A197BFF2003E0E200329524 /* MyPageService.swift in Sources */,
 				0ACFA0231FFE5E3700664489 /* MainRecoCollectionViewCell.swift in Sources */,
 				0ACFA01C1FFE5D7200664489 /* MainPopUpViewController.swift in Sources */,
+				0A197BFB2003BEA200329524 /* DocentPlayerBarView.swift in Sources */,
 				0ACC27481FFDF757007E9BA4 /* PlaceCheckViewController.swift in Sources */,
 				0A149AB51FF9EAFB00E12932 /* DocentPlayerViewController.swift in Sources */,
 				0A149AC41FFA202C00E12932 /* DocentAroundTableViewController.swift in Sources */,
