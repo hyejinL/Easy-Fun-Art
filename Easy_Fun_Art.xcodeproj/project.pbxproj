@@ -87,6 +87,8 @@
 		0AEFBF111FF93D0A0090920B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF0F1FF93D0A0090920B /* Main.storyboard */; };
 		0AEFBF131FF93D0A0090920B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF121FF93D0A0090920B /* Assets.xcassets */; };
 		0AEFBF161FF93D0B0090920B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEFBF141FF93D0A0090920B /* LaunchScreen.storyboard */; };
+		0AF1DD5920075DD500975FD4 /* SearchMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1DD5820075DD500975FD4 /* SearchMainViewController.swift */; };
+		0AF1DD5B20075F9E00975FD4 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1DD5A20075F9D00975FD4 /* SearchResultViewController.swift */; };
 		0AFC2F6D200685A700F83226 /* GalleryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC2F6C200685A700F83226 /* GalleryDetail.swift */; };
 		A97DB55861EEC05EF7213CAC /* Pods_Easy_Fun_Art.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536B530A714ADAE626CD05E7 /* Pods_Easy_Fun_Art.framework */; };
 /* End PBXBuildFile section */
@@ -175,6 +177,8 @@
 		0AEFBF151FF93D0B0090920B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AEFBF171FF93D0B0090920B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEFBF1D1FF93D280090920B /* Easy_Fun_Art.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Easy_Fun_Art.entitlements; sourceTree = "<group>"; };
+		0AF1DD5820075DD500975FD4 /* SearchMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewController.swift; sourceTree = "<group>"; };
+		0AF1DD5A20075F9D00975FD4 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		0AFC2F6C200685A700F83226 /* GalleryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDetail.swift; sourceTree = "<group>"; };
 		269DEB1E069B0D76B42B6BC9 /* Pods-Easy_Fun_Art.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy_Fun_Art.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easy_Fun_Art/Pods-Easy_Fun_Art.debug.xcconfig"; sourceTree = "<group>"; };
 		536B530A714ADAE626CD05E7 /* Pods_Easy_Fun_Art.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easy_Fun_Art.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +252,8 @@
 		0A149AB21FF9EA9700E12932 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0AF1DD5820075DD500975FD4 /* SearchMainViewController.swift */,
+				0AF1DD5A20075F9D00975FD4 /* SearchResultViewController.swift */,
 			);
 			path = SearchViewController;
 			sourceTree = "<group>";
@@ -627,6 +633,7 @@
 				0A1A22E420009B6600389767 /* LikeViewController.swift in Sources */,
 				0ACFA02D1FFEB3E700664489 /* ExhibitionInfoViewController.swift in Sources */,
 				0ACC27401FFD60C9007E9BA4 /* GenreCheckCollectionViewCell.swift in Sources */,
+				0AF1DD5920075DD500975FD4 /* SearchMainViewController.swift in Sources */,
 				0A3EB75D2005C00300761518 /* ExhibitionDetailInfoCollectionViewController.swift in Sources */,
 				0A72FB011FFB60B80051EF9A /* UserDataRequest.swift in Sources */,
 				0A149AB71FF9F86400E12932 /* ToggleButton.swift in Sources */,
@@ -644,6 +651,7 @@
 				0ACC274E1FFDF77C007E9BA4 /* AnalysisEndViewController.swift in Sources */,
 				0ACC274A1FFDF761007E9BA4 /* MoodCheckViewController.swift in Sources */,
 				0ACC273C1FFD6079007E9BA4 /* UserInfoViewController.swift in Sources */,
+				0AF1DD5B20075F9E00975FD4 /* SearchResultViewController.swift in Sources */,
 				0A7CD6E4200575530039B3D9 /* ReviewTableViewController.swift in Sources */,
 				0A3EB7692005C1FB00761518 /* ExhibitionDetailInfoCollectionViewCell.swift in Sources */,
 				0A1A22E82000E28D00389767 /* APIService.swift in Sources */,

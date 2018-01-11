@@ -6,24 +6,114 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search Main View Controller-->
         <scene sceneID="Kwb-qo-Fla">
             <objects>
-                <viewController id="UtW-UP-dTo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchMainViewController" id="UtW-UP-dTo" customClass="SearchMainViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9s4-z9-51I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="bg_search" translatesAutoresizingMaskIntoConstraints="NO" id="8Uu-MA-bck">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8Uu-MA-bck" secondAttribute="height" multiplier="75:49" id="PFI-cf-qGO"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="title_search" translatesAutoresizingMaskIntoConstraints="NO" id="na8-sS-95U">
+                                <rect key="frame" x="30" y="73" width="187" height="65"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="혹은 작가명 / 작품명을 검색해보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgJ-FM-GMl">
+                                <rect key="frame" x="30" y="156" width="173.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zU6-vf-jOM">
+                                <rect key="frame" x="30" y="217.5" width="287" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1.5" id="oTq-MG-SKR"/>
+                                </constraints>
+                            </view>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icon_search_white" translatesAutoresizingMaskIntoConstraints="NO" id="TcM-eo-jwI">
+                                <rect key="frame" x="30" y="196.5" width="15" height="15"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z73-LS-gvb">
+                                <rect key="frame" x="50" y="195.5" width="267" height="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            </textField>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_search_prev" translatesAutoresizingMaskIntoConstraints="NO" id="i7O-jO-8ny">
+                                <rect key="frame" x="153" y="364" width="69" height="73"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dA-or-s8n">
+                                <rect key="frame" x="111.5" y="442" width="153" height="33.5"/>
+                                <string key="text">EASY FUN ART가 
+당신의 전시를 찾아드릴게요</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.45490196078431372" green="0.45490196078431372" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wd2-Qx-K19" firstAttribute="trailing" secondItem="zU6-vf-jOM" secondAttribute="trailing" constant="58" id="1sr-h1-AqK"/>
+                            <constraint firstItem="na8-sS-95U" firstAttribute="leading" secondItem="wd2-Qx-K19" secondAttribute="leading" constant="30" id="3yF-eh-aH3"/>
+                            <constraint firstItem="7dA-or-s8n" firstAttribute="centerX" secondItem="i7O-jO-8ny" secondAttribute="centerX" id="5Bj-yz-8Ma"/>
+                            <constraint firstItem="7dA-or-s8n" firstAttribute="top" secondItem="i7O-jO-8ny" secondAttribute="bottom" constant="5" id="Axb-Fr-dpZ"/>
+                            <constraint firstItem="8Uu-MA-bck" firstAttribute="top" secondItem="9s4-z9-51I" secondAttribute="top" id="Cg3-Ti-NMA"/>
+                            <constraint firstItem="XgJ-FM-GMl" firstAttribute="leading" secondItem="na8-sS-95U" secondAttribute="leading" id="FsJ-6e-XEz"/>
+                            <constraint firstItem="i7O-jO-8ny" firstAttribute="centerY" secondItem="wd2-Qx-K19" secondAttribute="centerY" constant="57" id="LmW-BP-7Eh"/>
+                            <constraint firstItem="Z73-LS-gvb" firstAttribute="trailing" secondItem="zU6-vf-jOM" secondAttribute="trailing" id="Muv-Ic-ZPl"/>
+                            <constraint firstItem="zU6-vf-jOM" firstAttribute="top" secondItem="XgJ-FM-GMl" secondAttribute="bottom" constant="47" id="UGc-YV-2hQ"/>
+                            <constraint firstItem="zU6-vf-jOM" firstAttribute="top" secondItem="TcM-eo-jwI" secondAttribute="bottom" constant="5.7999999999999998" id="W0a-U0-FkP"/>
+                            <constraint firstItem="zU6-vf-jOM" firstAttribute="leading" secondItem="wd2-Qx-K19" secondAttribute="leading" constant="30" id="WEv-1T-2Fa"/>
+                            <constraint firstItem="na8-sS-95U" firstAttribute="top" secondItem="wd2-Qx-K19" secondAttribute="top" constant="53" id="YoE-9n-hQT"/>
+                            <constraint firstItem="Z73-LS-gvb" firstAttribute="leading" secondItem="TcM-eo-jwI" secondAttribute="trailing" constant="5" id="maG-dm-oLn"/>
+                            <constraint firstItem="8Uu-MA-bck" firstAttribute="leading" secondItem="wd2-Qx-K19" secondAttribute="leading" id="oX6-4S-z9d"/>
+                            <constraint firstItem="8Uu-MA-bck" firstAttribute="trailing" secondItem="wd2-Qx-K19" secondAttribute="trailing" id="qYS-XW-vFJ"/>
+                            <constraint firstItem="XgJ-FM-GMl" firstAttribute="top" secondItem="na8-sS-95U" secondAttribute="bottom" constant="18" id="sqd-Uu-Ufb"/>
+                            <constraint firstItem="zU6-vf-jOM" firstAttribute="top" secondItem="Z73-LS-gvb" secondAttribute="bottom" constant="5" id="vNu-Xt-Xd2"/>
+                            <constraint firstItem="TcM-eo-jwI" firstAttribute="leading" secondItem="zU6-vf-jOM" secondAttribute="leading" id="vxf-ac-7ja"/>
+                            <constraint firstItem="i7O-jO-8ny" firstAttribute="centerX" secondItem="wd2-Qx-K19" secondAttribute="centerX" id="zfE-gO-GsP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wd2-Qx-K19"/>
                     </view>
+                    <connections>
+                        <outlet property="searchTextField" destination="Z73-LS-gvb" id="AHW-4R-l9z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lcy-y0-JDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="185" y="167"/>
+            <point key="canvasLocation" x="184.80000000000001" y="166.8665667166417"/>
+        </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="Ztg-mE-iUX">
+            <objects>
+                <viewController storyboardIdentifier="SearchResultViewController" id="5ry-Z5-PAc" customClass="SearchResultViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zld-ph-qAr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="O8Z-SI-LwG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oaB-nx-WkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="167"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg_search" width="375" height="245"/>
+        <image name="icon_search_white" width="15" height="15"/>
+        <image name="img_search_prev" width="69" height="73"/>
+        <image name="title_search" width="187" height="65"/>
+    </resources>
 </document>

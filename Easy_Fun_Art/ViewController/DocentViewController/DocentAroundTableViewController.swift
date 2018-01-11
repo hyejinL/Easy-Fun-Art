@@ -11,6 +11,7 @@ import XLPagerTabStrip
 import CoreLocation
 
 class DocentAroundTableViewController: UITableViewController, IndicatorInfoProvider {
+    @IBOutlet weak var noExhibitionView: UIView!
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -20,6 +21,8 @@ class DocentAroundTableViewController: UITableViewController, IndicatorInfoProvi
         super.viewDidLoad()
 
         setUpTableView()
+        
+        noExhibitionView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +52,11 @@ class DocentAroundTableViewController: UITableViewController, IndicatorInfoProvi
             switch result {
             case .success(let listData):
                 self.playListData = listData
+                // 주변에 전시가 없습니다 부분
+                if self.playListData.isEmpty {
+                    self.noExhibitionView.isHidden = false
+                    self.noExhibitionView.frame = self.view.frame
+                }
                 self.tableView.reloadData()
                 break
             case .error(let msg):

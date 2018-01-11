@@ -93,8 +93,46 @@
                             <outlet property="delegate" destination="6fU-at-gPY" id="lWV-dZ-MnM"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="noExhibitionView" destination="aHu-N0-BXN" id="HmV-MB-JfU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiL-zg-JJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Wn9-Q7-wCq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHu-N0-BXN">
+                            <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <subviews>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_docent_none" translatesAutoresizingMaskIntoConstraints="NO" id="2gT-Tq-dGK">
+                                    <rect key="frame" x="124.5" y="206.5" width="126" height="74"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 주변에서 진행하는 전시가 없어요 :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb0-8p-2Ub">
+                                    <rect key="frame" x="82.5" y="300.5" width="210" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="jb0-8p-2Ub" firstAttribute="centerX" secondItem="2gT-Tq-dGK" secondAttribute="centerX" id="Ohw-UJ-dEO"/>
+                                <constraint firstItem="2gT-Tq-dGK" firstAttribute="centerX" secondItem="aHu-N0-BXN" secondAttribute="centerX" id="Rgc-Mh-QoU"/>
+                                <constraint firstItem="2gT-Tq-dGK" firstAttribute="centerY" secondItem="aHu-N0-BXN" secondAttribute="centerY" constant="-80" id="jk6-Wh-aCE"/>
+                                <constraint firstItem="jb0-8p-2Ub" firstAttribute="top" secondItem="2gT-Tq-dGK" secondAttribute="bottom" constant="20" id="wIv-XG-Zl9"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="aHu-N0-BXN" firstAttribute="top" secondItem="g58-60-RL8" secondAttribute="top" id="7Vr-9l-h1B"/>
+                        <constraint firstItem="aHu-N0-BXN" firstAttribute="trailing" secondItem="g58-60-RL8" secondAttribute="trailing" id="MbX-yr-KFh"/>
+                        <constraint firstItem="aHu-N0-BXN" firstAttribute="bottom" secondItem="g58-60-RL8" secondAttribute="bottom" id="bz5-sA-aJl"/>
+                        <constraint firstItem="aHu-N0-BXN" firstAttribute="leading" secondItem="g58-60-RL8" secondAttribute="leading" id="nl9-Uh-gJH"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="g58-60-RL8"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="-442.39999999999998" y="-221.73913043478262"/>
         </scene>
@@ -540,6 +578,7 @@
         <image name="docentplaying_place" width="25" height="24"/>
         <image name="docentplaying_script" width="20" height="24"/>
         <image name="docentplaying_stop" width="28" height="57"/>
+        <image name="img_docent_none" width="126" height="74"/>
         <image name="img_popup_review" width="98" height="82"/>
     </resources>
 </document>
