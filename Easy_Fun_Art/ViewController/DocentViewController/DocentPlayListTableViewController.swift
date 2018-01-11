@@ -17,6 +17,12 @@ class DocentPlayListTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.isHidden = false
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = false
+    }
 
     // MARK: - Table view data source
 

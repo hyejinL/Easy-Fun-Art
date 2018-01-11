@@ -9,6 +9,8 @@
 import UIKit
 import FBSDKCoreKit
 import NVActivityIndicatorView
+import GoogleMaps
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,9 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // facebook login 설정
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        GMSServices.provideAPIKey("AIzaSyDyyiuHX4gCu6a9mJg2lVo1IWymIchneKQ")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(openPlayerViewController), name: NSNotification.Name(rawValue: "openMusicBar"), object: nil)
+        
         return true
     }
-    
+
+    @objc func openPlayerViewController() {
+        if let controller = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: "DocentPlayerViewController") as? DocentPlayerViewController {
+            window?.visibleViewController?.present(controller, animated: true, completion: nil)
+        }
+    }
+
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         if FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options) {
             return true
@@ -63,3 +75,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+public extension UIWindow {
+    public var visibleViewController: UIViewController? {
+        return UIWindow.getVisibleViewControllerFrom(self.rootViewController)
+    }
+    
+    public static func getVisibleViewControllerFrom(_ vc: UIViewController?) -> UIViewController? {
+        if let nc = vc as? UINavigationController {
+            return UIWindow.getVisibleViewControllerFrom(nc.visibleViewController)
+        } else if let tc = vc as? UITabBarController {
+            return UIWindow.getVisibleViewControllerFrom(tc.selectedViewController)
+        } else {
+            if let pvc = vc?.presentedViewController {
+                return UIWindow.getVisibleViewControllerFrom(pvc)
+            } else {
+                return vc
+            }
+        }
+    }
+}

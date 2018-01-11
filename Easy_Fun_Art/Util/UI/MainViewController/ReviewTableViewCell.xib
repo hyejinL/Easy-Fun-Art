@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewTableViewCell" rowHeight="202" id="x7b-Pj-JW9" customClass="ReviewTableViewCell" customModule="Easy_Fun_Art" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x7b-Pj-JW9" id="os1-ro-Qvd">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="201.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyD-vI-H30">
+                        <rect key="frame" x="13.5" y="29.5" width="348" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="lyD-vI-H30" secondAttribute="height" multiplier="327:47" id="HzB-QR-ZZN"/>
+                        </constraints>
+                        <state key="normal" image="btn_review"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-qo-30I">
+                        <rect key="frame" x="81" y="129" width="48" height="36"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                        <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균 평점" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ6-or-pny">
+                        <rect key="frame" x="82.5" y="114.5" width="45" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdK-MA-HuE">
+                        <rect key="frame" x="89.5" y="165" width="31" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="255-Eg-SIw" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="137" y="114.5" width="56" height="10"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="sAJ-Bk-lrg"/>
+                            <constraint firstAttribute="width" constant="56" id="y34-Q7-VD7"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="img_popup_star_on"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="img_popup_star_off"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                <real key="value" value="1.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tcq-pa-gLq" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="148.5" y="127.5" width="44.5" height="10"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44.5" id="VVn-cS-lzz"/>
+                            <constraint firstAttribute="height" constant="10" id="afq-UJ-gJ3"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="img_popup_star_on"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="img_popup_star_off"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                <real key="value" value="1.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-Uv-fl7" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="160" y="140.5" width="33" height="10"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="33" id="p2L-Rd-cRz"/>
+                            <constraint firstAttribute="height" constant="10" id="xmX-T4-1Ob"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="img_popup_star_on"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="img_popup_star_off"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                <real key="value" value="1.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMJ-An-FHF" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="171.5" y="153.5" width="21.5" height="10"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="AAB-a5-QPJ"/>
+                            <constraint firstAttribute="width" constant="21.5" id="qQf-hN-oMB"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="img_popup_star_on"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="img_popup_star_off"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                <real key="value" value="1.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ok-Bz-r5s" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="183" y="166.5" width="10" height="10"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="izJ-O1-Vd7"/>
+                            <constraint firstAttribute="height" constant="10" id="qzo-S7-6ww"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="img_popup_star_on"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="img_popup_star_off"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                <real key="value" value="1.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qo-E4-EBm">
+                        <rect key="frame" x="198" y="114.5" width="0.0" height="10"/>
+                        <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" id="XcS-iH-bcl"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-N1-E6J">
+                        <rect key="frame" x="198" y="127.5" width="0.0" height="10"/>
+                        <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" id="8vL-BO-v7Q"/>
+                            <constraint firstAttribute="height" constant="10" id="uVA-aH-iKm"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJP-RM-SQh">
+                        <rect key="frame" x="198" y="140.5" width="0.0" height="10"/>
+                        <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="t9h-F0-DAH"/>
+                            <constraint firstAttribute="width" id="tA6-yl-WZz"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sl5-G7-eOh">
+                        <rect key="frame" x="198" y="153.5" width="0.0" height="10"/>
+                        <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="SpV-CD-Yim"/>
+                            <constraint firstAttribute="width" id="kqm-yU-qEA"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bz-be-GKk">
+                        <rect key="frame" x="198" y="166.5" width="0.0" height="10"/>
+                        <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" id="y4v-vJ-c4F"/>
+                            <constraint firstAttribute="height" constant="10" id="zF3-XZ-8GQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oJP-RM-SQh" firstAttribute="centerY" secondItem="3Ff-Uv-fl7" secondAttribute="centerY" id="0YG-Fx-MTh"/>
+                    <constraint firstItem="8Bz-be-GKk" firstAttribute="centerY" secondItem="0ok-Bz-r5s" secondAttribute="centerY" id="0bk-8r-HUs"/>
+                    <constraint firstItem="zMJ-An-FHF" firstAttribute="trailing" secondItem="3Ff-Uv-fl7" secondAttribute="trailing" id="1Kv-v5-CCb"/>
+                    <constraint firstItem="2BY-qo-30I" firstAttribute="top" secondItem="iQ6-or-pny" secondAttribute="bottom" id="3kC-Ob-meh"/>
+                    <constraint firstItem="sl5-G7-eOh" firstAttribute="leading" secondItem="oJP-RM-SQh" secondAttribute="leading" id="6EH-ff-eVu"/>
+                    <constraint firstItem="DVd-N1-E6J" firstAttribute="centerY" secondItem="Tcq-pa-gLq" secondAttribute="centerY" id="6gN-sK-z63"/>
+                    <constraint firstItem="2BY-qo-30I" firstAttribute="centerX" secondItem="os1-ro-Qvd" secondAttribute="centerX" constant="-82" id="7nA-zJ-iOD"/>
+                    <constraint firstItem="255-Eg-SIw" firstAttribute="top" secondItem="iQ6-or-pny" secondAttribute="top" id="8IB-Xo-bf1"/>
+                    <constraint firstItem="4qo-E4-EBm" firstAttribute="height" secondItem="255-Eg-SIw" secondAttribute="height" id="99Z-cH-9xu"/>
+                    <constraint firstItem="255-Eg-SIw" firstAttribute="leading" secondItem="2BY-qo-30I" secondAttribute="trailing" constant="8" id="9ta-dw-nsy"/>
+                    <constraint firstItem="zMJ-An-FHF" firstAttribute="top" secondItem="3Ff-Uv-fl7" secondAttribute="bottom" constant="3" id="Aag-5D-KSs"/>
+                    <constraint firstItem="Tcq-pa-gLq" firstAttribute="top" secondItem="255-Eg-SIw" secondAttribute="bottom" constant="3" id="KZ8-A7-N3h"/>
+                    <constraint firstItem="DVd-N1-E6J" firstAttribute="leading" secondItem="4qo-E4-EBm" secondAttribute="leading" id="NFE-ZV-eXR"/>
+                    <constraint firstItem="JdK-MA-HuE" firstAttribute="centerX" secondItem="2BY-qo-30I" secondAttribute="centerX" id="RYX-xB-i05"/>
+                    <constraint firstAttribute="bottom" secondItem="8Bz-be-GKk" secondAttribute="bottom" constant="35" id="Sbf-Ex-J1n"/>
+                    <constraint firstItem="Tcq-pa-gLq" firstAttribute="trailing" secondItem="255-Eg-SIw" secondAttribute="trailing" id="T5o-rP-wg8"/>
+                    <constraint firstItem="iQ6-or-pny" firstAttribute="top" secondItem="lyD-vI-H30" secondAttribute="bottom" constant="35" id="U1K-A0-TLj"/>
+                    <constraint firstItem="0ok-Bz-r5s" firstAttribute="top" secondItem="zMJ-An-FHF" secondAttribute="bottom" constant="3" id="UOS-l1-dqZ"/>
+                    <constraint firstItem="lyD-vI-H30" firstAttribute="width" secondItem="os1-ro-Qvd" secondAttribute="width" multiplier="345:375" id="auK-6Z-Voy"/>
+                    <constraint firstItem="4qo-E4-EBm" firstAttribute="centerY" secondItem="255-Eg-SIw" secondAttribute="centerY" id="dzC-hc-Sll"/>
+                    <constraint firstItem="3Ff-Uv-fl7" firstAttribute="trailing" secondItem="Tcq-pa-gLq" secondAttribute="trailing" id="h8Z-du-GEV"/>
+                    <constraint firstItem="lyD-vI-H30" firstAttribute="top" secondItem="os1-ro-Qvd" secondAttribute="topMargin" constant="21" id="ke0-rt-U2U"/>
+                    <constraint firstItem="8Bz-be-GKk" firstAttribute="leading" secondItem="sl5-G7-eOh" secondAttribute="leading" id="mn8-gI-hlI"/>
+                    <constraint firstItem="3Ff-Uv-fl7" firstAttribute="top" secondItem="Tcq-pa-gLq" secondAttribute="bottom" constant="3" id="mnO-fp-Vrc"/>
+                    <constraint firstItem="sl5-G7-eOh" firstAttribute="centerY" secondItem="zMJ-An-FHF" secondAttribute="centerY" id="p5e-M6-nkR"/>
+                    <constraint firstItem="2BY-qo-30I" firstAttribute="centerX" secondItem="iQ6-or-pny" secondAttribute="centerX" id="qZB-R1-266"/>
+                    <constraint firstItem="JdK-MA-HuE" firstAttribute="top" secondItem="2BY-qo-30I" secondAttribute="bottom" id="rpc-93-tZM"/>
+                    <constraint firstItem="0ok-Bz-r5s" firstAttribute="trailing" secondItem="zMJ-An-FHF" secondAttribute="trailing" id="tbg-VY-IsG"/>
+                    <constraint firstItem="4qo-E4-EBm" firstAttribute="leading" secondItem="255-Eg-SIw" secondAttribute="trailing" constant="5" id="tnC-ab-BjU"/>
+                    <constraint firstItem="lyD-vI-H30" firstAttribute="centerX" secondItem="os1-ro-Qvd" secondAttribute="centerX" id="uMN-ly-WpI"/>
+                    <constraint firstItem="oJP-RM-SQh" firstAttribute="leading" secondItem="DVd-N1-E6J" secondAttribute="leading" id="yFf-Tu-amc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ratingCountLabel" destination="JdK-MA-HuE" id="o46-dt-NfP"/>
+                <outlet property="ratingScoreLabel" destination="2BY-qo-30I" id="Z1T-YQ-T2p"/>
+                <outlet property="ratingView1" destination="4qo-E4-EBm" id="Mdt-qe-2vQ"/>
+                <outlet property="ratingView1Width" destination="XcS-iH-bcl" id="3Cu-1C-jHu"/>
+                <outlet property="ratingView2" destination="DVd-N1-E6J" id="qPc-8e-bZq"/>
+                <outlet property="ratingView2Width" destination="8vL-BO-v7Q" id="NrZ-c8-Uoe"/>
+                <outlet property="ratingView3" destination="oJP-RM-SQh" id="qaN-Mt-Sc6"/>
+                <outlet property="ratingView3Width" destination="tA6-yl-WZz" id="Zb6-R2-okO"/>
+                <outlet property="ratingView4" destination="sl5-G7-eOh" id="97O-BZ-vsS"/>
+                <outlet property="ratingView4Width" destination="kqm-yU-qEA" id="n2H-iH-6Xr"/>
+                <outlet property="ratingView5" destination="8Bz-be-GKk" id="XnY-c2-asW"/>
+                <outlet property="ratingView5Width" destination="y4v-vJ-c4F" id="Io4-aN-w8Q"/>
+                <outlet property="reviewWriteButton" destination="lyD-vI-H30" id="J6j-UX-XOn"/>
+            </connections>
+            <point key="canvasLocation" x="112" y="-95"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="btn_review" width="345" height="50"/>
+        <image name="img_popup_star_off" width="29" height="27"/>
+        <image name="img_popup_star_on" width="29" height="27"/>
+    </resources>
+</document>

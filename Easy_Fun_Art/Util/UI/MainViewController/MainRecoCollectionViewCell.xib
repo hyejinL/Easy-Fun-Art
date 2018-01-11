@@ -87,7 +87,7 @@
                         <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2h9-Nj-SD7">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2h9-Nj-SD7">
                         <rect key="frame" x="160" y="53.5" width="33" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,6 +124,7 @@
                 <constraint firstItem="76d-Ry-9ka" firstAttribute="top" secondItem="QGN-j7-Rgb" secondAttribute="bottom" constant="8" id="h1C-1c-jnN"/>
                 <constraint firstItem="2h9-Nj-SD7" firstAttribute="top" secondItem="KcU-Lf-FVi" secondAttribute="bottom" constant="14" id="m81-qw-RcD"/>
                 <constraint firstItem="2h9-Nj-SD7" firstAttribute="leading" secondItem="KcU-Lf-FVi" secondAttribute="leading" id="mdI-yd-tie"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2h9-Nj-SD7" secondAttribute="trailing" constant="20" id="qqh-ld-7aC"/>
                 <constraint firstItem="3Am-EM-R2V" firstAttribute="leading" secondItem="2h9-Nj-SD7" secondAttribute="leading" id="rxQ-DA-3rG"/>
                 <constraint firstItem="qBv-rv-Pog" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="145:375" id="sRe-1b-BGA"/>
                 <constraint firstItem="5Z2-hj-osC" firstAttribute="leading" secondItem="qBv-rv-Pog" secondAttribute="leading" id="taI-jI-e1m"/>

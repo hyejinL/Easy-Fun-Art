@@ -38,9 +38,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         
         setUpCollectionView()
         
-        mainNetworking()
-        loading(.start)
-        
         textFieldFirstSetting()
         
         NotificationCenter.default.addObserver(self, selector: #selector(pressedLikeIt), name: NSNotification.Name("likeExhibition"), object: nil)
@@ -50,6 +47,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
+        
+        mainNetworking()
+        loading(.start)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -117,8 +117,26 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         self.tabBarController?.present(mainPopUpViewController, animated: true, completion: nil)
     }
     
-    @objc func goExhibitionDetailView() {
+    @objc func goExhibitionDetailViewAtCellButton(_ button: UIButton) {
+        guard let cell = button.superview?.superview as? MainRecoCollectionViewCell else { return }
+        
         let exhibitionInfoViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoViewController.reuseIdentifier) as! ExhibitionInfoViewController
+        
+        exhibitionInfoViewController.id = cell.exhibitionId
+        exhibitionInfoViewController.exhibitionTitle = cell.exhibitionTitleLabel.text
+        exhibitionInfoViewController.date = cell.exhibitionDateLabel.text
+        exhibitionInfoViewController.gallery = cell.exhibitionLocationLabel.text
+        exhibitionInfoViewController.image = cell.exhibitionImageView.image
+        exhibitionInfoViewController.galleryId = cell.galleryId
+        
+        self.navigationController?.pushViewController(exhibitionInfoViewController, animated: true)
+    }
+    
+    @objc func goExhibitionDetailViewAtCell(_ id: Int) {
+        print(22222)
+        let exhibitionInfoViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoViewController.reuseIdentifier) as! ExhibitionInfoViewController
+        print(id)
+        exhibitionInfoViewController.id = id
         self.navigationController?.pushViewController(exhibitionInfoViewController, animated: true)
     }
     
@@ -212,7 +230,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainRecoCollectionViewCell.reuseIdentifier, for: indexPath) as! MainRecoCollectionViewCell
             
             cell.goDocentButton.addTarget(self, action: #selector(goDocentPopUp), for: .touchUpInside)
-            cell.goExhibitionDetailView.addTarget(self, action: #selector(goExhibitionDetailView), for: .touchUpInside)
+            cell.goExhibitionDetailView.addTarget(self, action: #selector(goExhibitionDetailViewAtCellButton(_:)), for: .touchUpInside)
             
             
             if indexPath.section == 0 {
@@ -245,7 +263,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == topRecommendCollectionView {
-            goExhibitionDetailView()
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainTopRecoCollectionViewCell.reuseIdentifier, for: indexPath) as! MainTopRecoCollectionViewCell
+            goExhibitionDetailViewAtCell(cell.exhibitionId)
         }
     }
 }

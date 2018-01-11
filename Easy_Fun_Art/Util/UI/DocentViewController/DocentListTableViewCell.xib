@@ -21,7 +21,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FaP-bX-OQL">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="FaP-bX-OQL">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="79.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="FaP-bX-OQL" secondAttribute="height" multiplier="80:79" id="lni-zq-FZl"/>
@@ -72,6 +72,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="1" width="145" height="175"/>
         <image name="btn_docent_next" width="35" height="35"/>
     </resources>
 </document>

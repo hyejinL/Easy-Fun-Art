@@ -13,20 +13,35 @@ import RAMAnimatedTabBarController
 class ExhibitionInfoViewController: SJSegmentedViewController {
     var selectedSegment:SJSegmentTab?
     
+    var exhibitionData: ExhibitionDetail.ExhibitionDetailData?
+    var id = -1
+    var exhibitionTitle: String?
+    var date: String?
+    var gallery: String?
+    var galleryId = -1
+    var image: UIImage?
+    
     override func viewDidLoad() {
-        
-
-        let storyboard = UIStoryboard(name: "Docent", bundle: nil)
+        self.title = exhibitionTitle
         
         let exhibitionHeaderViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoHeaderViewController.reuseIdentifier) as! ExhibitionInfoHeaderViewController
+        exhibitionHeaderViewController.exhibitionId = id
+        exhibitionHeaderViewController.exhibitionTitle = exhibitionTitle
+        exhibitionHeaderViewController.date = date
+        exhibitionHeaderViewController.gallery = gallery
+        exhibitionHeaderViewController.image = image
+        exhibitionHeaderViewController.likeFlag = gino(exhibitionData?.userInfo.likeFlag)
         
-        let firstViewController = storyboard.instantiateViewController(withIdentifier: DocentAroundTableViewController.reuseIdentifier) as! DocentAroundTableViewController
+        let firstViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionDetailInfoCollectionViewController.reuseIdentifier) as! ExhibitionDetailInfoCollectionViewController
+        firstViewController.exhibitionId = id
         firstViewController.title = "전시정보"
         
-        let secondViewController = storyboard.instantiateViewController(withIdentifier: DocentAroundTableViewController.reuseIdentifier) as! DocentAroundTableViewController
+        let secondViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: LocationTableViewController.reuseIdentifier) as! LocationTableViewController
+        secondViewController.id = galleryId
         secondViewController.title = "갤러리정보"
         
-        let thirdViewController = storyboard.instantiateViewController(withIdentifier: DocentAroundTableViewController.reuseIdentifier) as! DocentAroundTableViewController
+        let thirdViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ReviewTableViewController.reuseIdentifier) as! ReviewTableViewController
+        thirdViewController.exhibitionId = id
         thirdViewController.title = "리뷰"
         
         segmentControllers = [firstViewController, secondViewController, thirdViewController]
@@ -62,8 +77,13 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.navigationBar.alpha = 0
+        self.navigationController?.navigationBar.isHidden = false
         guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
         animatedTabBar.animationTabBarHidden(true)
+        
+        loading(.start)
+        exhibitionDetailUpdate()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,11 +91,41 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         
         UIApplication.shared.statusBarStyle = .default
         self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.alpha = 1
         
         guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
         animatedTabBar.animationTabBarHidden(false)
     }
 
+    @IBAction func goRatingView(_ sender: Any) {
+        let starRatingViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: StarRatingViewController.reuseIdentifier) as! StarRatingViewController
+        
+        starRatingViewController.exhibitionId = id
+        starRatingViewController.exhibitionText = exhibitionTitle
+        starRatingViewController.myRate = Int(gfno(exhibitionData?.userInfo.grade))
+        
+        self.tabBarController?.present(starRatingViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func goDocentListView(_ sender: Any) {
+        let docentPlayListTableViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
+   self.navigationController?.pushViewController(docentPlayListTableViewController, animated: true)
+    }
+    
+    func exhibitionDetailUpdate() {
+        HomeService.shareInstance.exhibitionDetail(exhibitionId: id) { (result) in
+            switch result {
+            case .success(let exhibitionInfo):
+                self.exhibitionData = exhibitionInfo
+                print(exhibitionInfo)
+                self.loading(.end)
+                break
+            case .error(let msg):
+                print(msg)
+                break
+            }
+        }
+    }
 }
 
 extension ExhibitionInfoViewController: SJSegmentedViewControllerDelegate {
@@ -85,7 +135,6 @@ extension ExhibitionInfoViewController: SJSegmentedViewControllerDelegate {
         }
         
         if segments.count > 0 {
-            
             selectedSegment = segments[index]
             selectedSegment?.titleColor(#colorLiteral(red: 0.3234693706, green: 0.3234777451, blue: 0.3234732151, alpha: 1))
         }
@@ -99,8 +148,8 @@ extension ExhibitionInfoViewController: UIScrollViewDelegate {
         } else {
             UIApplication.shared.statusBarStyle = .lightContent
         }
-        self.navigationController?.navigationBar.alpha = 1.0-(309-scrollView.contentOffset.y)/309
-        
+        self.navigationController?.navigationBar.alpha = 1.0-(250-scrollView.contentOffset.y)/250
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "detailMainScroll"), object: self, userInfo: ["scroll":scrollView.contentOffset.y])
     }
 }
 

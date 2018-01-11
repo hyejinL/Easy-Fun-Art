@@ -92,7 +92,7 @@ struct UserService: APIService {
                 if let value = res.result.value {
                     if let status = JSON(value)["status"].string {
                         if status == "success" {
-                            self.userdefault.set(gsno(JSON(value)["data"]["token"].string), forKey: "token")
+                            self.userdefault.set(self.gsno(JSON(value)["data"]["token"].string), forKey: "token")
                             
                             completion(.success(()))
                         } else {
@@ -127,7 +127,7 @@ struct UserService: APIService {
                 if let value = res.result.value {
                     if let status = JSON(value)["status"].string {
                         if status == "success" {
-                            self.userdefault.set(gsno(JSON(value)["data"]["token"].string), forKey: "token")
+                            self.userdefault.set(self.gsno(JSON(value)["data"]["token"].string), forKey: "token")
                             completion(.success(()))
                         } else {
                             guard let msg = JSON(value)["msg"].string else { return }

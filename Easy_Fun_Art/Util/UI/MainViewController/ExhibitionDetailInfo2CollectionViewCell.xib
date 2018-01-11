@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExhibitionDetailInfo2CollectionViewCell" id="gTV-IL-0wX" customClass="ExhibitionDetailInfo2CollectionViewCell" customModule="Easy_Fun_Art" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W40-8U-hfz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="375" id="g86-oc-GPR"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="전시 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYK-dD-aMP">
+                        <rect key="frame" x="20" y="30" width="59.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIR-d2-V2l">
+                        <rect key="frame" x="30" y="74.5" width="35.5" height="31.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="W40-8U-hfz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="48y-jP-ahs"/>
+                <constraint firstItem="W40-8U-hfz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8u2-fk-h3e"/>
+                <constraint firstAttribute="trailing" secondItem="W40-8U-hfz" secondAttribute="trailing" id="JYN-cb-cb6"/>
+                <constraint firstItem="PYK-dD-aMP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="30" id="Knr-wO-Sk8"/>
+                <constraint firstAttribute="bottom" secondItem="jIR-d2-V2l" secondAttribute="bottom" constant="45" id="cQJ-oa-zBF"/>
+                <constraint firstItem="PYK-dD-aMP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="esl-fO-v9I"/>
+                <constraint firstAttribute="bottom" secondItem="W40-8U-hfz" secondAttribute="bottom" id="qhK-dg-dTZ"/>
+                <constraint firstItem="jIR-d2-V2l" firstAttribute="top" secondItem="PYK-dD-aMP" secondAttribute="bottom" constant="25" id="uj9-Be-x1E"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jIR-d2-V2l" secondAttribute="trailing" constant="30" id="y3k-3Z-nXQ"/>
+                <constraint firstItem="jIR-d2-V2l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="zZv-s9-6me"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="286" height="151"/>
+            <connections>
+                <outlet property="cellWidthConst" destination="g86-oc-GPR" id="3Qm-WK-3AP"/>
+                <outlet property="exhibitionTextLabel" destination="jIR-d2-V2l" id="AeD-mz-6vj"/>
+            </connections>
+            <point key="canvasLocation" x="151.5" y="104.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

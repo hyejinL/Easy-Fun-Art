@@ -76,4 +76,105 @@ struct HomeService: APIService {
             }
         }
     }
+    
+    func exhibitionDetail(exhibitionId: Int, completion: @escaping (Result<ExhibitionDetail.ExhibitionDetailData>)->Void) {
+        let URL = url("/api/exhibition/\(exhibitionId)/info")
+        let token = [
+            "user_token" : gsno(userdefault.string(forKey: "token"))
+        ]
+        
+        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: token).responseData() { res in
+            switch res.result {
+            case .success:
+                if let value = res.result.value {
+                    do {
+                        let decoder = JSONDecoder()
+                        let exhibitionData = try decoder.decode(ExhibitionDetail.self, from: value)
+                        if exhibitionData.status == "success" {
+                            completion(.success(exhibitionData.data))
+                        } else {
+                            completion(.error(exhibitionData.message))
+                        }
+                    } catch {
+                        guard let msg = JSON(value)["message"].string else { return }
+                        completion(.error(msg))
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    func galleryDetail(galleryId: Int, completion: @escaping (Result<GalleryDetail.GalleryDetailData>)->Void) {
+        let URL = url("/api/gallery/\(galleryId)/info")
+        let token = [
+            "user_token" : gsno(userdefault.string(forKey: "token"))
+        ]
+        
+        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: token).responseData() { res in
+            switch res.result {
+            case .success:
+                if let value = res.result.value {
+                    do {
+                        let decoder = JSONDecoder()
+                        let galleryData = try decoder.decode(GalleryDetail.self, from: value)
+                        if galleryData.status == "success" {
+                            completion(.success(galleryData.data))
+                        } else {
+                            completion(.error(galleryData.message))
+                        }
+                    } catch {
+                        guard let msg = JSON(value)["message"].string else { return }
+                        completion(.error(msg))
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    func exhibitionReview(exhibitionId: Int, completion: @escaping (Result<ExhibitionReview.ReviewData>)->Void) {
+        let URL = url("/api/exhibition/\(exhibitionId)/review")
+        let token = [
+            "user_token" : gsno(userdefault.string(forKey: "token"))
+        ]
+        
+        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: token).responseData() { res in
+            switch res.result {
+            case .success:
+                if let value = res.result.value {
+                    do {
+                        let decoder = JSONDecoder()
+                        let reviewData = try decoder.decode(ExhibitionReview.self, from: value)
+                        if reviewData.status == "success" {
+                            completion(.success(reviewData.data))
+                        } else {
+                            completion(.error(reviewData.message))
+                        }
+                    } catch {
+                        guard let msg = JSON(value)["message"].string else { return }
+                        completion(.error(msg))
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    func sendMyRate(exhibitionid: Int, completion: @escaping (Result<String>)->Void) {
+        let URL = url("/api/home/scoregrade")
+        let token = [
+            "user_token" : gsno(userdefault.string(forKey: "token"))
+        ]
+     
+    }
 }

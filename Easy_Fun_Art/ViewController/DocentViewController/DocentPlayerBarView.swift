@@ -10,9 +10,22 @@ import UIKit
 
 class DocentPlayerBarView: UIView {
 
-    class func instanceFromNib() -> UIView {
-        return UINib(nibName: DocentPlayerBarView.reuseIdentifier, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+    class func instanceFromNib() -> DocentPlayerBarView {
+        return UINib(nibName: DocentPlayerBarView.reuseIdentifier, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DocentPlayerBarView
     }
+    
+    func configure(){
+        let backgroundTap = UITapGestureRecognizer(target: self, action: #selector(openDocentViewController))
+        self.addGestureRecognizer(backgroundTap)
+    }
+    
+    @objc func openDocentViewController() {
+        print("ffff")
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "openMusicBar"), object: self)
+        self.removeFromSuperview()
+    }
+
     
 
 }

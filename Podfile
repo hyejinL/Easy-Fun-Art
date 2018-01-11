@@ -17,6 +17,8 @@ target 'Easy_Fun_Art' do
     pod 'SJSegmentedScrollView', '1.3.8'
     pod 'NVActivityIndicatorView'
     pod 'Kingfisher'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
 
   # Pods for Easy_Fun_Art
 

@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import Cosmos
 
 class StarRatingViewController: UIViewController {
 
+    @IBOutlet weak var myRating: CosmosView!
+    @IBOutlet weak var exhibitionTitleLabel: UILabel!
+    
+    var exhibitionId = -1
+    var exhibitionText: String?
+    var myRate = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        myRating.rating = Double(myRate)
+        exhibitionTitleLabel.text = exhibitionText
     }
 
     @IBAction func pressedConfirmRatingButton(_ sender: Any) {
