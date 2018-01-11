@@ -223,20 +223,7 @@
 				0ACFA01D1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift */,
 				0ACFA0211FFE5E3700664489 /* MainRecoCollectionViewCell.swift */,
 				0ACFA01B1FFE5D7200664489 /* MainPopUpViewController.swift */,
-				0ACFA02C1FFEB3E700664489 /* ExhibitionInfoViewController.swift */,
-				0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */,
-				0A3EB75B2005C00300761518 /* ExhibitionDetailInfoCollectionViewController.swift */,
-				0A3EB7672005C1FB00761518 /* ExhibitionDetailInfoCollectionViewCell.swift */,
-				0A3EB76D2005C44600761518 /* ExhibitionDetailInfo2CollectionViewCell.swift */,
-				0A3EB7752005C57B00761518 /* ExhibitionDetailInfo3CollectionViewCell.swift */,
-				0A9F0C1720067EFF00AB6E97 /* LocationTableViewController.swift */,
-				0A9F0C1920067F1600AB6E97 /* LocationTableViewCell.swift */,
-				0A1A22DF1FFFFAFA00389767 /* HashTagCollectionViewCell.swift */,
-				0A7CD6E3200575530039B3D9 /* ReviewTableViewController.swift */,
-				0AAB0C812005910C00284BA9 /* ReviewTableViewCell.swift */,
-				0A9323FA2006A80000DA02EF /* ExhibitionReviewTableViewCell.swift */,
-				0A1A22E120009B5900389767 /* StarRatingViewController.swift */,
-				0A1A22E320009B6600389767 /* LikeViewController.swift */,
+				0A708E9420077D7F00616891 /* ExhibitionDetailViewController */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -376,6 +363,27 @@
 				0A149ACB1FFA2F0D00E12932 /* DocentViewController */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		0A708E9420077D7F00616891 /* ExhibitionDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0ACFA02C1FFEB3E700664489 /* ExhibitionInfoViewController.swift */,
+				0A1A22D31FFECB6100389767 /* ExhibitionInfoHeaderViewController.swift */,
+				0A3EB75B2005C00300761518 /* ExhibitionDetailInfoCollectionViewController.swift */,
+				0A3EB7672005C1FB00761518 /* ExhibitionDetailInfoCollectionViewCell.swift */,
+				0A3EB76D2005C44600761518 /* ExhibitionDetailInfo2CollectionViewCell.swift */,
+				0A3EB7752005C57B00761518 /* ExhibitionDetailInfo3CollectionViewCell.swift */,
+				0A9F0C1720067EFF00AB6E97 /* LocationTableViewController.swift */,
+				0A9F0C1920067F1600AB6E97 /* LocationTableViewCell.swift */,
+				0A1A22DF1FFFFAFA00389767 /* HashTagCollectionViewCell.swift */,
+				0A7CD6E3200575530039B3D9 /* ReviewTableViewController.swift */,
+				0AAB0C812005910C00284BA9 /* ReviewTableViewCell.swift */,
+				0A9323FA2006A80000DA02EF /* ExhibitionReviewTableViewCell.swift */,
+				0A1A22E120009B5900389767 /* StarRatingViewController.swift */,
+				0A1A22E320009B6600389767 /* LikeViewController.swift */,
+			);
+			path = ExhibitionDetailViewController;
 			sourceTree = "<group>";
 		};
 		0A72FAFB1FFA5D650051EF9A /* MainViewController */ = {

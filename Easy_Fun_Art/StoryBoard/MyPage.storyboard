@@ -36,12 +36,15 @@
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_mypage_profilebg" translatesAutoresizingMaskIntoConstraints="NO" id="fRk-MG-OCK">
                                                 <rect key="frame" x="126" y="98" width="123" height="123"/>
                                             </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_profie_basic" translatesAutoresizingMaskIntoConstraints="NO" id="NDR-oK-tAJ">
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_profie_basic" translatesAutoresizingMaskIntoConstraints="NO" id="NDR-oK-tAJ">
                                                 <rect key="frame" x="140" y="109" width="95" height="95"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fR7-qh-Uh8">
                                                 <rect key="frame" x="207" y="174" width="31" height="31"/>
                                                 <state key="normal" image="btn_mypage_camera"/>
+                                                <connections>
+                                                    <action selector="profileChangeButton:" destination="bNF-Wt-qM0" eventType="touchUpInside" id="Naj-ya-7si"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="a4U-j9-agu">
                                                 <rect key="frame" x="59.5" y="295.5" width="256.5" height="50"/>
@@ -345,6 +348,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sa-4c-N8U">
                                         <rect key="frame" x="337" y="30" width="23" height="24"/>
                                         <state key="normal" image="btn_myage_setting"/>
+                                        <connections>
+                                            <segue destination="H5L-aE-6yk" kind="push" id="edf-Wr-ti6"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마이페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOa-Pk-MHv">
                                         <rect key="frame" x="150" y="32" width="74" height="20.5"/>
@@ -376,6 +382,9 @@
                         <viewLayoutGuide key="safeArea" id="fnt-X5-c94"/>
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
+                    <connections>
+                        <outlet property="myProfileImageView" destination="NDR-oK-tAJ" id="0UU-hk-0Vj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Yd-cA-EZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -499,6 +508,7 @@
                             <outlet property="delegate" destination="H5L-aE-6yk" id="zgW-VW-tTL"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="yRy-j2-45O"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5X9-x9-Gxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

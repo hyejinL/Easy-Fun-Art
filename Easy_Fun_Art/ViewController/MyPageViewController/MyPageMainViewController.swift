@@ -10,10 +10,13 @@ import UIKit
 
 class MyPageMainViewController: UIViewController {
 
+    @IBOutlet weak var myProfileImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.isHidden = true
     }
 
+    @IBAction func profileChangeButton(_ sender: Any) {
+    }
 }
