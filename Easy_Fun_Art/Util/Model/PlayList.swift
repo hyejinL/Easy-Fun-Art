@@ -13,5 +13,4 @@ struct PlayList: Codable {
     let code: Int
     let message: String
     let data: [HomeExhibition]
-    
 }

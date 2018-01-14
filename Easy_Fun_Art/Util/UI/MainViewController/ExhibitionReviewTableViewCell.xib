@@ -92,10 +92,10 @@
                     <constraint firstItem="DO5-T9-b1t" firstAttribute="top" secondItem="2iR-0T-BYb" secondAttribute="bottom" constant="8" id="TtY-3Q-P3E"/>
                     <constraint firstItem="ySD-Xs-iad" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="XZj-qm-MSz"/>
                     <constraint firstItem="gAs-fk-aFl" firstAttribute="leading" secondItem="ySD-Xs-iad" secondAttribute="trailing" constant="10" id="Zz3-qD-P0Z"/>
+                    <constraint firstItem="UFZ-fz-qh4" firstAttribute="top" secondItem="DO5-T9-b1t" secondAttribute="bottom" priority="999" constant="10" id="dXr-1E-rld"/>
                     <constraint firstItem="ySD-Xs-iad" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="35:375" id="fQm-Fi-vds"/>
                     <constraint firstItem="a3k-89-1yQ" firstAttribute="centerY" secondItem="gAs-fk-aFl" secondAttribute="centerY" id="fuo-Or-oja"/>
                     <constraint firstItem="52X-DG-vu8" firstAttribute="top" secondItem="DO5-T9-b1t" secondAttribute="bottom" constant="10" id="hQl-Nn-Rrp"/>
-                    <constraint firstAttribute="bottom" secondItem="DO5-T9-b1t" secondAttribute="bottom" priority="1" constant="15" id="mwO-XY-pNF"/>
                     <constraint firstItem="gAs-fk-aFl" firstAttribute="top" secondItem="ySD-Xs-iad" secondAttribute="top" constant="7" id="oRA-1P-WNo"/>
                     <constraint firstItem="a3k-89-1yQ" firstAttribute="leading" secondItem="gAs-fk-aFl" secondAttribute="trailing" constant="8" id="sdn-pU-JHb"/>
                     <constraint firstItem="2iR-0T-BYb" firstAttribute="leading" secondItem="gAs-fk-aFl" secondAttribute="leading" id="yfI-gv-GDN"/>
@@ -108,6 +108,7 @@
                 <outlet property="ratingView" destination="a3k-89-1yQ" id="0Ti-WI-c4g"/>
                 <outlet property="reviewContentLabel" destination="DO5-T9-b1t" id="4Qv-h6-6zs"/>
                 <outlet property="reviewImageView" destination="52X-DG-vu8" id="pfA-Tp-Xhn"/>
+                <outlet property="reviewImageViewHeight" destination="Vg5-iZ-hm1" id="ZY7-wl-VNU"/>
                 <outlet property="userProfileImageView" destination="ySD-Xs-iad" id="MuT-nl-7tw"/>
                 <outlet property="writerLabel" destination="gAs-fk-aFl" id="6qA-YA-p9y"/>
             </connections>

@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="bg_search" translatesAutoresizingMaskIntoConstraints="NO" id="8Uu-MA-bck">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
+                                <rect key="frame" x="0.0" y="-3" width="375" height="245"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Uu-MA-bck" secondAttribute="height" multiplier="75:49" id="PFI-cf-qGO"/>
                                 </constraints>
@@ -45,7 +45,10 @@
                                 <rect key="frame" x="30" y="196.5" width="15" height="15"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z73-LS-gvb">
-                                <rect key="frame" x="50" y="195.5" width="267" height="17"/>
+                                <rect key="frame" x="50" y="187.5" width="267" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="ayk-x6-R2J"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -68,7 +71,7 @@
                             <constraint firstItem="na8-sS-95U" firstAttribute="leading" secondItem="wd2-Qx-K19" secondAttribute="leading" constant="30" id="3yF-eh-aH3"/>
                             <constraint firstItem="7dA-or-s8n" firstAttribute="centerX" secondItem="i7O-jO-8ny" secondAttribute="centerX" id="5Bj-yz-8Ma"/>
                             <constraint firstItem="7dA-or-s8n" firstAttribute="top" secondItem="i7O-jO-8ny" secondAttribute="bottom" constant="5" id="Axb-Fr-dpZ"/>
-                            <constraint firstItem="8Uu-MA-bck" firstAttribute="top" secondItem="9s4-z9-51I" secondAttribute="top" id="Cg3-Ti-NMA"/>
+                            <constraint firstItem="8Uu-MA-bck" firstAttribute="top" secondItem="9s4-z9-51I" secondAttribute="top" constant="-3" id="Cg3-Ti-NMA"/>
                             <constraint firstItem="XgJ-FM-GMl" firstAttribute="leading" secondItem="na8-sS-95U" secondAttribute="leading" id="FsJ-6e-XEz"/>
                             <constraint firstItem="i7O-jO-8ny" firstAttribute="centerY" secondItem="wd2-Qx-K19" secondAttribute="centerY" constant="57" id="LmW-BP-7Eh"/>
                             <constraint firstItem="Z73-LS-gvb" firstAttribute="trailing" secondItem="zU6-vf-jOM" secondAttribute="trailing" id="Muv-Ic-ZPl"/>
@@ -86,6 +89,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wd2-Qx-K19"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TAL-5r-tDT">
+                        <barButtonItem key="backBarButtonItem" title=" " id="cli-9o-XKU"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchTextField" destination="Z73-LS-gvb" id="AHW-4R-l9z"/>
                     </connections>
@@ -95,24 +101,101 @@
             <point key="canvasLocation" x="184.80000000000001" y="166.8665667166417"/>
         </scene>
         <!--Search Result View Controller-->
-        <scene sceneID="Ztg-mE-iUX">
+        <scene sceneID="Gij-l8-PAk">
             <objects>
-                <viewController storyboardIdentifier="SearchResultViewController" id="5ry-Z5-PAc" customClass="SearchResultViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zld-ph-qAr">
+                <viewController storyboardIdentifier="SearchResultViewController" automaticallyAdjustsScrollViewInsets="NO" id="NjB-su-VuL" customClass="SearchResultViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HzD-pH-yE6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OeI-OP-x7q">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BkL-Li-Yug">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C48-Uc-qf0">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-Vg-pe6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SO-uZ-RuK">
+                                        <rect key="frame" x="69" y="304" width="236.5" height="34"/>
+                                        <string key="text">일치하는 검색 결과를 찾을 수 없습니다 :-( 
+다른 검색어를 입력해주세요</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.4549019608" green="0.4549019608" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_search_notfound" translatesAutoresizingMaskIntoConstraints="NO" id="7RI-iH-gCw">
+                                        <rect key="frame" x="155" y="234" width="65" height="55"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9SO-uZ-RuK" firstAttribute="top" secondItem="7RI-iH-gCw" secondAttribute="bottom" constant="15" id="SDE-RA-cAV"/>
+                                    <constraint firstItem="7RI-iH-gCw" firstAttribute="centerX" secondItem="QEL-Vg-pe6" secondAttribute="centerX" id="blL-a3-tlJ"/>
+                                    <constraint firstItem="9SO-uZ-RuK" firstAttribute="centerX" secondItem="7RI-iH-gCw" secondAttribute="centerX" id="iIe-Mz-kdo"/>
+                                    <constraint firstItem="7RI-iH-gCw" firstAttribute="centerY" secondItem="QEL-Vg-pe6" secondAttribute="centerY" constant="-40" id="z2V-re-o1t"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="O8Z-SI-LwG"/>
+                        <constraints>
+                            <constraint firstItem="2mM-K0-sXa" firstAttribute="bottom" secondItem="QEL-Vg-pe6" secondAttribute="bottom" id="111-Qf-hX8"/>
+                            <constraint firstItem="QEL-Vg-pe6" firstAttribute="trailing" secondItem="2mM-K0-sXa" secondAttribute="trailing" id="Cnd-FD-HI7"/>
+                            <constraint firstItem="QEL-Vg-pe6" firstAttribute="top" secondItem="2mM-K0-sXa" secondAttribute="top" id="TN5-z5-LKx"/>
+                            <constraint firstItem="OeI-OP-x7q" firstAttribute="bottom" secondItem="2mM-K0-sXa" secondAttribute="bottom" id="U9W-pn-9kw"/>
+                            <constraint firstItem="QEL-Vg-pe6" firstAttribute="leading" secondItem="2mM-K0-sXa" secondAttribute="leading" id="cdw-0f-4NF"/>
+                            <constraint firstItem="OeI-OP-x7q" firstAttribute="trailing" secondItem="2mM-K0-sXa" secondAttribute="trailing" id="dqK-fN-Wza"/>
+                            <constraint firstItem="OeI-OP-x7q" firstAttribute="leading" secondItem="2mM-K0-sXa" secondAttribute="leading" id="qw7-TP-Ng1"/>
+                            <constraint firstItem="OeI-OP-x7q" firstAttribute="top" secondItem="2mM-K0-sXa" secondAttribute="top" id="t3g-sy-cIX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2mM-K0-sXa"/>
                     </view>
+                    <navigationItem key="navigationItem" id="d7n-fN-Fru">
+                        <barButtonItem key="rightBarButtonItem" image="icon_search_black" id="pp3-ev-mAI">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="touchUpSearchButton:" destination="NjB-su-VuL" id="OWg-t7-awW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="OeI-OP-x7q" id="onl-2Y-wun"/>
+                        <outlet property="noSearchDataView" destination="QEL-Vg-pe6" id="iSn-Pt-jJy"/>
+                        <outlet property="searchTextField" destination="mSm-aw-a7b" id="MPi-K2-UvC"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oaB-nx-WkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yty-Ml-533" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" id="mSm-aw-a7b">
+                    <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                </textField>
             </objects>
-            <point key="canvasLocation" x="900" y="167"/>
+            <point key="canvasLocation" x="861.60000000000002" y="166.8665667166417"/>
         </scene>
     </scenes>
     <resources>
-        <image name="bg_search" width="375" height="245"/>
+        <image name="bg_search" width="375" height="244"/>
+        <image name="icon_search_black" width="15" height="15"/>
         <image name="icon_search_white" width="15" height="15"/>
+        <image name="img_search_notfound" width="65" height="55"/>
         <image name="img_search_prev" width="69" height="73"/>
         <image name="title_search" width="187" height="65"/>
     </resources>

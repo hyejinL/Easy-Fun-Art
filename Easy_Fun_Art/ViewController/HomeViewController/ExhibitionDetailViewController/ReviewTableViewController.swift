@@ -91,19 +91,20 @@ extension ReviewTableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitionReviewTableViewCell.reuseIdentifier, for: indexPath) as! ExhibitionReviewTableViewCell
             
-            cell.userProfileImageView.imageFromUrl(gsno(reviewInfo?.latestReview[indexPath.row].user_profile), defaultImgPath: "img_profile_basic-1")
+            cell.userProfileImageView.imageFromUrl(gsno(reviewInfo?.latestReview[indexPath.row].user_profile), defaultImgPath: "img_profie_basic-1")
             cell.writerLabel.text = reviewInfo?.latestReview[indexPath.row].user_nickname
             cell.ratingView.rating = Double(gino(reviewInfo?.latestReview[indexPath.row].review_grade))
             cell.previewDateLabel.text = reviewInfo?.latestReview[indexPath.row].review_watch_date
             cell.reviewContentLabel.text = reviewInfo?.latestReview[indexPath.row].review_content
-            if let reviewImage = reviewInfo?.latestReview[indexPath.row].review_image {
-                if reviewImage.isEmpty {
-                    cell.reviewImageView.isHidden = true
-                } else {
-                    cell.reviewImageView.imageFromUrl(reviewImage, defaultImgPath: "")
-                }
+            if reviewInfo?.latestReview[indexPath.row].review_image != nil {
+                cell.reviewImageViewHeight.constant = 102
+                cell.reviewImageView.imageFromUrl(gsno(reviewInfo?.latestReview[indexPath.row].review_image), defaultImgPath: "")
+            } else {
+                cell.reviewImageViewHeight.constant = 0
+//                self.view.layoutIfNeeded()
             }
-            cell.dateLabel.text = "\(reviewInfo?.latestReview[indexPath.row].review_date)일 작성"
+            cell.dateLabel.text = "\(gsno(reviewInfo?.latestReview[indexPath.row].review_date)) 작성"
+            cell.configure()
             
             return cell
         }

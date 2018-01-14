@@ -21,9 +21,8 @@ class DocentPlayerBarView: UIView {
     
     @objc func openDocentViewController() {
         print("ffff")
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "openMusicBar"), object: self)
         self.removeFromSuperview()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "openMusicBar"), object: self)
     }
 
     

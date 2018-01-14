@@ -74,6 +74,7 @@ class UserInfoViewController: UIViewController {
     }
     
     @IBAction func pressedCheckGenderButton(_ sender: ToggleButton) {
+        sender.buttonAnimation()
         if sender == femaleButton && femaleButton.isChecked {
             maleButton.isChecked = false
         }
@@ -83,6 +84,7 @@ class UserInfoViewController: UIViewController {
     }
     
     @IBAction func pressedCheckAgeButton(_ sender: ToggleButton) {
+        sender.buttonAnimation()
         if sender.isChecked {
             for button in ageButton {
                 if sender != button {

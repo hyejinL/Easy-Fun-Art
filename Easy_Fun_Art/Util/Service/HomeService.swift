@@ -170,11 +170,94 @@ struct HomeService: APIService {
         }
     }
     
-    func sendMyRate(exhibitionid: Int, completion: @escaping (Result<String>)->Void) {
-        let URL = url("/api/home/scoregrade")
+    func sendMyRate(exhibitionid: Int, reviewGrade: Float, completion: @escaping (Result<Void>)->Void) {
+        let URL = url("/api/home/scoregrade?exId=\(exhibitionid)")
         let token = [
             "user_token" : gsno(userdefault.string(forKey: "token"))
         ]
+        let body: [String:Any] = [
+            "reviewGrade" : reviewGrade
+        ]
      
+        Alamofire.request(URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: token).responseData() { res in
+            switch res.result {
+            case .success:
+                if let value = res.result.value {
+                    guard let status = JSON(value)["status"].string else { return }
+                    if status == "success" {
+                        completion(.success(()))
+                    } else {
+                        guard let msg = JSON(value)["message"].string else { return }
+                        completion(.error(msg))
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+//    func searchDocentSerial(serialNumber: String, completion: @escaping (Result<String>)->Void) {
+//        let URL = url("/api/home/serial?serial_num=\(serialNumber)")
+//        let token = [
+//            "user_token" : gsno(userdefault.string(forKey: "token"))
+//        ]
+//
+//        Alamofire.request(URL, method: .get, parameters: nil, headers: token).responseData() { res in
+//            switch res.result {
+//            case .success:
+//                if let value = res.result.value {
+//                    do {
+//                        let decoder = JSONDecoder()
+//                        let serialInfo = try decoder.decode(Serial.self, from: value)
+//                        if serialInfo.status == "success" {
+//
+//                        } else {
+//                            completion(.error(seriaInfo))
+//                        }
+//                    }
+//                }
+//                break
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//                break
+//            }
+//        }
+//    }
+    
+    func searchDocentSerial(serialNumber: String, completion: @escaping (Result<Serial.SerialData.AudioData>)->Void) {
+        let URL = url("/api/home/serial")
+        let token = [
+            "user_token" : gsno(userdefault.string(forKey: "token"))
+        ]
+        let params = [
+            "serial_num" : serialNumber
+        ]
+        
+        Alamofire.request(URL, method: .get, parameters: params, headers: token).responseData() { res in
+            switch res.result {
+            case .success:
+                if let value = res.result.value {
+                    do {
+                        let decoder = JSONDecoder()
+                        let serialData = try decoder.decode(Serial.self, from: value)
+                        if serialData.status == "success" {
+                            completion(.success(serialData.data.serialData))
+                        } else {
+                            completion(.error(serialData.message))
+                        }
+                    } catch {
+                        guard let msg = JSON(value)["message"].string else { return }
+                        completion(.error(msg))
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
     }
 }

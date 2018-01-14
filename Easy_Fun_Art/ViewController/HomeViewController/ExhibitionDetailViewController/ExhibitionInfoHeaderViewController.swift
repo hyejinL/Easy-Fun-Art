@@ -25,18 +25,26 @@ class ExhibitionInfoHeaderViewController: UIViewController {
     var date: String?
     var gallery: String?
     var image: UIImage?
+    var imageURL: String?
     var exhibitionId = -1
-    var likeFlag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(imageAlphaChange(_:)), name: NSNotification.Name("detailMainScroll"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeRatingSetting(_:)), name: NSNotification.Name(rawValue: "myRatingSetting"), object: nil)
         
         exhibitionTitleLabel.text = exhibitionTitle
         exhibitionDateLabel.text = date
         galleryLabel.text = gallery
-        exhibitionImageView.image = image
+        if image == nil {
+            exhibitionImageView.imageFromUrl(gsno(imageURL), defaultImgPath: "1")
+        } else {
+            exhibitionImageView.image = image
+        }
+        
+        loading(.start)
+        exhibitionDetailUpdate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +67,7 @@ class ExhibitionInfoHeaderViewController: UIViewController {
                 if likeFlag == 1 {
                     self.likeButtonImageView.image = #imageLiteral(resourceName: "btn_like_red")
                     let likeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: LikeViewController.reuseIdentifier) as! LikeViewController
+                    likeViewController.exhibitionText = self.exhibitionTitle
                     self.present(likeViewController, animated: true, completion: nil)
                 } else {
                     self.likeButtonImageView.image = #imageLiteral(resourceName: "btn_like_white")
@@ -84,10 +93,16 @@ class ExhibitionInfoHeaderViewController: UIViewController {
         shareButtonImageView.alpha = (30-scrollOffSet)/30
     }
     
+    @objc func changeRatingSetting(_ notification: Notification) {
+        guard let rating = notification.userInfo?["rating"] as? Float else { return }
+        exhibitionData?.userInfo.grade = rating
+        
+        firstSetting()
+    }
+    
     func firstSetting() {
         myRatingLabel.text = String(format: "%.01f", gfno(exhibitionData?.userInfo.grade))
         ratingScoreLabel.text = String(format: "%.01f", gfno(exhibitionData?.exhibition.average_grade))
-        print(likeFlag)
         if gino(exhibitionData?.userInfo.likeFlag) == 1 {
             likeButtonImageView.image = #imageLiteral(resourceName: "btn_like_red")
         } else {

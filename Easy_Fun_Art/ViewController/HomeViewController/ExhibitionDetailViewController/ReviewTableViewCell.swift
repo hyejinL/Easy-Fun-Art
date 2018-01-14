@@ -40,28 +40,28 @@ class ReviewTableViewCell: UITableViewCell {
             let sortedRating = rating.sorted { $0.count > $1.count }
             print(sortedRating)
             
-            ratingView[sortedRating[0].rating-1].backgroundColor = #colorLiteral(red: 0.660695672, green: 0.6607115269, blue: 0.6607030034, alpha: 1)
-            ratingView[sortedRating[1].rating-1].backgroundColor = #colorLiteral(red: 0.7472794652, green: 0.7472972274, blue: 0.7472876906, alpha: 1)
+            ratingView[sortedRating[4].rating-1].backgroundColor = #colorLiteral(red: 0.660695672, green: 0.6607115269, blue: 0.6607030034, alpha: 1)
+            ratingView[sortedRating[3].rating-1].backgroundColor = #colorLiteral(red: 0.7472794652, green: 0.7472972274, blue: 0.7472876906, alpha: 1)
             ratingView[sortedRating[2].rating-1].backgroundColor = #colorLiteral(red: 0.8341351151, green: 0.8341547251, blue: 0.8341441751, alpha: 1)
-            ratingView[sortedRating[3].rating-1].backgroundColor = #colorLiteral(red: 0.9150560498, green: 0.9150775075, blue: 0.9150659442, alpha: 1)
-            ratingView[sortedRating[4].rating-1].backgroundColor = #colorLiteral(red: 0.9150560498, green: 0.9150775075, blue: 0.9150659442, alpha: 1)
+            ratingView[sortedRating[1].rating-1].backgroundColor = #colorLiteral(red: 0.9150560498, green: 0.9150775075, blue: 0.9150659442, alpha: 1)
+            ratingView[sortedRating[0].rating-1].backgroundColor = #colorLiteral(red: 0.9150560498, green: 0.9150775075, blue: 0.9150659442, alpha: 1)
             
             for element in sortedRating {
                 
                 switch element.rating {
-                case 1:
+                case 5:
                     ratingView1Width.constant = (CGFloat(element.count)/CGFloat(count))*98.0
                     break
-                case 2:
+                case 4:
                     ratingView2Width.constant = (CGFloat(element.count)/CGFloat(count))*98.0
                     break
                 case 3:
                     ratingView3Width.constant = (CGFloat(element.count)/CGFloat(count))*98.0
                     break
-                case 4:
+                case 2:
                     ratingView4Width.constant = (CGFloat(element.count)/CGFloat(count))*98.0
                     break
-                case 5:
+                case 1:
                     ratingView5Width.constant = (CGFloat(element.count)/CGFloat(count))*98.0
                     break
                 default:

@@ -9,6 +9,10 @@
 import UIKit
 
 class DocentPlayListTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var docentListNumberLabel: UILabel!
+    @IBOutlet weak var docentListTitleLabel: UILabel!
+    @IBOutlet weak var docentListCurrentPlayImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

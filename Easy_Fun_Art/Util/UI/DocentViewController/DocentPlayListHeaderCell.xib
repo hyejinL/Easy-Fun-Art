@@ -31,6 +31,9 @@
                     <constraint firstItem="NXW-tJ-y1T" firstAttribute="centerX" secondItem="l1i-uL-dnB" secondAttribute="centerX" id="sJA-v5-pgq"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="docentListFloorLabel" destination="NXW-tJ-y1T" id="njf-16-SnJ"/>
+            </connections>
             <point key="canvasLocation" x="340.5" y="245.5"/>
         </tableViewCell>
     </objects>

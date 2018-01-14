@@ -12,10 +12,10 @@ struct ExhibitionDetail: Codable {
     let status: String
     let code: Int
     let message: String
-    let data: ExhibitionDetailData
+    var data: ExhibitionDetailData
     
     struct ExhibitionDetailData: Codable {
-        let userInfo: UserInfo
+        var userInfo: UserInfo
         let exhibition: Exhibition
         let selectedHashtag: [String]
         let unSelectedHashtag: [String]
@@ -23,7 +23,7 @@ struct ExhibitionDetail: Codable {
         
         struct UserInfo: Codable {
             let likeFlag: Int
-            let grade: Float
+            var grade: Float
         }
         
         struct Exhibition: Codable {

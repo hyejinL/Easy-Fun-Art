@@ -18,8 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="스플래쉬 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="9wO-kc-Gje">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="bg_splash-1" translatesAutoresizingMaskIntoConstraints="NO" id="9wO-kc-Gje">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="G7P-DW-C8r">
+                                <rect key="frame" x="121.5" y="225.5" width="132" height="88"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -28,6 +31,8 @@
                             <constraint firstItem="9wO-kc-Gje" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JXh-HN-z8S"/>
                             <constraint firstAttribute="trailing" secondItem="9wO-kc-Gje" secondAttribute="trailing" id="QjI-Vt-Bs9"/>
                             <constraint firstItem="9wO-kc-Gje" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jBX-ff-kvA"/>
+                            <constraint firstItem="G7P-DW-C8r" firstAttribute="centerY" secondItem="9wO-kc-Gje" secondAttribute="centerY" constant="-64" id="nhb-CY-LQY"/>
+                            <constraint firstItem="G7P-DW-C8r" firstAttribute="centerX" secondItem="9wO-kc-Gje" secondAttribute="centerX" id="yoS-Id-4Zp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +43,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="스플래쉬 – 1" width="375" height="667"/>
+        <image name="bg_splash-1" width="1500" height="2667"/>
+        <image name="img_splash_logo" width="132" height="88"/>
     </resources>
 </document>

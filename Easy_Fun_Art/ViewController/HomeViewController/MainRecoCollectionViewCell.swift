@@ -26,6 +26,7 @@ class MainRecoCollectionViewCell: UICollectionViewCell {
     var exhibitionTheme: [HomeExhibition]?
     var exhibitionId = 0
     var galleryId = 0
+    var exhibitionImageURL = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()

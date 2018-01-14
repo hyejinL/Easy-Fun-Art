@@ -26,7 +26,21 @@ class StarRatingViewController: UIViewController {
     }
 
     @IBAction func pressedConfirmRatingButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        sendMyRating()
+    }
+    
+    func sendMyRating() {
+        HomeService.shareInstance.sendMyRate(exhibitionid: exhibitionId, reviewGrade: Float(myRating.rating)) { (result) in
+            switch result {
+            case .success():
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "myRatingSetting"), object: self, userInfo: ["rating":Float(self.myRating.rating)])
+                self.dismiss(animated: true, completion: nil)
+                break
+            case .error(let msg):
+                print(msg)
+                break
+            }
+        }
     }
     
 }

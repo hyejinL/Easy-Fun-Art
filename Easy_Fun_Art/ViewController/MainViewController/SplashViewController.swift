@@ -25,7 +25,6 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         
         facebookStartButton.alpha = 0; facebookStartButton.isHidden = true
-        kakaotalkStartButton.alpha = 0; kakaotalkStartButton.isHidden = true
         splashAnimation()
     }
 
@@ -72,9 +71,9 @@ class SplashViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.8) {
-            self.facebookStartButton.isHidden = false; self.kakaotalkStartButton.isHidden = false
+            self.facebookStartButton.isHidden = false
             UIView.animate(withDuration: 0.5) {
-                self.facebookStartButton.alpha = 1; self.kakaotalkStartButton.alpha = 1
+                self.facebookStartButton.alpha = 1;
                 self.view.layoutIfNeeded()
             }
         }
@@ -105,22 +104,26 @@ class SplashViewController: UIViewController {
             switch result {
             case .success(let level):
                 print(level)
-                if level == 10 {
-                    let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
-                    self.present(analysisStartViewController, animated: true, completion: {
-                        self.loading(.end)
-                    })
-                } else if level == 20 {
-                    let genreCheckViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: GenreCheckViewController.reuseIdentifier) as! GenreCheckViewController
-                    self.present(genreCheckViewController, animated: true, completion: {
-                        self.loading(.end)
-                    })
-                } else if level == 50 {
-                    let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
-                    self.present(tabbarViewController, animated: true, completion: {
-                        self.loading(.end)
-                    })
-                }
+                let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
+                self.present(analysisStartViewController, animated: true, completion: {
+                    self.loading(.end)
+                })
+//                if level == 10 {
+//                    let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
+//                    self.present(analysisStartViewController, animated: true, completion: {
+//                        self.loading(.end)
+//                    })
+//                } else if level == 20 {
+//                    let genreCheckViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: GenreCheckViewController.reuseIdentifier) as! GenreCheckViewController
+//                    self.present(genreCheckViewController, animated: true, completion: {
+//                        self.loading(.end)
+//                    })
+//                } else if level == ㄹ0 {
+//                    let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
+//                    self.present(tabbarViewController, animated: true, completion: {
+//                        self.loading(.end)
+//                    })
+//                }
                 
                 break
             case .error(let msg):

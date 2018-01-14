@@ -9,12 +9,12 @@
 import UIKit
 
 class SearchMainViewController: UIViewController {
-
+    
     @IBOutlet weak var searchTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.searchTextField.delegate = self
         textFieldFirstSetting()
     }
@@ -42,10 +42,13 @@ extension SearchMainViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        let searchResultViewController = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
-        
-        self.navigationController?.pushViewController(searchResultViewController, animated: true)
+        if gino(searchTextField.text?.count) < 2 {
+            simpleAlert(title: "검색 오류", msg: "두 글자 이상 입력해주세요 :)")
+        } else {
+            let searchResultViewController = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
+            searchResultViewController.searchText = gsno(textField.text)
+            self.navigationController?.pushViewController(searchResultViewController, animated: true)
+        }
         
         return false
     }

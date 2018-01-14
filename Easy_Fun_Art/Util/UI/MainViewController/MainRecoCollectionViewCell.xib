@@ -100,7 +100,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGN-j7-Rgb">
-                        <rect key="frame" x="145" y="0.0" width="230" height="131"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
                     </button>
                 </subviews>
             </view>
@@ -111,6 +111,7 @@
                 <constraint firstItem="qBv-rv-Pog" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6uu-u1-XbF"/>
                 <constraint firstItem="QGN-j7-Rgb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8Av-bq-mJu"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KcU-Lf-FVi" secondAttribute="trailing" constant="15" id="ATM-CC-FWC"/>
+                <constraint firstItem="QGN-j7-Rgb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DUC-Se-RHp"/>
                 <constraint firstItem="76d-Ry-9ka" firstAttribute="leading" secondItem="qBv-rv-Pog" secondAttribute="trailing" id="H8l-5G-Z7T"/>
                 <constraint firstItem="5Z2-hj-osC" firstAttribute="top" secondItem="qBv-rv-Pog" secondAttribute="top" id="HaD-zr-rCA"/>
                 <constraint firstItem="3Am-EM-R2V" firstAttribute="top" secondItem="2h9-Nj-SD7" secondAttribute="bottom" constant="2" id="L5f-ZG-as2"/>
@@ -129,7 +130,6 @@
                 <constraint firstItem="qBv-rv-Pog" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="145:375" id="sRe-1b-BGA"/>
                 <constraint firstItem="5Z2-hj-osC" firstAttribute="leading" secondItem="qBv-rv-Pog" secondAttribute="leading" id="taI-jI-e1m"/>
                 <constraint firstAttribute="trailing" secondItem="QGN-j7-Rgb" secondAttribute="trailing" id="tc7-lx-3Mw"/>
-                <constraint firstItem="QGN-j7-Rgb" firstAttribute="leading" secondItem="qBv-rv-Pog" secondAttribute="trailing" id="wz0-fK-iMh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="125" height="49"/>

@@ -9,6 +9,10 @@
 import UIKit
 import AVFoundation
 
+protocol PlayerIsOn: class {
+    func docentListImageChange(indexPath: Int)
+}
+
 class DocentPlayerViewController: UIViewController {
     
     @IBOutlet weak var exhibitionTitleLabel: UILabel!
@@ -25,6 +29,8 @@ class DocentPlayerViewController: UIViewController {
     @IBOutlet weak var scriptExhibitionTitleLabel: UILabel!
     @IBOutlet weak var scriptDocentTitleLabel: UILabel!
     @IBOutlet weak var scriptDocentContentLabel: UILabel!
+    @IBOutlet weak var docentPlaceImageView: UIImageView!
+    @IBOutlet weak var docentScriptScrollView: UIScrollView!
     
     var audioPlayer =  AVPlayer()
     var music = ["NYC (Frank Sinatra Sample)", "Life In Motion"]
@@ -32,16 +38,69 @@ class DocentPlayerViewController: UIViewController {
     var audioCurrentTime = 0
     var audioCurrentMinute = 0
     var audioCurrentSecond = 0
-    let playerView = DocentPlayerBarView.instanceFromNib()
+//    let playerView = DocentPlayerBarView.instanceFromNib()
     var playerItem: CachingPlayerItem?
     var timer:Timer?
+    var exhibitionId = -1
+    var trackId = -1
+    var trackIdList = [Int]()
+    var index = -1
+    var exhibitionTitle: String?
+    var exhibitionImage: String?
+    
+    var delegate: PlayerIsOn?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loading(.start)
+        
+        exhibitionTitleLabel.text = exhibitionTitle
+        docentImageView.imageFromUrl(gsno(exhibitionImage), defaultImgPath: "1")
+        scriptExhibitionTitleLabel.text = exhibitionTitle
+        
         fixSliderThumbSize()
         
-        if let url = URL(string : gsno("http://ds54q4yvb82ly.cloudfront.net/Little+Dream.mp3")){
+        docentFirstSetting()
+        docentPlayUpdate()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let appdata = UIApplication.shared.delegate as? AppDelegate {
+            appdata.playerView.removeFromSuperview()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // 음악끄기
+        audioPlayer.pause()
+        audioPlayer.rate = 0
+        timer?.invalidate()
+        docentFirstSetting()
+    }
+    
+    func docentPlayUpdate() {
+        DocentService.shareInstance.docentPlay(exhibitionId: exhibitionId, docentTrack: trackId) { (result) in
+            switch result {
+            case .success(let docentData):
+                self.docentPlaySetting(docentData: docentData)
+                self.docentTitleLabel.text = docentData.docent_title
+                self.scriptDocentTitleLabel.text = self.docentTitleLabel.text
+                self.docentPlaceImageView.imageFromUrl(self.gsno(docentData.docent_place), defaultImgPath: "")
+                break
+            case .error(let msg):
+                print(msg)
+                break
+            }
+        }
+    }
+    
+    func docentPlaySetting(docentData: DocentPlay.DocentPlayData) {
+        if let url = URL(string : gsno(docentData.docent_audio)){
             playerItem = CachingPlayerItem(url: url)
             playerItem?.delegate = self
             playerItem?.download()
@@ -51,7 +110,7 @@ class DocentPlayerViewController: UIViewController {
         
         self.docentFirstSetting()
         
-//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updatePlaySlider), userInfo: nil, repeats: true)
+        //        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updatePlaySlider), userInfo: nil, repeats: true)
         
         do {
             let audioSession = AVAudioSession.sharedInstance()
@@ -71,18 +130,8 @@ class DocentPlayerViewController: UIViewController {
         scriptView.isHidden = true
         scriptView.alpha = 0
         
-        let stringValue = "국립현대미술관은 현대영화사에 있어 독보적인 작품세계를 구현한 중요감독들의 작품을 전시로 재구성해 소개하는 프로젝트의 일환으로 <필립 가렐, 찬란한 절망>(2015)에 이어 두 번째 기획으로 미국 독립 실험영화의 대부인 요나스 메카스의 전시 <요나스 메카스 – 찰나, 힐긋, 돌아보다>를 개최한다. 아시아에서 처음으로 개최되는 이번 전시는 미국 아방가르드 영화의 역사를 개척한 리투아니아 출신의 실험영화 감독 요나스 메카스 인생의 중요한 지점, 변화, 흐름을 따라 구성된다. 요나스 메카스는 삶의 매순간을 일기를 쓰듯 자. 국립현대미술관은 현대영화사에 있어 독보적인 작품세계를 구현한 중요감독들의 작품을 전시로 재구성해 소개하는 프로젝트의 일환으로 <필립 가렐, 찬란한 절망>(2015)에 이어 두 번째 기획으로 미국 독립 실험영화의 대부인 요나스 메카스의 전시 <요나스 메카스 – 찰나, 힐긋, 돌아보다>를 개최한다. 아시아에서 처음으로 개최되는 이번 전시는 미국 아방가르드 영화의 역사를 개척한 리투아니아 출신의 실험영화 감독 요나스 메카스 인생의 중요한 지점, 변화, 흐름을 따라 구성된다. 요나스 메카스는 삶의 매순간을 일기를 쓰듯 자."
+        let stringValue = gsno(docentData.docent_text)
         scriptLabelSpacing(text: stringValue)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // 음악끄기
-        audioPlayer.pause()
-        audioPlayer.rate = 0
-        timer?.invalidate()
-        docentFirstSetting()
     }
     
     @IBAction func pressedPlayButton(_ sender: UIButton) {
@@ -97,10 +146,30 @@ class DocentPlayerViewController: UIViewController {
     
     @IBAction func pressedNextButton(_ sender: UIButton) {
         sender.buttonAnimation()
+        
+        loading(.start)
+        audioPlayer.pause()
+        audioPlayer.rate = 0
+        docentFirstSetting()
+        if index < trackIdList.count-1 {
+            index += 1
+            trackId = trackIdList[index]
+            docentPlayUpdate()
+        }
     }
     
     @IBAction func pressedBeforeButton(_ sender: UIButton) {
         sender.buttonAnimation()
+        
+        loading(.start)
+        audioPlayer.pause()
+        audioPlayer.rate = 0
+        docentFirstSetting()
+        if index > 0 {
+            index -= 1
+            trackId = trackIdList[index]
+            docentPlayUpdate()
+        }
     }
     
     @IBAction func pressedScriptButton(_ sender: UIButton) {
@@ -110,6 +179,7 @@ class DocentPlayerViewController: UIViewController {
     
     @IBAction func pressedLocationButton(_ sender: UIButton) {
         sender.buttonAnimation()
+        placeViewShowAndHidden()
     }
     
     @IBAction func pressedStopDocent(_ sender: Any) {
@@ -134,16 +204,10 @@ class DocentPlayerViewController: UIViewController {
     }
     
     @IBAction func openMusicBar(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
         
-        playerView.frame = CGRect(x: 0, y: (667-99)*self.view.frame.height/667, width: self.view.frame.width, height: 50*self.view.frame.height/667)
-        playerView.configure()
-        
-        
-        let window = UIApplication.shared.keyWindow!
-        window.addSubview(playerView)
-        
+        delegate?.docentListImageChange(indexPath: index)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addMusicBar"), object: self, userInfo: ["audio":audioPlayer])
     }
     
     @objc func updatePlaySlider() {
@@ -158,14 +222,22 @@ class DocentPlayerViewController: UIViewController {
         }
         if audioCurrentTime == audioDuration && audioDuration != 0 {
             scriptViewHidden(completion: {
-                let docentEndViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentEndViewController.reuseIdentifier) as! DocentEndViewController
-                self.present(docentEndViewController, animated: true, completion: {
-                    self.timer?.invalidate()
-                    self.audioPlayer.pause()
-                    self.audioPlayer.seek(to: CMTime(value: 0, timescale: 1))
-                    self.audioPlayer.rate = 0
-                    self.docentFirstSetting()
-                })
+//                let docentEndViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentEndViewController.reuseIdentifier) as! DocentEndViewController
+//                self.present(docentEndViewController, animated: true, completion: {
+//                    self.timer?.invalidate()
+//                    self.audioPlayer.pause()
+//                    self.audioPlayer.seek(to: CMTime(value: 0, timescale: 1))
+//                    self.audioPlayer.rate = 0
+//                    self.docentFirstSetting()
+                //                })loading(.start)
+                self.audioPlayer.pause()
+                self.audioPlayer.rate = 0
+                self.docentFirstSetting()
+                if self.index < self.trackIdList.count-1 {
+                    self.index += 1
+                    self.trackId = self.trackIdList[self.index]
+                    self.docentPlayUpdate()
+                }
             })
         }
     }
@@ -174,12 +246,61 @@ class DocentPlayerViewController: UIViewController {
     func scriptViewShowAndHidden() {
         if scriptView.isHidden {
             scriptViewShow()
+            docentScriptScrollView.isHidden = false
+            docentPlaceImageView.isHidden = true
         } else {
-            scriptViewHidden(completion: {})
+            if docentPlaceImageView.isHidden {
+                scriptViewHidden(completion: {})
+            } else {
+                self.docentScriptScrollView.alpha = 0
+//                self.scriptExhibitionTitleLabel.alpha = 0
+                self.docentScriptScrollView.isHidden = false
+//                self.scriptExhibitionTitleLabel.isHidden = false
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.docentPlaceImageView.alpha = 0
+                }, completion: { _ in
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.docentScriptScrollView.alpha = 1
+//                        self.scriptExhibitionTitleLabel.alpha = 1
+                    }, completion: { _ in
+                        self.docentPlaceImageView.isHidden = true
+                    })
+                })
+            }
+        }
+    }
+    
+    func placeViewShowAndHidden() {
+        if scriptView.isHidden {
+            scriptViewShow()
+            docentScriptScrollView.isHidden = true
+            docentPlaceImageView.isHidden = false
+        } else {
+            if docentScriptScrollView.isHidden {
+                scriptViewHidden(completion: {})
+            } else {
+                self.docentPlaceImageView.alpha = 0
+                self.docentPlaceImageView.isHidden = false
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.docentScriptScrollView.alpha = 0
+//                    self.scriptExhibitionTitleLabel.alpha = 0
+                }, completion: { _ in
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.docentPlaceImageView.alpha = 1
+                    }, completion: { _ in
+                        self.docentScriptScrollView.isHidden = true
+//                        self.scriptExhibitionTitleLabel.isHidden = true
+                    })
+                })
+            }
         }
     }
     
     func scriptViewShow() {
+        docentScriptScrollView.alpha = 1
+        docentPlaceImageView.alpha = 1
         scriptView.isHidden = false
         UIView.animate(withDuration: 0.4, delay: 0.3, animations: {
             self.scriptView.alpha = 1
@@ -245,8 +366,12 @@ extension DocentPlayerViewController: CachingPlayerItemDelegate{
     // 시작 가능
     func playerItemReadyToPlay(_ playerItem: CachingPlayerItem) {
         print("시작가능")
+        self.loading(.end)
         audioDuration = Int(CMTimeGetSeconds(playerItem.asset.duration))
         DispatchQueue.main.async {
+            self.audioPlayer.play()
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updatePlaySlider), userInfo: nil, repeats: true)
+            self.playButton.isChecked = true
             self.playTimeLabel.text = String(format: "%02d : %02d", self.audioDuration/60, self.audioDuration%60)
         }
     }

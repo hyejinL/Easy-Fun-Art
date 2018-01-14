@@ -124,6 +124,11 @@ extension DocentAroundTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let docentPlayListViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
+        
+        docentPlayListViewController.exhibitionId = gino(playListData[indexPath.row].ex_id)
+        docentPlayListViewController.exhibitionImage = playListData[indexPath.row].ex_image
+        docentPlayListViewController.exhibitionTitle = playListData[indexPath.row].ex_title
+        
         self.navigationController?.pushViewController(docentPlayListViewController, animated: true)
     }
 }

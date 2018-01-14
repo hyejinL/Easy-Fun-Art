@@ -68,4 +68,68 @@ struct DocentService: APIService {
             }
         }
     }
+    
+    func docentList(exhibitionId: Int, completion: @escaping (Result<Docent.DocentData>)->Void) {
+        let URL = url("/api/playlist/guide")
+        let params = [
+            "exId" : exhibitionId
+        ]
+        
+        Alamofire.request(URL, method: .get, parameters: params, headers: nil).responseData() { res in
+            switch res.result {
+            case .success:
+                if let value = res.result.value {
+                    print(value)
+                    do {
+                        let decoder = JSONDecoder()
+                        let playListData = try decoder.decode(Docent.self, from: value)
+                        if playListData.status == "success" {
+                            completion(.success(playListData.data))
+                        } else {
+                            completion(.error(playListData.message))
+                        }
+                    } catch {
+                        guard let msg = JSON(value)["message"].string else { return }
+                        completion(.error(msg))
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    func docentPlay(exhibitionId: Int, docentTrack: Int, completion: @escaping (Result<DocentPlay.DocentPlayData>)->Void) {
+        let URL = url("/api/docent")
+        let params = [
+            "exId" : exhibitionId,
+            "docentTrack" : docentTrack
+        ]
+        
+        Alamofire.request(URL, method: .get, parameters: params, headers: nil).responseData() { res in
+            switch res.result {
+            case .success:
+                if let value = res.result.value {
+                    do {
+                        let decoder = JSONDecoder()
+                        let docentPlayData = try decoder.decode(DocentPlay.self, from: value)
+                        if docentPlayData.status == "success" {
+                            completion(.success(docentPlayData.data))
+                        } else {
+                            completion(.error(docentPlayData.message))
+                        }
+                    } catch {
+                        guard let msg = JSON(value)["message"].string else { return }
+                        completion(.error(msg))
+                    }
+                }
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
 }

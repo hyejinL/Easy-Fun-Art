@@ -18,13 +18,20 @@ class MainPopUpViewController: UIViewController {
     var exhibitionID: Int?
     var exhibitionText: String?
     var exhibitonImage: UIImage?
+    var exhibitionImageURL: String?
     var galleryText: String?
+    var galleryId = -1
+    var date: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         exhibitionTitleLabel.text = exhibitionText
-        exhibitionImageView.image = exhibitonImage
+        if exhibitonImage == nil {
+            exhibitionImageView.imageFromUrl(gsno(exhibitionImageURL), defaultImgPath: "1")
+        } else {
+            exhibitionImageView.image = exhibitonImage
+        }
         galleryTitleLabel.text = galleryText
     }
 
@@ -39,12 +46,50 @@ class MainPopUpViewController: UIViewController {
     }
     
     @IBAction func goExhibitionDetailView(_ sender: Any) {
-        guard let tabBarController = self.presentingViewController as? UITabBarController else { return }
-        let navi = tabBarController.viewControllers?[0] as? UINavigationController
+        print(1111)
+//        guard let tabBarController = self.presentingViewController as? UITabBarController else { return }
+//        let navi = tabBarController.viewControllers?[0] as? UINavigationController
         
+//        self.dismiss(animated: true) {
+//            print(2222)
+//            //            tabBarController.selectedIndex = 2
+//            let exhibitionInfoViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoViewController.reuseIdentifier) as! ExhibitionInfoViewController
+//
+//            exhibitionInfoViewController.id = self.gino(self.exhibitionID)
+//            exhibitionInfoViewController.exhibitionTitle = self.exhibitionText
+////            exhibitionInfoViewController.gallery = self.galleryText
+//            exhibitionInfoViewController.galleryId = self.galleryId
+//            exhibitionInfoViewController.image = self.exhibitionImageView.image
+//
+//            navi?.pushViewController(exhibitionInfoViewController, animated: true)
+//        }
+        let navi = self.presentingViewController as? UINavigationController
         self.dismiss(animated: true) {
-//            tabBarController.selectedIndex = 2
+            let exhibitionInfoViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoViewController.reuseIdentifier) as! ExhibitionInfoViewController
+            
+            exhibitionInfoViewController.id = self.gino(self.exhibitionID)
+            exhibitionInfoViewController.exhibitionTitle = self.exhibitionText
+            //            exhibitionInfoViewController.gallery = self.galleryText
+            exhibitionInfoViewController.galleryId = self.galleryId
+            exhibitionInfoViewController.image = self.exhibitionImageView.image
+
+            navi?.pushViewController(exhibitionInfoViewController, animated: true)
+        }
+    }
+    
+    @IBAction func goAudioGuideView(_ sender: Any) {
+//        guard let tabBarController = self.presentingViewController as? UITabBarController else { return }
+//        let navi = tabBarController.viewControllers?[0] as? UINavigationController
+        
+        let navi = self.presentingViewController as? UINavigationController
+        self.dismiss(animated: true) {
+            //            tabBarController.selectedIndex = 2
             let docentPlayListTableViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
+            
+            docentPlayListTableViewController.exhibitionId = self.gino(self.exhibitionID)
+            docentPlayListTableViewController.exhibitionTitle = self.exhibitionTitleLabel.text
+            docentPlayListTableViewController.exhibitionImage = self.exhibitionImageURL
+            
             navi?.pushViewController(docentPlayListTableViewController, animated: true)
         }
     }

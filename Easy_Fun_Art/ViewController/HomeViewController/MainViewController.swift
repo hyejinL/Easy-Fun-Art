@@ -106,15 +106,22 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func goDocentPopUp(_ button: UIButton) {
-        let mainPopUpViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: MainPopUpViewController.reuseIdentifier) as! MainPopUpViewController
+        let docentPlayListTableViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
         guard let cell = button.superview?.superview?.superview as? MainRecoCollectionViewCell else { return }
         
-        mainPopUpViewController.exhibitionID = cell.exhibitionId
-        mainPopUpViewController.exhibitionText = cell.exhibitionTitleLabel.text
-        mainPopUpViewController.exhibitonImage = cell.exhibitionImageView.image
-        mainPopUpViewController.galleryText = cell.exhibitionLocationLabel.text
+//        mainPopUpViewController.exhibitionID = cell.exhibitionId
+//        mainPopUpViewController.exhibitionText = cell.exhibitionTitleLabel.text
+//        mainPopUpViewController.exhibitonImage = cell.exhibitionImageView.image
+//        mainPopUpViewController.galleryText = cell.exhibitionLocationLabel.text
+//        mainPopUpViewController.galleryId = cell.galleryId
+//        mainPopUpViewController.date = cell.exhibitionDateLabel.text
         
-        self.tabBarController?.present(mainPopUpViewController, animated: true, completion: nil)
+        docentPlayListTableViewController.exhibitionId = cell.exhibitionId
+        docentPlayListTableViewController.exhibitionTitle = cell.exhibitionTitleLabel.text
+        docentPlayListTableViewController.exhibitionImage = cell.exhibitionImageURL
+        
+//        self.tabBarController?.present(mainPopUpViewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(docentPlayListTableViewController, animated: true)
     }
     
     @objc func goExhibitionDetailViewAtCellButton(_ button: UIButton) {
@@ -132,11 +139,15 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.pushViewController(exhibitionInfoViewController, animated: true)
     }
     
-    @objc func goExhibitionDetailViewAtCell(_ id: Int) {
+    @objc func goExhibitionDetailViewAtCell(_ id: Int, title: String, galleryId: Int, image: UIImage?, imageURL: String?) {
         print(22222)
         let exhibitionInfoViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoViewController.reuseIdentifier) as! ExhibitionInfoViewController
         print(id)
         exhibitionInfoViewController.id = id
+        exhibitionInfoViewController.exhibitionTitle = title
+        exhibitionInfoViewController.galleryId = galleryId
+        exhibitionInfoViewController.image = image
+        exhibitionInfoViewController.imageURL = imageURL
         self.navigationController?.pushViewController(exhibitionInfoViewController, animated: true)
     }
     
@@ -162,6 +173,31 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
             
             likeViewController.exhibitionText = exhibitionText
             self.present(likeViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func searchSerial() {
+        HomeService.shareInstance.searchDocentSerial(serialNumber: gsno(docentSearchTextField.text)) { (result) in
+            switch result {
+            case .success(let serialData):
+                let mainPopUpViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: MainPopUpViewController.reuseIdentifier) as! MainPopUpViewController
+                
+                mainPopUpViewController.exhibitionID = self.gino(serialData.ex_id)
+                mainPopUpViewController.exhibitionText = self.gsno(serialData.ex_title)
+                //                        mainPopUpViewController.exhibitonImage = cell.exhibitionImageView.image
+                mainPopUpViewController.exhibitionImageURL = serialData.ex_image
+                //                        mainPopUpViewController.galleryText = gsno(serialData.)
+                mainPopUpViewController.galleryId = self.gino(serialData.gallery_id)
+                mainPopUpViewController.date = "\(self.gsno(serialData.ex_start_date)) ~ \(self.gsno(serialData.ex_end_date))"
+                
+                self.present(mainPopUpViewController, animated: true, completion: nil)
+                break
+            case .error(let msg):
+                let mainNoSerialPopUpViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: MainNoSerialPopUpViewController.reuseIdentifier) as! MainNoSerialPopUpViewController
+                self.present(mainNoSerialPopUpViewController, animated: true, completion: nil)
+                print(msg)
+                break
+            }
         }
     }
 }
@@ -222,7 +258,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             cell.exhibitionId = gino(homeTopData?[indexPath.row].ex_id)
             cell.exhibitionImageView.imageFromUrl(gsno(homeTopData?[indexPath.row].ex_image), defaultImgPath: "1")
-                
+//            if indexPath.row == 0 {
+//                cell.exhibitionImageView.image = #imageLiteral(resourceName: "KakaoTalk_2018-01-12-23-21-07_Photo_9")
+//            } else if indexPath.row == 1 {
+//                cell.exhibitionImageView.image = #imageLiteral(resourceName: "KakaoTalk_2018-01-12-23-21-08_Photo_44")
+//            } else {
+//                cell.exhibitionImageView.imageFromUrl(gsno(homeTopData?[indexPath.row].ex_image), defaultImgPath: "1")
+//            }
+            
             cell.exhibitionTitleLabel.text = homeTopData?[indexPath.row].ex_title
 
             return cell
@@ -249,6 +292,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.exhibitionDateLabel.text = "\(gsno(homeBottomTheme?[indexPath.row].ex_start_date)) ~ \(gsno(homeBottomTheme?[indexPath.row].ex_end_date))"
             cell.galleryId = gino(homeBottomTheme?[indexPath.row].gallery_id)
             cell.exhibitionLocationLabel.text = homeBottomTheme?[indexPath.row].gallery_name
+            cell.exhibitionImageView.imageFromUrl(gsno(homeBottomTheme?[indexPath.row].ex_image), defaultImgPath: "1")
+            cell.exhibitionImageURL = gsno(homeBottomTheme?[indexPath.row].ex_image)
             cell.ratingViewWidth.constant = CGFloat(gfno(homeBottomTheme?[indexPath.row].ex_average_grade)/5)*55
             
             if gino(homeBottomTheme?[indexPath.row].likeFlag) == 1 {
@@ -264,7 +309,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == topRecommendCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainTopRecoCollectionViewCell.reuseIdentifier, for: indexPath) as! MainTopRecoCollectionViewCell
-            goExhibitionDetailViewAtCell(cell.exhibitionId)
+//            cell.exhibitionId = gino(homeTopData?[indexPath.row].ex_id)
+            goExhibitionDetailViewAtCell(gino(homeTopData?[indexPath.row].ex_id), title: gsno(homeTopData?[indexPath.row].ex_title), galleryId: gino(homeTopData?[indexPath.row].gallery_id), image: cell.exhibitionImageView.image, imageURL: homeTopData?[indexPath.row].ex_image)
         }
     }
 }
@@ -314,6 +360,7 @@ extension MainViewController : UITextFieldDelegate {
     // MARK: Save Data after Return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.docentSearchTextField.resignFirstResponder()
+        self.searchSerial()
         return false
     }
     

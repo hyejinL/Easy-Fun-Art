@@ -48,7 +48,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zrg-RS-Zou"/>
                     </view>
-                    <navigationItem key="navigationItem" title="맞춤 추천" id="wzN-xh-q5w"/>
+                    <navigationItem key="navigationItem" title="맞춤 추천" id="GzL-AJ-ufv">
+                        <barButtonItem key="backBarButtonItem" title=" " id="TC4-wT-wgz"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="recommendListCollectionView" destination="YBd-8s-v8V" id="Z6X-ia-9Ii"/>

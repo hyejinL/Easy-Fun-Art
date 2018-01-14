@@ -10,4 +10,5 @@ import UIKit
 
 class DocentPlayListHeaderCell: UITableViewHeaderFooterView {
 
+    @IBOutlet weak var docentListFloorLabel: UILabel!
 }

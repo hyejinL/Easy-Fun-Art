@@ -19,9 +19,15 @@ class ExhibitionReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var reviewContentLabel: UILabel!
     @IBOutlet weak var reviewImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var reviewImageViewHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func configure() {
+        userProfileImageView.layer.masksToBounds = true
+        userProfileImageView.layer.cornerRadius = userProfileImageView.frame.width/2
     }
 }

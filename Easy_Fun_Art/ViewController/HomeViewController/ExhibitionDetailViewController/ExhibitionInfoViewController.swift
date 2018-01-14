@@ -11,6 +11,8 @@ import SJSegmentedScrollView
 import RAMAnimatedTabBarController
 
 class ExhibitionInfoViewController: SJSegmentedViewController {
+    @IBOutlet weak var likeBarButton: UIBarButtonItem!
+    
     var selectedSegment:SJSegmentTab?
     
     var exhibitionData: ExhibitionDetail.ExhibitionDetailData?
@@ -20,9 +22,11 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
     var gallery: String?
     var galleryId = -1
     var image: UIImage?
+    var imageURL: String?
     
     override func viewDidLoad() {
-        self.title = exhibitionTitle
+        self.navigationItem.title = exhibitionTitle
+//        likeBarButton.title = ""
         
         let exhibitionHeaderViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoHeaderViewController.reuseIdentifier) as! ExhibitionInfoHeaderViewController
         exhibitionHeaderViewController.exhibitionId = id
@@ -30,7 +34,7 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         exhibitionHeaderViewController.date = date
         exhibitionHeaderViewController.gallery = gallery
         exhibitionHeaderViewController.image = image
-        exhibitionHeaderViewController.likeFlag = gino(exhibitionData?.userInfo.likeFlag)
+        exhibitionHeaderViewController.imageURL = imageURL
         
         let firstViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionDetailInfoCollectionViewController.reuseIdentifier) as! ExhibitionDetailInfoCollectionViewController
         firstViewController.exhibitionId = id
@@ -102,14 +106,39 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         
         starRatingViewController.exhibitionId = id
         starRatingViewController.exhibitionText = exhibitionTitle
-        starRatingViewController.myRate = Int(gfno(exhibitionData?.userInfo.grade))
+//        starRatingViewController.myRate = Int(gfno(exhibitionData?.userInfo.grade))
+        starRatingViewController.myRate = 0
         
         self.tabBarController?.present(starRatingViewController, animated: true, completion: nil)
     }
     
     @IBAction func goDocentListView(_ sender: Any) {
         let docentPlayListTableViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
-   self.navigationController?.pushViewController(docentPlayListTableViewController, animated: true)
+        docentPlayListTableViewController.exhibitionId = id
+        docentPlayListTableViewController.exhibitionTitle = exhibitionTitle
+        docentPlayListTableViewController.exhibitionImage = imageURL
+        self.navigationController?.pushViewController(docentPlayListTableViewController, animated: true)
+    }
+    
+    @IBAction func pressedLikeBarButton(_ sender: UIBarButtonItem) {
+        HomeService.shareInstance.likeExhibition(exhibitionId: id) { (result) in
+            switch result {
+            case .success(let likeFlag):
+                if likeFlag == 1 {
+                    sender.image = #imageLiteral(resourceName: "btn_like_red")
+                    let likeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: LikeViewController.reuseIdentifier) as! LikeViewController
+                    likeViewController.exhibitionText = self.exhibitionTitle
+                    self.present(likeViewController, animated: true, completion: nil)
+                } else {
+                    sender.image = #imageLiteral(resourceName: "btn_like_white")
+                }
+                
+                break
+            case .error(let msg):
+                print(msg)
+                break
+            }
+        }
     }
     
     func exhibitionDetailUpdate() {
@@ -117,6 +146,11 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
             switch result {
             case .success(let exhibitionInfo):
                 self.exhibitionData = exhibitionInfo
+                if exhibitionInfo.userInfo.likeFlag == 1 {
+                    self.likeBarButton.image = #imageLiteral(resourceName: "btn_like_red")
+                } else {
+                    self.likeBarButton.image = #imageLiteral(resourceName: "btn_like_black")
+                }
                 print(exhibitionInfo)
                 self.loading(.end)
                 break

@@ -12,6 +12,8 @@ class ExhibitionDetailInfoCollectionViewController: UICollectionViewController {
     
     var exhibitionData: ExhibitionDetail.ExhibitionDetailData?
     var exhibitionId = -1
+    var hashtagList = [String]()
+    var unselectedHashtagList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +22,13 @@ class ExhibitionDetailInfoCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         setUpCollectionView()
+        loading(.start)
+        exhibitionDetailUpdate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        loading(.start)
-        exhibitionDetailUpdate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +41,12 @@ class ExhibitionDetailInfoCollectionViewController: UICollectionViewController {
             switch result {
             case .success(let exhibitionInfo):
                 self.exhibitionData = exhibitionInfo
+                
+                self.hashtagList = exhibitionInfo.selectedHashtag
+                self.unselectedHashtagList = exhibitionInfo.unSelectedHashtag
+                
                 self.collectionView?.reloadData()
+                self.viewDidLayoutSubviews()
                 self.loading(.end)
                 break
             case .error(let msg):
@@ -70,6 +77,10 @@ extension ExhibitionDetailInfoCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExhibitionDetailInfoCollectionViewCell.reuseIdentifier, for: indexPath) as! ExhibitionDetailInfoCollectionViewCell
+            
+            cell.hashtagList = self.hashtagList
+            cell.unselectedHashtagList = self.unselectedHashtagList
+            cell.configure()
             
             return cell
         } else if indexPath.row == 1 {

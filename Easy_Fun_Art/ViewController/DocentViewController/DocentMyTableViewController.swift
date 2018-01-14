@@ -16,7 +16,14 @@ class DocentMyTableViewController: UITableViewController, IndicatorInfoProvider 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         setUpTableView()
+        
+        loading(.start)
         updatePlayList()
     }
     
@@ -28,6 +35,7 @@ class DocentMyTableViewController: UITableViewController, IndicatorInfoProvider 
         DocentService.shareInstance.likeExhibitionList() { (result) in
             switch result {
             case .success(let listData):
+                self.loading(.end)
                 self.playListData = listData
                 self.tableView.reloadData()
                 break
@@ -71,6 +79,11 @@ extension DocentMyTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let docentPlayListViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
+        
+        docentPlayListViewController.exhibitionId = gino(playListData[indexPath.row].ex_id)
+        docentPlayListViewController.exhibitionImage = playListData[indexPath.row].ex_image
+        docentPlayListViewController.exhibitionTitle = playListData[indexPath.row].ex_title
+        
         self.navigationController?.pushViewController(docentPlayListViewController, animated: true)
     }
 }

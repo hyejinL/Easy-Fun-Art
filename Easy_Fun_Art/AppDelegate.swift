@@ -10,13 +10,14 @@ import UIKit
 import FBSDKCoreKit
 import NVActivityIndicatorView
 import GoogleMaps
-
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let playerView = DocentPlayerBarView.instanceFromNib()
+    var audioPlayer =  AVPlayer()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -31,8 +32,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyDyyiuHX4gCu6a9mJg2lVo1IWymIchneKQ")
         
         NotificationCenter.default.addObserver(self, selector: #selector(openPlayerViewController), name: NSNotification.Name(rawValue: "openMusicBar"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addDocentBar), name: NSNotification.Name(rawValue: "addMusicBar"), object: nil)
         
         return true
+    }
+    
+    @objc func addDocentBar(_ notification: Notification) {
+        let window = UIApplication.shared.keyWindow!
+
+        var checkPlayerView:Bool = false
+        for subview in window.subviews{
+            if subview == playerView{
+                checkPlayerView = true
+                break
+            }
+        }
+        if checkPlayerView{
+            
+        }else{
+            playerView.frame = CGRect(x: 0, y: (667-99)*UIScreen.main.bounds.height/667, width: UIScreen.main.bounds.width, height: 50*UIScreen.main.bounds.height/667)
+            playerView.configure()
+            
+            window.addSubview(playerView)
+            guard let audio = notification.userInfo?["audio"] as? AVPlayer else { return }
+            audioPlayer = audio
+        }
+        
     }
 
     @objc func openPlayerViewController() {

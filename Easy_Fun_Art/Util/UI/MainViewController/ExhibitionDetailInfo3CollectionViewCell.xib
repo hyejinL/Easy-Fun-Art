@@ -33,7 +33,7 @@
                         <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="img_averagegrade" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-XH-plR">
+                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="img_averagegrade" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-XH-plR">
                         <rect key="frame" x="20" y="74.5" width="66" height="66"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="9rB-XH-plR" secondAttribute="height" multiplier="1:1" id="aBu-Ru-ejB"/>
