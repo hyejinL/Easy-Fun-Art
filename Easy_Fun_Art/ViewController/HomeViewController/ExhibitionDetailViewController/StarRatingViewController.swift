@@ -36,8 +36,11 @@ class StarRatingViewController: UIViewController {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "myRatingSetting"), object: self, userInfo: ["rating":Float(self.myRating.rating)])
                 self.dismiss(animated: true, completion: nil)
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }

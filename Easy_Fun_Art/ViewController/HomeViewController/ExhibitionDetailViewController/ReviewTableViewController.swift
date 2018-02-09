@@ -21,6 +21,10 @@ struct Rating {
 class ReviewTableViewController: UITableViewController {
     var reviewInfo: ExhibitionReview.ReviewData?
     var exhibitionId = -1
+    var exhibitionTitle: String?
+    var exhibitionImage: UIImage?
+    var exhibitionImageURL: String?
+    var galleryTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +45,28 @@ class ReviewTableViewController: UITableViewController {
             case .success(let reviewData):
                 self.loading(.end)
                 self.reviewInfo = reviewData
-                print(self.reviewInfo)
                 self.tableView.reloadData()
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }
     }
     
+    @objc func goReviewWriteView() {
+        print(11111)
+        let reviewWriteViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ReviewWriteViewController.reuseIdentifier) as! ReviewWriteViewController
+        reviewWriteViewController.exhibitionId = exhibitionId
+        reviewWriteViewController.exhibitionTitle = exhibitionTitle
+        reviewWriteViewController.exhibitionImage = exhibitionImage
+        reviewWriteViewController.exhibitionImageURL = exhibitionImageURL
+        reviewWriteViewController.galleryTitle = galleryTitle
+        self.navigationController?.pushViewController(reviewWriteViewController, animated: true)
+    }
 }
 
 extension ReviewTableViewController {
@@ -78,6 +94,7 @@ extension ReviewTableViewController {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableViewCell.reuseIdentifier, for: indexPath) as! ReviewTableViewCell
             
+            cell.reviewWriteButton.addTarget(self, action: #selector(goReviewWriteView), for: .touchUpInside)
             cell.ratingScoreLabel.text = String(format: "%.01f", gfno(reviewInfo?.reviewGraph.averageGrade))
             cell.ratingCountLabel.text = "\(gino(reviewInfo?.reviewGraph.totalGradeCount)) 명"
             let rating1 = Rating(rating: 1, count: gino(reviewInfo?.reviewGraph.grade_1))

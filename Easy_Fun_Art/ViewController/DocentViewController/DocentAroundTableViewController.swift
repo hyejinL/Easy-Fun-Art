@@ -22,6 +22,7 @@ class DocentAroundTableViewController: UITableViewController, IndicatorInfoProvi
 
         setUpTableView()
         
+        self.view.addSubview(self.noExhibitionView)
         noExhibitionView.isHidden = true
     }
     
@@ -54,13 +55,18 @@ class DocentAroundTableViewController: UITableViewController, IndicatorInfoProvi
                 self.playListData = listData
                 // 주변에 전시가 없습니다 부분
                 if self.playListData.isEmpty {
-                    self.noExhibitionView.isHidden = false
                     self.noExhibitionView.frame = self.view.frame
+                    self.noExhibitionView.isHidden = false
+                } else {
+                    self.noExhibitionView.isHidden = true
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }
@@ -81,11 +87,11 @@ extension DocentAroundTableViewController: CLLocationManagerDelegate {
 //        }
 //    }
     
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        if status == CLAuthorizationStatus.denied {
-//            showLocationDisableAlert()
-//        }
-//    }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.denied {
+            showLocationDisableAlert()
+        }
+    }
     
     func showLocationDisableAlert() {
         let alertController = UIAlertController(title: "위치 접근이 제한되었습니다.", message: "내 주변 전시를 보기 위해 위치 정보가 필요합니다.", preferredStyle: .alert)
@@ -103,9 +109,7 @@ extension DocentAroundTableViewController: CLLocationManagerDelegate {
 }
 
 extension DocentAroundTableViewController {
-    
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return playListData.count

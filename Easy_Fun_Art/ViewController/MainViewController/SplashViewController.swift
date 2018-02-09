@@ -25,6 +25,11 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         
         facebookStartButton.alpha = 0; facebookStartButton.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         splashAnimation()
     }
 
@@ -104,30 +109,33 @@ class SplashViewController: UIViewController {
             switch result {
             case .success(let level):
                 print(level)
-                let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
-                self.present(analysisStartViewController, animated: true, completion: {
-                    self.loading(.end)
-                })
-//                if level == 10 {
-//                    let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
-//                    self.present(analysisStartViewController, animated: true, completion: {
-//                        self.loading(.end)
-//                    })
-//                } else if level == 20 {
-//                    let genreCheckViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: GenreCheckViewController.reuseIdentifier) as! GenreCheckViewController
-//                    self.present(genreCheckViewController, animated: true, completion: {
-//                        self.loading(.end)
-//                    })
-//                } else if level == ㄹ0 {
-//                    let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
-//                    self.present(tabbarViewController, animated: true, completion: {
-//                        self.loading(.end)
-//                    })
-//                }
+//                let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
+//                self.present(analysisStartViewController, animated: true, completion: {
+//                    self.loading(.end)
+//                })
+                if level == 10 {
+                    let analysisStartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavi") as! UINavigationController
+                    self.present(analysisStartViewController, animated: true, completion: {
+                        self.loading(.end)
+                    })
+                } else if level == 20 {
+                    let genreCheckViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: GenreCheckViewController.reuseIdentifier) as! GenreCheckViewController
+                    self.present(genreCheckViewController, animated: true, completion: {
+                        self.loading(.end)
+                    })
+                } else if level == 50 {
+                    let tabbarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RAMAnimatedTabBarController")
+                    self.present(tabbarViewController, animated: true, completion: {
+                        self.loading(.end)
+                    })
+                }
                 
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }

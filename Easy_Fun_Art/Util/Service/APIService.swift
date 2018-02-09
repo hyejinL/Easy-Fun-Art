@@ -10,8 +10,8 @@ import Foundation
 
 enum Result<T> {
     case success(T)
-    case error(String)
-//    case failure(Error)
+    case error(Int)
+    case failure(Error)
 }
 
 protocol APIService {
@@ -19,7 +19,7 @@ protocol APIService {
 
 extension APIService {
     func url(_ path: String) -> String {
-        return "http://13.124.97.161:3000" + path
+        return "http://13.125.105.68:3000" + path
     }
     
     func gsno(_ value: String?) -> String {

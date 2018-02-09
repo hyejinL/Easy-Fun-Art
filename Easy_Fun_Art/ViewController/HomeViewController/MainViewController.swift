@@ -34,6 +34,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         docentSearchTextField.attributedPlaceholder = NSAttributedString(string: "도슨트를 위한 일련번호를 입력해주세요", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         docentSearchTextField.delegate = self
         
+        biggerImageViewHeight.constant = (390*self.view.frame.height)/667
+        
         self.automaticallyAdjustsScrollViewInsets = false
         
         setUpCollectionView()
@@ -98,8 +100,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
                 self.loading(.end)
 
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }
@@ -192,10 +197,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
                 
                 self.present(mainPopUpViewController, animated: true, completion: nil)
                 break
-            case .error(let msg):
+            case .error(let code):
                 let mainNoSerialPopUpViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: MainNoSerialPopUpViewController.reuseIdentifier) as! MainNoSerialPopUpViewController
                 self.present(mainNoSerialPopUpViewController, animated: true, completion: nil)
-                print(msg)
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }
@@ -224,13 +232,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //        }
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainRecoHeaderCollectionViewCell.reuseIdentifier, for: indexPath) as! MainRecoHeaderCollectionViewCell
         
-        if indexPath.section == 0 {
-            view.mainHeaderTitleLabel.text = homeBottomData?.theme1[0].theme_title
-        } else if indexPath.section == 1 {
-            view.mainHeaderTitleLabel.text = homeBottomData?.theme2[0].theme_title
-        } else {
-            view.mainHeaderTitleLabel.text = homeBottomData?.theme3[0].theme_title
-        }
+//        if indexPath.section == 0 {
+//            view.mainHeaderTitleLabel.text = homeBottomData?.theme1?[0].theme_title
+//        } else if indexPath.section == 1 {
+//            view.mainHeaderTitleLabel.text = homeBottomData?.theme2?[0].theme_title
+//        } else {
+//            view.mainHeaderTitleLabel.text = homeBottomData?.theme3?[0].theme_title
+//        }
         
         return view
     }
@@ -240,11 +248,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return gino(homeTopData?.count)
         } else {
             if section == 0 {
-                return gino(homeBottomData?.theme1.count)
+                return gino(homeBottomData?.theme1?.count)
             } else if section == 1 {
-                return gino(homeBottomData?.theme2.count)
+                return gino(homeBottomData?.theme2?.count)
             } else {
-                return gino(homeBottomData?.theme3.count)
+                return gino(homeBottomData?.theme3?.count)
             }
         }
     }
@@ -258,13 +266,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             cell.exhibitionId = gino(homeTopData?[indexPath.row].ex_id)
             cell.exhibitionImageView.imageFromUrl(gsno(homeTopData?[indexPath.row].ex_image), defaultImgPath: "1")
-//            if indexPath.row == 0 {
-//                cell.exhibitionImageView.image = #imageLiteral(resourceName: "KakaoTalk_2018-01-12-23-21-07_Photo_9")
-//            } else if indexPath.row == 1 {
-//                cell.exhibitionImageView.image = #imageLiteral(resourceName: "KakaoTalk_2018-01-12-23-21-08_Photo_44")
-//            } else {
-//                cell.exhibitionImageView.imageFromUrl(gsno(homeTopData?[indexPath.row].ex_image), defaultImgPath: "1")
-//            }
             
             cell.exhibitionTitleLabel.text = homeTopData?[indexPath.row].ex_title
 

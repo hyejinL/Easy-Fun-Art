@@ -25,20 +25,21 @@ class DocentPlayListTableViewController: UITableViewController, PlayerIsOn {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         setUpTableView()
         
         self.navigationController?.navigationBar.isHidden = false
         
         loading(.start)
         docentListUpdate()
+        
+        self.view.addSubview(docentListMessageView)
+        docentListMessageView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = false
-        
     }
     
     func docentListImageChange(indexPath: Int) {
@@ -83,7 +84,6 @@ class DocentPlayListTableViewController: UITableViewController, PlayerIsOn {
                     self.docentListMessageImageView.image = #imageLiteral(resourceName: "img_popup_docent_wait")
                     self.docentListMessageLabel.text = "아직 진행 중인 전시가 아니에요\n도슨트를 준비 중입니다!"
                 }
-                self.view.addSubview(self.docentListMessageView)
                 
                 for docent in docentList.docentDataResult {
                     
@@ -102,8 +102,11 @@ class DocentPlayListTableViewController: UITableViewController, PlayerIsOn {
                 self.tableView.reloadData()
                 
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }

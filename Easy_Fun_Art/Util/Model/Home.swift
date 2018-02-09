@@ -17,9 +17,9 @@ struct Home: Codable {
         let bottomResult: HomeBottomData
         
         struct HomeBottomData: Codable {
-            let theme1: [HomeExhibition]
-            let theme2: [HomeExhibition]
-            let theme3: [HomeExhibition]
+            let theme1: [HomeExhibition]?
+            let theme2: [HomeExhibition]?
+            let theme3: [HomeExhibition]?
         }
     }
 }

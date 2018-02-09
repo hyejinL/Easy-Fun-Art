@@ -32,19 +32,20 @@ struct SearchService: APIService {
                     do{
                         let decoder = JSONDecoder()
                         let searchList = try decoder.decode(SearchList.self, from: value)
-                        
                         if searchList.status == "success"{
                             completion(.success(searchList.data.searchData))
                         }else{
-                            completion(.error(searchList.message))
+                            completion(.error(searchList.code))
                         }
                     }catch{
-                        
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }

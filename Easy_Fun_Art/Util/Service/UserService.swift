@@ -31,14 +31,15 @@ struct UserService: APIService {
                             
                             completion(.success(level))
                         } else {
-                            guard let msg = JSON(value)["msg"].string else { return }
-                            completion(.error(msg))
+                            guard let code = JSON(value)["code"].int else { return }
+                            completion(.error(code))
                         }
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -62,14 +63,15 @@ struct UserService: APIService {
                             guard let nicknameIsCheck = JSON(value)["data"]["checkFlag"].int else { return }
                             completion(.success(nicknameIsCheck))
                         } else {
-                            guard let msg = JSON(value)["msg"].string else { return }
-                            completion(.error(msg))
+                            guard let code = JSON(value)["code"].int else { return }
+                            completion(.error(code))
                         }
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -96,14 +98,15 @@ struct UserService: APIService {
                             
                             completion(.success(()))
                         } else {
-                            guard let msg = JSON(value)["msg"].string else { return }
-                            completion(.error(msg))
+                            guard let code = JSON(value)["code"].int else { return }
+                            completion(.error(code))
                         }
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -130,14 +133,15 @@ struct UserService: APIService {
                             self.userdefault.set(self.gsno(JSON(value)["data"]["token"].string), forKey: "token")
                             completion(.success(()))
                         } else {
-                            guard let msg = JSON(value)["msg"].string else { return }
-                            completion(.error(msg))
+                            guard let code = JSON(value)["code"].int else { return }
+                            completion(.error(code))
                         }
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }

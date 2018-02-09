@@ -23,10 +23,137 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
     var galleryId = -1
     var image: UIImage?
     var imageURL: String?
+    var offsetY: CGFloat = 0.0
     
     override func viewDidLoad() {
         self.navigationItem.title = exhibitionTitle
 //        likeBarButton.title = ""
+        
+        sjsegmentedSetting()
+        
+        super.viewDidLoad()
+//        self.navigationController?.navigationBar.isHidden = true
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        let view = UIImageView()
+        view.frame.size.width = 100
+        view.frame.size.height = 0
+        view.contentMode = .scaleAspectFit
+        view.backgroundColor = .white
+        self.navigationItem.titleView = view
+        self.navigationController?.navigationBar.alpha = 0
+        self.navigationController?.navigationBar.isHidden = false
+        
+        self.view.layoutIfNeeded()
+//        self.viewDidLayoutSubviews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        self.navigationController?.navigationBar.alpha = 0
+//        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.alpha = 1.0-(250-offsetY)/250
+        guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
+        animatedTabBar.animationTabBarHidden(true)
+        
+        loading(.start)
+        exhibitionDetailUpdate()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.alpha = 1
+        
+        guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
+        animatedTabBar.animationTabBarHidden(false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.alpha = 1
+        
+//        guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
+//        animatedTabBar.animationTabBarHidden(false)
+    }
+
+    @IBAction func goRatingView(_ sender: Any) {
+        let starRatingViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: StarRatingViewController.reuseIdentifier) as! StarRatingViewController
+        
+        starRatingViewController.exhibitionId = id
+        starRatingViewController.exhibitionText = exhibitionTitle
+//        starRatingViewController.myRate = Int(gfno(exhibitionData?.userInfo.grade))
+        starRatingViewController.myRate = 0
+        
+        self.tabBarController?.present(starRatingViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func goDocentListView(_ sender: Any) {
+        let docentPlayListTableViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
+        docentPlayListTableViewController.exhibitionId = id
+        docentPlayListTableViewController.exhibitionTitle = exhibitionTitle
+        docentPlayListTableViewController.exhibitionImage = imageURL
+        
+        guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
+        animatedTabBar.animationTabBarHidden(false)
+        
+        self.navigationController?.pushViewController(docentPlayListTableViewController, animated: true)
+    }
+    
+    @IBAction func pressedLikeBarButton(_ sender: UIBarButtonItem) {
+        HomeService.shareInstance.likeExhibition(exhibitionId: id) { (result) in
+            switch result {
+            case .success(let likeFlag):
+                if likeFlag == 1 {
+                    sender.image = #imageLiteral(resourceName: "btn_like_red")
+                    let likeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: LikeViewController.reuseIdentifier) as! LikeViewController
+                    likeViewController.exhibitionText = self.exhibitionTitle
+                    self.present(likeViewController, animated: true, completion: nil)
+                } else {
+                    sender.image = #imageLiteral(resourceName: "btn_like_white")
+                }
+                
+                break
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
+                break
+            }
+        }
+    }
+    
+    func exhibitionDetailUpdate() {
+        HomeService.shareInstance.exhibitionDetail(exhibitionId: id) { (result) in
+            switch result {
+            case .success(let exhibitionInfo):
+                self.exhibitionData = exhibitionInfo
+                if exhibitionInfo.userInfo.likeFlag == 1 {
+                    self.likeBarButton.image = #imageLiteral(resourceName: "btn_like_red")
+                } else {
+                    self.likeBarButton.image = #imageLiteral(resourceName: "btn_like_black")
+                }
+                print(exhibitionInfo)
+                self.loading(.end)
+                break
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
+                break
+            }
+        }
+    }
+    
+    func sjsegmentedSetting() {
         
         let exhibitionHeaderViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ExhibitionInfoHeaderViewController.reuseIdentifier) as! ExhibitionInfoHeaderViewController
         exhibitionHeaderViewController.exhibitionId = id
@@ -46,6 +173,10 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         
         let thirdViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: ReviewTableViewController.reuseIdentifier) as! ReviewTableViewController
         thirdViewController.exhibitionId = id
+        thirdViewController.exhibitionTitle = exhibitionTitle
+        thirdViewController.exhibitionImage = image
+        thirdViewController.exhibitionImageURL = imageURL
+        thirdViewController.galleryTitle = gallery
         thirdViewController.title = "리뷰"
         
         segmentControllers = [firstViewController, secondViewController, thirdViewController]
@@ -55,110 +186,12 @@ class ExhibitionInfoViewController: SJSegmentedViewController {
         segmentTitleColor = #colorLiteral(red: 0.3234693706, green: 0.3234777451, blue: 0.3234732151, alpha: 1)
         selectedSegmentViewColor = #colorLiteral(red: 0.9926154017, green: 0.8786800504, blue: 0, alpha: 1)
         segmentShadow = SJShadow.init(offset: CGSize(width: 0, height: 1.0), color: #colorLiteral(red: 0.8861932158, green: 0.8862140179, blue: 0.8862028718, alpha: 1), radius: 1.0, opacity: 0.4)
-//        segmentShadow = SJShadow.light()
+        //        segmentShadow = SJShadow.light()
         
         delegate = self
         headerViewHeight = 302
-        super.viewDidLoad()
-//        self.navigationController?.navigationBar.isHidden = true
-        UIApplication.shared.statusBarStyle = .lightContent
-        
-        let view = UIImageView()
-        view.frame.size.width = 100
-        view.frame.size.height = 0
-        view.contentMode = .scaleAspectFit
-        view.backgroundColor = .white
-        self.navigationItem.titleView = view
-        self.navigationController?.navigationBar.alpha = 0
-        self.navigationController?.navigationBar.isHidden = false
         
         segmentedScrollView.delegate = self
-        
-        self.view.layoutIfNeeded()
-//        self.viewDidLayoutSubviews()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.navigationBar.alpha = 0
-        self.navigationController?.navigationBar.isHidden = false
-        guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
-        animatedTabBar.animationTabBarHidden(true)
-        
-        loading(.start)
-        exhibitionDetailUpdate()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        UIApplication.shared.statusBarStyle = .default
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.alpha = 1
-        
-        guard let animatedTabBar = self.tabBarController as? RAMAnimatedTabBarController else { return }
-        animatedTabBar.animationTabBarHidden(false)
-    }
-
-    @IBAction func goRatingView(_ sender: Any) {
-        let starRatingViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: StarRatingViewController.reuseIdentifier) as! StarRatingViewController
-        
-        starRatingViewController.exhibitionId = id
-        starRatingViewController.exhibitionText = exhibitionTitle
-//        starRatingViewController.myRate = Int(gfno(exhibitionData?.userInfo.grade))
-        starRatingViewController.myRate = 0
-        
-        self.tabBarController?.present(starRatingViewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func goDocentListView(_ sender: Any) {
-        let docentPlayListTableViewController = UIStoryboard(name: "Docent", bundle: nil).instantiateViewController(withIdentifier: DocentPlayListTableViewController.reuseIdentifier) as! DocentPlayListTableViewController
-        docentPlayListTableViewController.exhibitionId = id
-        docentPlayListTableViewController.exhibitionTitle = exhibitionTitle
-        docentPlayListTableViewController.exhibitionImage = imageURL
-        self.navigationController?.pushViewController(docentPlayListTableViewController, animated: true)
-    }
-    
-    @IBAction func pressedLikeBarButton(_ sender: UIBarButtonItem) {
-        HomeService.shareInstance.likeExhibition(exhibitionId: id) { (result) in
-            switch result {
-            case .success(let likeFlag):
-                if likeFlag == 1 {
-                    sender.image = #imageLiteral(resourceName: "btn_like_red")
-                    let likeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: LikeViewController.reuseIdentifier) as! LikeViewController
-                    likeViewController.exhibitionText = self.exhibitionTitle
-                    self.present(likeViewController, animated: true, completion: nil)
-                } else {
-                    sender.image = #imageLiteral(resourceName: "btn_like_white")
-                }
-                
-                break
-            case .error(let msg):
-                print(msg)
-                break
-            }
-        }
-    }
-    
-    func exhibitionDetailUpdate() {
-        HomeService.shareInstance.exhibitionDetail(exhibitionId: id) { (result) in
-            switch result {
-            case .success(let exhibitionInfo):
-                self.exhibitionData = exhibitionInfo
-                if exhibitionInfo.userInfo.likeFlag == 1 {
-                    self.likeBarButton.image = #imageLiteral(resourceName: "btn_like_red")
-                } else {
-                    self.likeBarButton.image = #imageLiteral(resourceName: "btn_like_black")
-                }
-                print(exhibitionInfo)
-                self.loading(.end)
-                break
-            case .error(let msg):
-                print(msg)
-                break
-            }
-        }
     }
 }
 
@@ -177,6 +210,8 @@ extension ExhibitionInfoViewController: SJSegmentedViewControllerDelegate {
 
 extension ExhibitionInfoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        offsetY = scrollView.contentOffset.y
+        
         if scrollView.contentOffset.y > 200 {
             UIApplication.shared.statusBarStyle = .default
         } else {

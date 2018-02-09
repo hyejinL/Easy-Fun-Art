@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UtW-UP-dTo">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UtW-UP-dTo">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,11 +16,11 @@
             <objects>
                 <viewController storyboardIdentifier="SearchMainViewController" id="UtW-UP-dTo" customClass="SearchMainViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9s4-z9-51I">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="bg_search" translatesAutoresizingMaskIntoConstraints="NO" id="8Uu-MA-bck">
-                                <rect key="frame" x="0.0" y="-3" width="375" height="245"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="bg_search" translatesAutoresizingMaskIntoConstraints="NO" id="8Uu-MA-bck">
+                                <rect key="frame" x="0.0" y="-3" width="414" height="270.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Uu-MA-bck" secondAttribute="height" multiplier="75:49" id="PFI-cf-qGO"/>
                                 </constraints>
@@ -29,23 +29,23 @@
                                 <rect key="frame" x="30" y="73" width="187" height="65"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="혹은 작가명 / 작품명을 검색해보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgJ-FM-GMl">
-                                <rect key="frame" x="30" y="156" width="173.5" height="14.5"/>
+                                <rect key="frame" x="30" y="156" width="173.66666666666666" height="14.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zU6-vf-jOM">
-                                <rect key="frame" x="30" y="217.5" width="287" height="2"/>
+                                <rect key="frame" x="30" y="217.66666666666666" width="326" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1.5" id="oTq-MG-SKR"/>
                                 </constraints>
                             </view>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icon_search_white" translatesAutoresizingMaskIntoConstraints="NO" id="TcM-eo-jwI">
-                                <rect key="frame" x="30" y="196.5" width="15" height="15"/>
+                                <rect key="frame" x="30" y="196.66666666666666" width="15" height="15"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z73-LS-gvb">
-                                <rect key="frame" x="50" y="187.5" width="267" height="25"/>
+                                <rect key="frame" x="50" y="187.66666666666666" width="306" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="ayk-x6-R2J"/>
                                 </constraints>
@@ -54,10 +54,10 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_search_prev" translatesAutoresizingMaskIntoConstraints="NO" id="i7O-jO-8ny">
-                                <rect key="frame" x="153" y="364" width="69" height="73"/>
+                                <rect key="frame" x="172.66666666666666" y="398.66666666666669" width="69" height="73"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dA-or-s8n">
-                                <rect key="frame" x="111.5" y="442" width="153" height="33.5"/>
+                                <rect key="frame" x="131" y="476.66666666666669" width="153" height="33.333333333333314"/>
                                 <string key="text">EASY FUN ART가 
 당신의 전시를 찾아드릴게요</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -105,11 +105,11 @@
             <objects>
                 <viewController storyboardIdentifier="SearchResultViewController" automaticallyAdjustsScrollViewInsets="NO" id="NjB-su-VuL" customClass="SearchResultViewController" customModule="Easy_Fun_Art" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HzD-pH-yE6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OeI-OP-x7q">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BkL-Li-Yug">
                                     <size key="itemSize" width="50" height="50"/>
@@ -129,10 +129,10 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-Vg-pe6">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SO-uZ-RuK">
-                                        <rect key="frame" x="69" y="304" width="236.5" height="34"/>
+                                        <rect key="frame" x="88.666666666666671" y="338.66666666666669" width="236.33333333333331" height="34"/>
                                         <string key="text">일치하는 검색 결과를 찾을 수 없습니다 :-( 
 다른 검색어를 입력해주세요</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -140,7 +140,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img_search_notfound" translatesAutoresizingMaskIntoConstraints="NO" id="7RI-iH-gCw">
-                                        <rect key="frame" x="155" y="234" width="65" height="55"/>
+                                        <rect key="frame" x="174.66666666666666" y="268.66666666666669" width="65" height="55"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>

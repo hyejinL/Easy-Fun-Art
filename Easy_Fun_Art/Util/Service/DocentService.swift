@@ -30,13 +30,14 @@ struct DocentService: APIService {
                         let playListSuccess = try decoder.decode(PlayList.self, from: value)
                         completion(.success(playListSuccess.data))
                     } catch {
-                        guard let msg = JSON(value)["msg"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -57,13 +58,14 @@ struct DocentService: APIService {
                         let playListSuccess = try decoder.decode(PlayList.self, from: value)
                         completion(.success(playListSuccess.data))
                     } catch {
-                        guard let msg = JSON(value)["msg"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -86,16 +88,17 @@ struct DocentService: APIService {
                         if playListData.status == "success" {
                             completion(.success(playListData.data))
                         } else {
-                            completion(.error(playListData.message))
+                            completion(.error(playListData.code))
                         }
                     } catch {
-                        guard let msg = JSON(value)["message"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -118,16 +121,17 @@ struct DocentService: APIService {
                         if docentPlayData.status == "success" {
                             completion(.success(docentPlayData.data))
                         } else {
-                            completion(.error(docentPlayData.message))
+                            completion(.error(docentPlayData.code))
                         }
                     } catch {
-                        guard let msg = JSON(value)["message"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }

@@ -46,6 +46,11 @@
 		0A550F9B2007219B00D53B09 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A550F9A2007219B00D53B09 /* Review.swift */; };
 		0A55CE672007D76700E9A4E4 /* Docent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55CE662007D76700E9A4E4 /* Docent.swift */; };
 		0A55CE692007D83F00E9A4E4 /* DocentPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55CE682007D83F00E9A4E4 /* DocentPlay.swift */; };
+		0A66F22C2026052E000FDA54 /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66F22B2026052E000FDA54 /* ReviewWriteViewController.swift */; };
+		0A66F22E2026083A000FDA54 /* ReviewWriteViewExhibitionInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66F22D2026083A000FDA54 /* ReviewWriteViewExhibitionInfoTableViewCell.swift */; };
+		0A66F23020260854000FDA54 /* ReviewWriteViewRatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66F22F20260854000FDA54 /* ReviewWriteViewRatingTableViewCell.swift */; };
+		0A66F23220260861000FDA54 /* ReviewWriteViewDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66F23120260861000FDA54 /* ReviewWriteViewDateTableViewCell.swift */; };
+		0A66F23420260873000FDA54 /* ReviewWriteViewContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66F23320260873000FDA54 /* ReviewWriteViewContentTableViewCell.swift */; };
 		0A708E992007826D00616891 /* MyHashtagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A708E972007826D00616891 /* MyHashtagCollectionViewCell.swift */; };
 		0A708E9A2007826D00616891 /* MyHashtagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A708E982007826D00616891 /* MyHashtagCollectionViewCell.xib */; };
 		0A708E9D2007828A00616891 /* MyExhibitionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A708E9B2007828A00616891 /* MyExhibitionCollectionViewCell.swift */; };
@@ -148,6 +153,11 @@
 		0A550F9A2007219B00D53B09 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		0A55CE662007D76700E9A4E4 /* Docent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Docent.swift; sourceTree = "<group>"; };
 		0A55CE682007D83F00E9A4E4 /* DocentPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocentPlay.swift; sourceTree = "<group>"; };
+		0A66F22B2026052E000FDA54 /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
+		0A66F22D2026083A000FDA54 /* ReviewWriteViewExhibitionInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewExhibitionInfoTableViewCell.swift; sourceTree = "<group>"; };
+		0A66F22F20260854000FDA54 /* ReviewWriteViewRatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewRatingTableViewCell.swift; sourceTree = "<group>"; };
+		0A66F23120260861000FDA54 /* ReviewWriteViewDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewDateTableViewCell.swift; sourceTree = "<group>"; };
+		0A66F23320260873000FDA54 /* ReviewWriteViewContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewContentTableViewCell.swift; sourceTree = "<group>"; };
 		0A708E972007826D00616891 /* MyHashtagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHashtagCollectionViewCell.swift; sourceTree = "<group>"; };
 		0A708E982007826D00616891 /* MyHashtagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyHashtagCollectionViewCell.xib; sourceTree = "<group>"; };
 		0A708E9B2007828A00616891 /* MyExhibitionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExhibitionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -426,6 +436,11 @@
 				0A9323FA2006A80000DA02EF /* ExhibitionReviewTableViewCell.swift */,
 				0A1A22E120009B5900389767 /* StarRatingViewController.swift */,
 				0A1A22E320009B6600389767 /* LikeViewController.swift */,
+				0A66F22B2026052E000FDA54 /* ReviewWriteViewController.swift */,
+				0A66F22D2026083A000FDA54 /* ReviewWriteViewExhibitionInfoTableViewCell.swift */,
+				0A66F22F20260854000FDA54 /* ReviewWriteViewRatingTableViewCell.swift */,
+				0A66F23120260861000FDA54 /* ReviewWriteViewDateTableViewCell.swift */,
+				0A66F23320260873000FDA54 /* ReviewWriteViewContentTableViewCell.swift */,
 			);
 			path = ExhibitionDetailViewController;
 			sourceTree = "<group>";
@@ -680,6 +695,7 @@
 				0A197BFF2003E0E200329524 /* MyPageService.swift in Sources */,
 				0ACFA0231FFE5E3700664489 /* MainRecoCollectionViewCell.swift in Sources */,
 				0A550F9B2007219B00D53B09 /* Review.swift in Sources */,
+				0A66F22C2026052E000FDA54 /* ReviewWriteViewController.swift in Sources */,
 				0A9323FF2006EE9A00DA02EF /* CachingPlayerItem.swift in Sources */,
 				0A9F0C1A20067F1600AB6E97 /* LocationTableViewCell.swift in Sources */,
 				0ACFA01C1FFE5D7200664489 /* MainPopUpViewController.swift in Sources */,
@@ -729,11 +745,13 @@
 				0A3EB7692005C1FB00761518 /* ExhibitionDetailInfoCollectionViewCell.swift in Sources */,
 				0A1A22E82000E28D00389767 /* APIService.swift in Sources */,
 				0AE75C3C20092D1A000F1986 /* SearchList.swift in Sources */,
+				0A66F22E2026083A000FDA54 /* ReviewWriteViewExhibitionInfoTableViewCell.swift in Sources */,
 				0AAF117720016A7B00A6B274 /* HomeService.swift in Sources */,
 				0ACC27441FFDF72F007E9BA4 /* MoodCheckCollectionViewCell.swift in Sources */,
 				0ACC27421FFDF720007E9BA4 /* PlaceCheckCollectionViewCell.swift in Sources */,
 				0A149AC81FFA213800E12932 /* ExtensionControl.swift in Sources */,
 				0A550F992007211500D53B09 /* ExhibitionReview.swift in Sources */,
+				0A66F23020260854000FDA54 /* ReviewWriteViewRatingTableViewCell.swift in Sources */,
 				0ADDA1B820027E930031A1C4 /* DocentService.swift in Sources */,
 				0A149AD01FFA2F7800E12932 /* DocentListTableViewCell.swift in Sources */,
 				0ACFA01F1FFE5E2000664489 /* MainRecoHeaderCollectionViewCell.swift in Sources */,
@@ -743,7 +761,9 @@
 				0A149AC01FFA1A4200E12932 /* DocentMainViewController.swift in Sources */,
 				0AAF117B20016E0400A6B274 /* HomeExhibition.swift in Sources */,
 				0ACC273E1FFD6091007E9BA4 /* GenreCheckViewController.swift in Sources */,
+				0A66F23420260873000FDA54 /* ReviewWriteViewContentTableViewCell.swift in Sources */,
 				0AAF117920016C4400A6B274 /* Home.swift in Sources */,
+				0A66F23220260861000FDA54 /* ReviewWriteViewDateTableViewCell.swift in Sources */,
 				0A9323FC2006A80000DA02EF /* ExhibitionReviewTableViewCell.swift in Sources */,
 				0A1A22E62000CAEF00389767 /* MyPageMainViewController.swift in Sources */,
 				0A149AC61FFA209A00E12932 /* DocentMyTableViewController.swift in Sources */,

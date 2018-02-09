@@ -37,10 +37,10 @@ class ExhibitionInfoHeaderViewController: UIViewController {
         exhibitionTitleLabel.text = exhibitionTitle
         exhibitionDateLabel.text = date
         galleryLabel.text = gallery
-        if image == nil {
-            exhibitionImageView.imageFromUrl(gsno(imageURL), defaultImgPath: "1")
-        } else {
+        if imageURL == nil {
             exhibitionImageView.image = image
+        } else {
+            exhibitionImageView.imageFromUrl(gsno(imageURL), defaultImgPath: "1")
         }
         
         loading(.start)
@@ -74,8 +74,11 @@ class ExhibitionInfoHeaderViewController: UIViewController {
                 }
                 
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }
@@ -118,8 +121,11 @@ class ExhibitionInfoHeaderViewController: UIViewController {
                 self.exhibitionData = exhibitionInfo
                 self.firstSetting()
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }

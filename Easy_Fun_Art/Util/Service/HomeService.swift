@@ -31,16 +31,17 @@ struct HomeService: APIService {
                         if homeData.status == "succes" {
                             completion(.success(homeData.data))
                         } else {
-                            completion(.error(homeData.message))
+                            completion(.error(homeData.code))
                         }
                     } catch {
-                        guard let msg = JSON(value)["status"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -64,14 +65,15 @@ struct HomeService: APIService {
                             guard let likeFlag = JSON(value)["data"]["likeFlag"].int else { return }
                             completion(.success(likeFlag))
                         } else {
-                            guard let msg = JSON(value)["message"].string else { return }
-                            completion(.error(msg))
+                            guard let code = JSON(value)["code"].int else { return }
+                            completion(.error(code))
                         }
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -93,16 +95,17 @@ struct HomeService: APIService {
                         if exhibitionData.status == "success" {
                             completion(.success(exhibitionData.data))
                         } else {
-                            completion(.error(exhibitionData.message))
+                            completion(.error(exhibitionData.code))
                         }
                     } catch {
-                        guard let msg = JSON(value)["message"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -124,16 +127,17 @@ struct HomeService: APIService {
                         if galleryData.status == "success" {
                             completion(.success(galleryData.data))
                         } else {
-                            completion(.error(galleryData.message))
+                            completion(.error(galleryData.code))
                         }
                     } catch {
-                        guard let msg = JSON(value)["message"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -155,16 +159,17 @@ struct HomeService: APIService {
                         if reviewData.status == "success" {
                             completion(.success(reviewData.data))
                         } else {
-                            completion(.error(reviewData.message))
+                            completion(.error(reviewData.code))
                         }
                     } catch {
-                        guard let msg = JSON(value)["message"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -187,13 +192,14 @@ struct HomeService: APIService {
                     if status == "success" {
                         completion(.success(()))
                     } else {
-                        guard let msg = JSON(value)["message"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }
@@ -246,16 +252,17 @@ struct HomeService: APIService {
                         if serialData.status == "success" {
                             completion(.success(serialData.data.serialData))
                         } else {
-                            completion(.error(serialData.message))
+                            completion(.error(serialData.code))
                         }
                     } catch {
-                        guard let msg = JSON(value)["message"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }

@@ -59,7 +59,7 @@ class SearchResultViewController: UIViewController {
     //MARK: Networking
     func getSearchList(){
         SearchService.shareInstance.search(qString: gsno(searchTextField.text), period: self.period, order: self.order) { (res) in
-            switch res{
+            switch res {
             case .success(let searchList):
                 self.loading(.end)
                 self.searchList = searchList
@@ -70,10 +70,12 @@ class SearchResultViewController: UIViewController {
                 }
                 self.collectionView.reloadData()
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
                 break
-                
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
+                break
             }
         }
     }

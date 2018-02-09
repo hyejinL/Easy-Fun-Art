@@ -75,6 +75,10 @@ class UserInfoViewController: UIViewController {
     
     @IBAction func pressedCheckGenderButton(_ sender: ToggleButton) {
         sender.buttonAnimation()
+        
+        gender = -1
+        age = -1
+        
         if sender == femaleButton && femaleButton.isChecked {
             maleButton.isChecked = false
         }
@@ -128,8 +132,11 @@ class UserInfoViewController: UIViewController {
                     self.sendUserInfo()
                 }
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }
@@ -145,8 +152,11 @@ class UserInfoViewController: UIViewController {
                 self.navigationController?.pushViewController(genreCheckViewController, animated: true)
                 self.loading(.end)
                 break
-            case  .error(let msg):
-                print(msg)
+            case  .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }

@@ -92,8 +92,11 @@ class DocentPlayerViewController: UIViewController {
                 self.scriptDocentTitleLabel.text = self.docentTitleLabel.text
                 self.docentPlaceImageView.imageFromUrl(self.gsno(docentData.docent_place), defaultImgPath: "")
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }

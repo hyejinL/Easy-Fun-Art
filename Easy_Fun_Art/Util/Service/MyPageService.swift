@@ -24,23 +24,24 @@ struct MyPageService: APIService {
             switch res.result {
             case .success:
                 if let value = res.result.value {
+                    let decoder = JSONDecoder()
                     do {
-                        let decoder = JSONDecoder()
                         let mypageData = try decoder.decode(User.self, from: value)
                         print(mypageData)
                         if mypageData.status == "success" {
                             completion(.success(mypageData.data))
                         } else {
-                            completion(.error(mypageData.message))
+                            completion(.error(mypageData.code))
                         }
                     } catch {
-                        guard let msg = JSON(value)["message"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }

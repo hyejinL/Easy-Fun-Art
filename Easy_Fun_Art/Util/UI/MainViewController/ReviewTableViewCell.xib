@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -17,37 +17,37 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewTableViewCell" rowHeight="202" id="x7b-Pj-JW9" customClass="ReviewTableViewCell" customModule="Easy_Fun_Art" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x7b-Pj-JW9" id="os1-ro-Qvd">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x7b-Pj-JW9" id="os1-ro-Qvd">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="201.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyD-vI-H30">
-                        <rect key="frame" x="13.5" y="29.5" width="348" height="50"/>
+                        <rect key="frame" x="13.5" y="32.5" width="348" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="lyD-vI-H30" secondAttribute="height" multiplier="327:47" id="HzB-QR-ZZN"/>
                         </constraints>
                         <state key="normal" image="btn_review"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-qo-30I">
-                        <rect key="frame" x="81" y="129" width="48" height="36"/>
+                        <rect key="frame" x="81" y="132" width="48" height="36"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                         <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균 평점" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ6-or-pny">
-                        <rect key="frame" x="82.5" y="114.5" width="45" height="14.5"/>
+                        <rect key="frame" x="82.5" y="117.5" width="45" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdK-MA-HuE">
-                        <rect key="frame" x="89.5" y="165" width="31" height="14.5"/>
+                        <rect key="frame" x="89.5" y="168" width="31" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="255-Eg-SIw" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="137" y="114.5" width="56" height="10"/>
+                        <rect key="frame" x="137" y="117.5" width="56" height="10"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="sAJ-Bk-lrg"/>
@@ -68,7 +68,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tcq-pa-gLq" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="148.5" y="127.5" width="44.5" height="10"/>
+                        <rect key="frame" x="148.5" y="130.5" width="44.5" height="10"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="44.5" id="VVn-cS-lzz"/>
@@ -92,7 +92,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-Uv-fl7" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="160" y="140.5" width="33" height="10"/>
+                        <rect key="frame" x="160" y="143.5" width="33" height="10"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="33" id="p2L-Rd-cRz"/>
@@ -116,7 +116,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMJ-An-FHF" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="171.5" y="153.5" width="21.5" height="10"/>
+                        <rect key="frame" x="171.5" y="156.5" width="21.5" height="10"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="AAB-a5-QPJ"/>
@@ -140,7 +140,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ok-Bz-r5s" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="183" y="166.5" width="10" height="10"/>
+                        <rect key="frame" x="183" y="169.5" width="10" height="10"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="izJ-O1-Vd7"/>
@@ -164,14 +164,14 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qo-E4-EBm">
-                        <rect key="frame" x="198" y="114.5" width="0.0" height="10"/>
+                        <rect key="frame" x="198" y="117.5" width="0.0" height="10"/>
                         <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" id="XcS-iH-bcl"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-N1-E6J">
-                        <rect key="frame" x="198" y="127.5" width="0.0" height="10"/>
+                        <rect key="frame" x="198" y="130.5" width="0.0" height="10"/>
                         <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" id="8vL-BO-v7Q"/>
@@ -179,7 +179,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJP-RM-SQh">
-                        <rect key="frame" x="198" y="140.5" width="0.0" height="10"/>
+                        <rect key="frame" x="198" y="143.5" width="0.0" height="10"/>
                         <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="t9h-F0-DAH"/>
@@ -187,7 +187,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sl5-G7-eOh">
-                        <rect key="frame" x="198" y="153.5" width="0.0" height="10"/>
+                        <rect key="frame" x="198" y="156.5" width="0.0" height="10"/>
                         <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="SpV-CD-Yim"/>
@@ -195,7 +195,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bz-be-GKk">
-                        <rect key="frame" x="198" y="166.5" width="0.0" height="10"/>
+                        <rect key="frame" x="198" y="169.5" width="0.0" height="10"/>
                         <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" id="y4v-vJ-c4F"/>

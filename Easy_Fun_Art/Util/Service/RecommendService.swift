@@ -30,16 +30,17 @@ struct RecommendService: APIService {
                         if recommendData.status == "success" {
                             completion(.success(recommendData.data))
                         } else {
-                            completion(.error(recommendData.message))
+                            completion(.error(recommendData.code))
                         }
                     } catch {
-                        guard let msg = JSON(value)["message"].string else { return }
-                        completion(.error(msg))
+                        guard let code = JSON(value)["code"].int else { return }
+                        completion(.error(code))
                     }
                 }
                 break
             case .failure(let err):
                 print(err.localizedDescription)
+                completion(.failure(err))
                 break
             }
         }

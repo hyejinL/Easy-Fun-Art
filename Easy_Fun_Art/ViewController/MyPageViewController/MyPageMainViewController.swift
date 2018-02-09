@@ -49,6 +49,7 @@ class MyPageMainViewController: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true
         
+        loading(.start)
         userDataUpdate()
     }
     
@@ -83,6 +84,7 @@ class MyPageMainViewController: UIViewController {
         MyPageService.shareInstance.myPageUpdate { (result) in
             switch result {
             case .success(let user):
+                self.loading(.end)
                 
                 self.userData = user
                 
@@ -135,8 +137,11 @@ class MyPageMainViewController: UIViewController {
                 self.myReviewTableView.reloadData()
                 
                 break
-            case .error(let msg):
-                print(msg)
+            case .error(let code):
+                print(code)
+                break
+            case .failure(let err):
+                self.simpleAlert(title: "네트워크 에러", msg: "인터넷 연결을 확인해주세요.")
                 break
             }
         }
