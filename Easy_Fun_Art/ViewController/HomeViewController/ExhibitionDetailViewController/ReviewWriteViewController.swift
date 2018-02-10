@@ -37,6 +37,8 @@ class ReviewWriteViewController: UIViewController {
             let contentCell = reviewContentTableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? ReviewWriteViewContentTableViewCell else { return }
         print(ratingCell.myRatingView.rating, dateCell.seeExhibitionDateTextField.text, contentCell.reviewContentTextView.text)
     }
+    
+    
 }
 
 extension ReviewWriteViewController: UITableViewDelegate, UITableViewDataSource {
@@ -63,6 +65,7 @@ extension ReviewWriteViewController: UITableViewDelegate, UITableViewDataSource 
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReviewWriteViewDateTableViewCell.reuseIdentifier) as! ReviewWriteViewDateTableViewCell
+            cell.initPickerView()
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReviewWriteViewContentTableViewCell.reuseIdentifier) as! ReviewWriteViewContentTableViewCell
@@ -82,7 +85,7 @@ extension ReviewWriteViewController: UITableViewDelegate, UITableViewDataSource 
         } else if indexPath.row == 3 {
             return viewHeightRatio*50
         } else {
-            return viewHeightRatio*350
+            return viewHeightRatio*270
         }
     }
 }

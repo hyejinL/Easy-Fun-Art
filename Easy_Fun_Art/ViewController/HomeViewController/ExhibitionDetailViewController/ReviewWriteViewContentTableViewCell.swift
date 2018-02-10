@@ -10,11 +10,7 @@ import UIKit
 
 class ReviewWriteViewContentTableViewCell: UITableViewCell {
     @IBOutlet weak var reviewContentTextView: UITextView!
-    @IBOutlet weak var openCameraButton: UIButton!
-    @IBOutlet weak var openGalleryButton: UIButton!
     @IBOutlet weak var reviewContentTextViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var reviewContentImageView: UIImageView!
-    @IBOutlet weak var reviewContentImageAlertLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,14 +18,6 @@ class ReviewWriteViewContentTableViewCell: UITableViewCell {
     }
 
     func configure(viewHeight: CGFloat) {
-        reviewContentTextViewHeight.constant = (viewHeight*350)/667-143
-    }
-    
-    func noImage() {
-        reviewContentImageAlertLabel.isHidden = true
-    }
-    
-    func containImage() {
-        reviewContentImageAlertLabel.isHidden = false
+        reviewContentTextViewHeight.constant = (viewHeight*200)/667
     }
 }
